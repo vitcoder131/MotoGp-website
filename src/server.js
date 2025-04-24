@@ -8,6 +8,8 @@ const webRoutes =require('./routes/web');
 const connection = require('./config/database');
 
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 //config static file
 
 //khai bao template ejs
@@ -17,12 +19,7 @@ configViewEngine(app);
 app.use('/',webRoutes);
 
 //test connection
-connection.query(
-    'select * from Users u ',
-    function(err,results,fields){
-        console.log(" ==> results = ", results);
-    }
-)
+
 
 
 app.listen(port,hostname, () => {

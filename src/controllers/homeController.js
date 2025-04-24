@@ -1,7 +1,7 @@
-
+const connection = require('../config/database');
 
 const getHomepage = (req, res) => {
-    res.send('Hello World! and nodemon')
+    return res.render('home.ejs')
 }
 
 const getAbc = (req, res) => {
@@ -10,7 +10,11 @@ const getAbc = (req, res) => {
 const getalo = (req, res) => {
     res.render('sample.ejs')
 }
+const postCreateUser =(req, res)=>{
+    console.log("req.body ==>", req.body)
+    res.send('Create sucess')
+}
 
 module.exports ={
-    getHomepage, getAbc, getalo
+    getHomepage, getAbc, getalo, postCreateUser
 }

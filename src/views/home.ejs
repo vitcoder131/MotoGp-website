@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Home page</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="default.asp">Home</a></li>
+        <li><a href="news.asp">News</a></li>
+        <li><a href="contact.asp">Contact</a></li>
+        <li><a href="about.asp">About</a></li>
+    </ul>
+
+    <div class="form">
+        <form action="/creat-user" method="POST">
+            <fieldset>
+                <legend>Add users</legend>
+
+                <div class="input-group">
+                    <label for="">Email: </label>
+                    <input id="emailId"type="text" name ="email">
+                </div>
+                <div class="input-group">
+                    <label for="">Name: </label>
+                    <input type="text" name ="name">
+                </div>
+                <div class="input-group">
+                    <label for="">City: </label>
+                    <input type="text" name ="city">
+                </div>
+                <div>
+                    <button>Add new</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+</html>
