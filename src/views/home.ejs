@@ -5,41 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Home page</title>
-</head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 
 <body>
-    <ul>
-        <li><a href="default.asp">Home</a></li>
-        <li><a href="news.asp">News</a></li>
-        <li><a href="contact.asp">Contact</a></li>
-        <li><a href="about.asp">About</a></li>
-    </ul>
 
-    <div class="form">
-        <form action="/creat-user" method="POST">
-            <fieldset>
-                <legend>Add users</legend>
+    <title>Home page</title>
+    </head>
 
-                <div class="input-group">
-                    <label for="">Email: </label>
-                    <input id="emailId"type="text" name ="email">
-                </div>
-                <div class="input-group">
-                    <label for="">Name: </label>
-                    <input type="text" name ="name">
-                </div>
-                <div class="input-group">
-                    <label for="">City: </label>
-                    <input type="text" name ="city">
-                </div>
-                <div>
-                    <button>Add new</button>
-                </div>
-            </fieldset>
-        </form>
-    </div>
+    <body>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/creat">News</a></li>
+        </ul>
+        <div class="table-container">
 
-</body>
+            <div class="title">List users</div>
+
+            <table class="w3-table-all w3-hoverable">
+                <thead>
+                    <tr class="w3-light-grey">
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <% listUsers.forEach(function(user) { %>
+                    <tr>
+                        <td>
+                            <%= user.id %>
+                        </td>
+                        <td>
+                            <%= user.email %>
+                        </td>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.city %>
+                        </td>
+                        <td>
+                            <a href="/update/<%= user.id%>">Edit</a>
+                            <form action="/delete-user" method="POST">
+                                <button >Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%});%>
+            </table>
+        </div>
+        </div>
+
+    </body>
 
 </html>

@@ -21,7 +21,21 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
+.d-none{
+    display: none;
+}
+.table-container{
+    padding: 15px 20px;
 
+}
+.title{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+tr{
+    padding: 10px;
+}
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;

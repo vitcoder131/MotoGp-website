@@ -8,8 +8,8 @@ const webRoutes =require('./routes/web');
 const connection = require('./config/database');
 
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 //config static file
 
 //khai bao template ejs
