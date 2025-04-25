@@ -5,38 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Update users</title>
+    <title>Delete users</title>
 </head>
 
 <body>
-    <%= JSON.stringify(userId)%>
+    
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/creat-user">News</a></li>
         </ul>
 
         <div class="form">
-            <form action="/update-user" method="POST">
+            <form action="/delete-user" method="POST">
                 <fieldset>
-                    <legend>Update users</legend>
+                    <legend>delete users</legend>
                     <div class="input-group d-none">
                         <label for="">Id: </label>
-                        <input id="id" type="text" name="userId" value="<%=userId.id%>"/>
+                        <input id="userId" type="text" name="userId" value="<%=userId.id%>"/>
                     </div>
                     <div class="input-group">
-                        <label for="">Email: </label>
+                        <label for="">Are you sure to deleto this user with Email:  </label>
                         <input id="emailId" type="text" name="email" value="<%=userId.email%>"/>
                     </div>
-                    <div class="input-group">
-                        <label for="">Name: </label>
-                        <input type="text" name="name" value="<%=userId.name%>"/>
-                    </div>
-                    <div class="input-group">
-                        <label for="">City: </label>
-                        <input type="text" name="city" value="<%=userId.city%>"/>
-                    </div>
+                    
                     <div>
-                        <button>Add new</button>
+                        <button>Confirm</button>
                     </div>
                 </fieldset>
             </form>
