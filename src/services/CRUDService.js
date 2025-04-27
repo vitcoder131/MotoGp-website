@@ -1,32 +1,31 @@
 const connection = require("../config/database");
 
 
-const getAllUser = async() =>{
+const getAllRider = async() =>{
     let [results, fields] = await connection.query('select * from Rider u');
     return results;
 }
 
-const getUserbyId = async(userId)=>{
-    let [results, fields] = await connection.query('select * from Rider where idrider=?', [userId]);
+const getRiderbyId = async(RiderId)=>{
+    let [results, fields] = await connection.query('select * from Rider where idrider=?', [RiderId]);
     
-    let user = results && results.length > 0 ? results[0] :{};
+    let Rider = results && results.length > 0 ? results[0] :{};
 
-    return user;
+    return Rider;
 }
-const updateUserById = async(email, name, city, userId) =>{
+const updateRiderById = async(name, idteam, pictureId,points, RiderId) =>{
     let [result, fields] = await connection.query(
-        // ` INSERT INTO Users(email, name, city )  VALUES (?, ?, ?)`, 
         `UPDATE Rider 
         SET name = ?,idteam =?, pictureId =?, points = ?
-        WHERE id = ?`
-        , [name, idteam, pictureId, point, idrider]
+        WHERE idrider = ?`
+        , [name, idteam, pictureId, point, RiderId]
     );
 }
-const deleteUserById = async(id) => {
+const deleteRiderById = async(RiderId) => {
     let [result, fields] = await connection.query(
-        `DELETE FROM Users WHERE id = ?`, [id]
+        `DELETE FROM Rider WHERE idrider = ?`, [RiderId]
     );
 }
 module.exports ={
-    getAllUser, getUserbyId, updateUserById, deleteUserById
+    getAllRider, getRiderbyId, updateRiderById, deleteRiderById
 }

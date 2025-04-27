@@ -2,10 +2,10 @@ const connection = require("../config/database")
 
 //const pool = require('../config/database')
 
-let getAllUsers = async (req, res) => {
+let getAllRider = async (req, res) => {
     //http
     // 501 server broken
-    const [rows, fields] = await connection.execute('SELECT * FROM Users');
+    const [rows, fields] = await connection.execute('SELECT * FROM Rider');
     return res.status(200).json({
         message: 'ok',
         data: rows
@@ -13,17 +13,17 @@ let getAllUsers = async (req, res) => {
 
 }
 
-let createNewUser = async (req, res) => {
-    let { email, name, city } = req.body;
-    if (!email || !name || !city) {
+let createNewRider = async (req, res) => {
+    let { name, idteam, pictureId, points } = req.body;
+    if (!name || !idteam || !pictureId || !points) {
         return res.status(200).json({
             message: 'missing required params'
         })
     }
 
-    await connection.execute(` INSERT INTO Users(email, name, city )  
-        VALUES (?, ?, ?)`,
-        [email, name, city]);
+    await connection.execute(` INSERT INTO Rider( name, idteam, pictureId, points )  
+        VALUES (?, ?, ?, ?)`,
+        [name, idteam, pictureId, points]);
 
 
     return res.status(200).json({
@@ -31,36 +31,36 @@ let createNewUser = async (req, res) => {
     })
 }
 
-let updateUser = async (req, res) => {
-    let { email, name, city, id } = req.body;
-    if (!email || !name || !city || !id) {
+let updateRider = async (req, res) => {
+    let { name, idteam, pictureId, points,RiderId } = req.body;
+    if (!name || !idteam || !pictureId || !points ||!RiderId) {
         return res.status(200).json({
             message: 'missing required params'
         })
     }
-    await connection.execute(`UPDATE Users 
-        SET email = ?,name =?, city = ?
-        WHERE id = ?`,
-        [email, name, city, id]);
+    await connection.execute(`UPDATE Rider 
+        SET name = ?,idteam =?, pictureId = ?, points = ?
+        WHERE riderid = ?`,
+        [name, idteam, pictureId, points,RiderId ]);
     return res.status(200).json({
         message: 'ok'
     })
 }
-let deleteUser = async (req, res) => {
-    let userId = req.params.id;
-    if (!userId) {
+let deleteRider = async (req, res) => {
+    let RiderId = req.params.id;
+    if (!RiderId) {
         return res.status(200).json({
             message: 'missing required params'
         })
     }
     await connection.execute(
-        `DELETE FROM Users WHERE id = ?`,
-        [userId])
+        `DELETE FROM Rider WHERE riderid = ?`,
+        [RiderId])
     return res.status(200).json({
         message: 'ok'
     })
 }
 
 module.exports = {
-    getAllUsers, createNewUser, updateUser, deleteUser
+    getAllRider, createNewRider, updateRider, deleteRider
 }

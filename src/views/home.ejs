@@ -15,10 +15,10 @@
     <body>
         <ul>
             <li><a href="/">Rider</a></li>
-            <li><a href="/creat">Team</a></li>
-            <li><a href="/upload">Calender</a></li>
-            <li><a href="/upload">Results</a></li>
-            
+            <li><a href="/team">Team</a></li>
+            <li><a href="/calender">Calender</a></li>
+            <li><a href="/results">Results</a></li>
+
         </ul>
         <div class="table-container">
 
@@ -44,18 +44,19 @@
                             <%= Rider.name %>
                         </td>
                         <td>
-                            <%= Rider.idTeam %>
+                            <%= Rider.idteam %>
                         </td>
                         <td>
-                            <%= Rider.pictureId%>
+                            <img src="/images/<%= Rider.pictureId%>" alt="">
+
                         </td>
                         <td>
                             <%= Rider.points %>
                         </td>
                         <td>
-                            <a href="/update/<%= Rider.id%>">Edit</a>
-                            <form action="/delete-user/<%= Rider.id%>" method="POST">
-                                <button >Delete</button>
+                            <a href="/updateR/<%= Rider.idrider%>">Edit</a>
+                            <form action="/delete-rider/<%= Rider.idrider%>" method="POST">
+                                <button>Delete</button>
                             </form>
                         </td>
                     </tr>

@@ -5,35 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Update users</title>
+    <title>Update Rider</title>
 </head>
 
 <body>
-    <%= JSON.stringify(userId)%>
+    
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/creat-user">News</a></li>
+            <li><a href="/update-rider">News</a></li>
         </ul>
 
         <div class="form">
-            <form action="/update-user" method="POST">
+            <form action="/update-rider" method="POST">
                 <fieldset>
-                    <legend>Update users</legend>
+                    <legend>Update Riders</legend>
                     <div class="input-group d-none">
                         <label for="">Id: </label>
-                        <input id="id" type="text" name="userId" value="<%=userId.id%>"/>
-                    </div>
-                    <div class="input-group">
-                        <label for="">Email: </label>
-                        <input id="emailId" type="text" name="email" value="<%=userId.email%>"/>
+                        <input id="id" type="text" name="RiderId" value="<%=RiderId.id%>"/>
                     </div>
                     <div class="input-group">
                         <label for="">Name: </label>
-                        <input type="text" name="name" value="<%=userId.name%>"/>
+                        <input id="name" type="text" name="name" value="<%=RiderId.name%>"/>
                     </div>
                     <div class="input-group">
-                        <label for="">City: </label>
-                        <input type="text" name="city" value="<%=userId.city%>"/>
+                        <label for="">Idteam: </label>
+                        <input type="text" name="idteam" value="<%=RiderId.idteam%>"/>
+                    </div>
+                    <div class="input-group">
+                        <label for="">pictureID: </label>
+                        <input type="text" name="pictureId" value="<%=RiderId.pictureId%>"/>
+                    </div>
+                    <div class="input-group">
+                        <label for="">Points: </label>
+                        <input type="text" name="points" value="<%=RiderId.points%>"/>
                     </div>
                     <div>
                         <button>Add new</button>

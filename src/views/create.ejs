@@ -5,31 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Create new users</title>
+    <title>Update Rider</title>
 </head>
 
 <body>
+
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/creat-user">News</a></li>
+        <li><a href="/createR">News</a></li>
     </ul>
 
     <div class="form">
-        <form action="/creat-user" method="POST">
+        <form action="/create-rider" method="POST" enctype="multipart/form-data">
             <fieldset>
-                <legend>Add users</legend>
-
-                <div class="input-group">
-                    <label for="">Email: </label>
-                    <input id="emailId" type="text" name="email">
-                </div>
+                <legend>Create Riders</legend>
                 <div class="input-group">
                     <label for="">Name: </label>
-                    <input type="text" name="name">
+                    <input id="name" type="text" name="name" />
                 </div>
                 <div class="input-group">
-                    <label for="">City: </label>
-                    <input type="text" name="city">
+                    <label for="">Idteam: </label>
+                    <input type="text" name="idteam" />
+                </div>
+                <div class="input-group">
+                    <label for="">Chon file uplpad</label>
+                    <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
+                </div>
+                <img id="preview" style="max-width: 200px; display: none;" />
+                <div class="input-group">
+                    <label for="">Points: </label>
+                    <input type="text" name="points" />
                 </div>
                 <div>
                     <button>Add new</button>
@@ -37,7 +42,26 @@
             </fieldset>
         </form>
     </div>
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('preview');
 
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 
 </html>

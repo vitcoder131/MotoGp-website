@@ -5,27 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Delete users</title>
+    <title>Delete Rider</title>
 </head>
 
 <body>
     
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/creat-user">News</a></li>
+            <li><a href="/creat-rider">News</a></li>
         </ul>
 
         <div class="form">
-            <form action="/delete-user" method="POST">
+            <form action="/delete-rider" method="POST">
                 <fieldset>
-                    <legend>delete users</legend>
+                    <legend>delete Riders</legend>
                     <div class="input-group d-none">
                         <label for="">Id: </label>
-                        <input id="userId" type="text" name="userId" value="<%=userId.id%>"/>
+                        <input id="RiderId" type="text" name="RiderId" value="<%=RiderId.id%>"/>
                     </div>
                     <div class="input-group">
-                        <label for="">Are you sure to deleto this user with Email:  </label>
-                        <input id="emailId" type="text" name="email" value="<%=userId.email%>"/>
+                        <label for="">Are you sure to deleto this Rider with name:  </label>
+                        <input id="name" type="text" name="email" value="<%=RiderId.name%>"/>
                     </div>
                     
                     <div>
