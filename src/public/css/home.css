@@ -26,7 +26,18 @@ li a {
 }
 .table-container{
     padding: 15px 20px;
-
+}
+.upload-container{
+    width: 1000px;
+    margin: auto;
+}
+.upload-container form{
+    padding: 20px;
+    margin: 0px auto; 
+}
+.btn-save{
+    padding: 15px;
+    cursor: pointer;
 }
 .title{
     font-size: 25px;

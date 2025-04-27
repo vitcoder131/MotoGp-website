@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+
+<body>
+
+    <title>Home page</title>
+    </head>
+
+    <body>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/create">New</a></li>
+            <li><a href="/upload">Upload</a></li>
+        </ul>
+        <div class="upload-container">
+            <form method="POST"  action="/upload-profile-pic" enctype="multipart/form-data">
+                <div>
+                <label for="">Chon file uplpad</label>
+                <input type="file" name ="profile-pic"/>
+            </div>
+            <div>
+                <button class="btn-save" type="submit">Save File</button>
+            </div>
+            </form>
+            <form method="POST"  action="/upload-multiple-pic" enctype="multipart/form-data">
+                <div>
+                <label for="">Chon multiple file uplpad</label>
+                <input type="file" name ="multiple-pic" multiple/>
+            </div>
+            <div>
+                <button class="btn-save" type="submit">Save File</button>
+            </div>
+            </form>
+        </div>
+
+    </body>
+
+</html>

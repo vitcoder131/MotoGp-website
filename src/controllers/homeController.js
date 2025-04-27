@@ -1,5 +1,7 @@
 const connection = require('../config/database');
 const { getAllUser, getUserbyId, updateUserById, deleteUserById } = require('../services/CRUDService');
+const multer = require('multer');
+
 
 const getHomepage = async (req, res) => {
 
@@ -89,7 +91,35 @@ const postHandleRemoveUser = async (req, res) => {
 
     res.redirect('/')
 }
+let getUploadfile = async (req, res) => {
+
+    return res.render('uploadfile.ejs')
+}
+
+
+const upload = multer().single('profile-pic');
+let postHandleUploadFile = async (req, res) => {
+    // let upload = multer({storage : storage, fileFilter: helpers.imageFilter}).single('profile-pic');
+    
+    console.log(req.file)
+    upload(req, res, function(err){
+    if (req.fileValidationError) {
+
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.file) {
+        return res.send('Please select an image to upload');
+    }
+
+    else if(err instanceof multer.MulterError){
+        return res.send(err);
+    }
+
+    // Display uploaded image for user validation
+    res.send(`You have uploaded this image: <hr/><img src="/images/${req.file.filename}" width="500"><hr /><a href="/upload">Upload another image</a>`);
+    });
+}
 module.exports = {
     getHomepage, getAbc, getalo, postCreateUser, getCreatePage, getUpdatePage, postUpdateUser
-    , postDeleteUser, postHandleRemoveUser
+    , postDeleteUser, postHandleRemoveUser, getUploadfile, postHandleUploadFile
 }

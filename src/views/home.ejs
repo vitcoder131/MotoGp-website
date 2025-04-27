@@ -14,8 +14,11 @@
 
     <body>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/creat">News</a></li>
+            <li><a href="/">Rider</a></li>
+            <li><a href="/creat">Team</a></li>
+            <li><a href="/upload">Calender</a></li>
+            <li><a href="/upload">Results</a></li>
+            
         </ul>
         <div class="table-container">
 
@@ -25,29 +28,33 @@
                 <thead>
                     <tr class="w3-light-grey">
                         <th>ID</th>
-                        <th>Email</th>
                         <th>Name</th>
-                        <th>City</th>
+                        <th>IDteam</th>
+                        <th>Picture</th>
+                        <th>Points</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <% listUsers.forEach(function(user) { %>
+                <% listUsers.forEach(function(Rider) { %>
                     <tr>
                         <td>
-                            <%= user.id %>
+                            <%= Rider.idrider %>
                         </td>
                         <td>
-                            <%= user.email %>
+                            <%= Rider.name %>
                         </td>
                         <td>
-                            <%= user.name %>
+                            <%= Rider.idTeam %>
                         </td>
                         <td>
-                            <%= user.city %>
+                            <%= Rider.pictureId%>
                         </td>
                         <td>
-                            <a href="/update/<%= user.id%>">Edit</a>
-                            <form action="/delete-user/<%= user.id%>" method="POST">
+                            <%= Rider.points %>
+                        </td>
+                        <td>
+                            <a href="/update/<%= Rider.id%>">Edit</a>
+                            <form action="/delete-user/<%= Rider.id%>" method="POST">
                                 <button >Delete</button>
                             </form>
                         </td>
