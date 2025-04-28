@@ -22,45 +22,158 @@
         </ul>
         <div class="table-container">
 
-            <div class="title">List users</div>
+            <div class="title">
+                <% if(type==='rider' ) { %>
+                    List rider
+                    <% } else if(type==='team' ) { %>
+                        List Team
+                        <% } else if(type==='calender' ) { %>
+                            List Calender
+                            <% } else if(type==='results' ) { %>
+                                List Results
+                                <% } %>
+            </div>
 
             <table class="w3-table-all w3-hoverable">
                 <thead>
-                    <tr class="w3-light-grey">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>IDteam</th>
-                        <th>Picture</th>
-                        <th>Points</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <% listUsers.forEach(function(Rider) { %>
-                    <tr>
-                        <td>
-                            <%= Rider.idrider %>
-                        </td>
-                        <td>
-                            <%= Rider.name %>
-                        </td>
-                        <td>
-                            <%= Rider.idteam %>
-                        </td>
-                        <td>
-                            <img src="/images/<%= Rider.pictureId%>" alt="">
+                    <% if(type==='rider' ) { %>
+                        <tr class="w3-light-grey">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>IDteam</th>
+                            <th>Picture</th>
+                            <th>Points</th>
+                            <th>Action</th>
+                        </tr>
+                        <% } else if(type==='team' ) { %>
+                            <tr class="w3-light-grey">
+                                <th>Idteam</th>
+                                <th>name</th>
+                                <th>country</th>
+                                <th>menber</th>
+                                <th>Picture</th>
+                                <th>idcalender</th>
+                                <th>Action</th>
+                            </tr>
+                            <% } else if(type==='calender' ) { %>
+                                <tr class="w3-light-grey">
+                                    <th>IdCalender</th>
+                                    <th>Address</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
 
-                        </td>
-                        <td>
-                            <%= Rider.points %>
-                        </td>
-                        <td>
-                            <a href="/updateR/<%= Rider.idrider%>">Edit</a>
-                            <form action="/delete-rider/<%= Rider.idrider%>" method="POST">
-                                <button>Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <%});%>
+                                    <th>Action</th>
+                                </tr>
+                                <% } else if(type==='results' ) { %>
+                                    <tr class="w3-light-grey">
+                                        <th>Idresults</th>
+                                        <th>Standing</th>
+                                        <th>Points</th>
+                                        <th>idrider</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <% } %>
+                </thead>
+                <% listUsers.forEach(function(item) { %>
+                    <% if(type==='rider' ) { %>
+                        <tr>
+                            <td>
+                                <%= item.idrider %>
+                            </td>
+                            <td>
+                                <%= item.name %>
+                            </td>
+                            <td>
+                                <%= item.idteam %>
+                            </td>
+                            <td>
+                                <img src="/images/<%= item.pictureId%>" alt="">
+
+                            </td>
+                            <td>
+                                <%= item.points %>
+                            </td>
+                            <td>
+                                <a href="/updateR/<%= item.idrider%>">Edit</a>
+                                <form action="/delete-rider/<%= item.idrider%>" method="POST">
+                                    <button>Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <% } else if(type==='team' ) { %>
+                            <tr>
+                                <td>
+                                    <%= item.idteam %>
+                                </td>
+                                <td>
+                                    <%= item.name %>
+                                </td>
+                                <td>
+                                    <%= item.country %>
+                                </td>
+                                <td>
+                                    <%= item.membes %>
+                                </td>
+                                <td>
+                                    <img src="/images/<%= item.pictureTeam%>" alt="">
+
+                                </td>
+                                <td>
+                                    <%= item.idcalender %>
+                                </td>
+                                <td>
+                                    <a href="/updateR/<%= item.idrider%>">Edit</a>
+                                    <form action="/delete-rider/<%= item.idrider%>" method="POST">
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                            <% } else if(type==='calender' ) { %>
+                                <tr>
+                                    <td>
+                                        <%= item.idcalender %>
+                                    </td>
+                                    <td>
+                                        <%= item.address %>
+                                    </td>
+                                    <td>
+                                        <%= item.dates %>
+                                    </td>
+                                    <td>
+                                        <%= item.times %>
+                                    </td>
+                                    <td>
+                                        <a href="/updateR/<%= item.idrider%>">Edit</a>
+                                        <form action="/delete-rider/<%= item.idrider%>" method="POST">
+                                            <button>Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% } else if(type==='results' ) { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.idresult %>
+                                        </td>
+                                        <td>
+                                            <%= item.standing %>
+                                        </td>
+                                        <td>
+                                            <%= item.points %>
+                                        </td>
+                                        <td>
+                                            <%= item.idrider %>
+                                        </td>
+                                        <td>
+                                            <a href="/updateR/<%= item.idrider%>">Edit</a>
+                                            <form action="/delete-rider/<%= item.idrider%>" method="POST">
+                                                <button>Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <% }); %>
             </table>
         </div>
         </div>

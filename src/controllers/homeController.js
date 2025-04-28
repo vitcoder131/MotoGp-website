@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { getAllRider, getRiderbyId, updateRiderById, deleteRiderById } = require('../services/CRUDService');
+const { getAllRider, getRiderbyId, updateRiderById, deleteRiderById , getAllTeam, getAllCalender, getAllResults } = require('../services/CRUDService');
 const multer = require('multer');
 
 
@@ -10,7 +10,7 @@ const getHomepage = async (req, res) => {
 }
 const getRiderpage = async (req , res ) => {
     let results = await getAllRider();
-    return res.render('home.ejs', { listUsers: results })
+    return res.render('home.ejs' , {type: 'rider', listUsers : results});
 }
 const postCreateRider = async (req, res) => {
     let name = req.body.name;
@@ -36,7 +36,7 @@ const postUpdateRider = async (req, res) => {
     res.redirect('/');
 }
 const getCreateRider = (req, res) => {
-    res.render('create.ejs');
+    res.render('create.ejs' , {type: 'rider'});
 }
 const getUpdateRider = async (req, res) => {
     const RiderId = req.params.id;
@@ -99,6 +99,8 @@ let postHandleUploadFile = async (req, res) => {
     
 // }
 const getTeampage = async (req, res) => {
+    let results = await getAllTeam();
+    return res.render('home.ejs' , {type: 'team', listUsers : results});
     
 }
 const postCreateTeam = async (req, res) => {
@@ -120,6 +122,8 @@ const postHandleRemoveTeam = async (req, res) => {
     
 }
 const getCalenderpage = async (req, res) => {
+    let results = await getAllCalender();
+    return res.render('home.ejs' , {type: 'calender', listUsers : results});
     
 }
 const postCreateCalender = async (req, res) => {
@@ -141,7 +145,8 @@ const postHandleRemoveCalender = async (req, res) => {
     
 }
 const getResultspage = async (req, res) => {
-    
+    let results = await getAllResults();
+    return res.render('home.ejs' , {type: 'results', listUsers : results});
 }
 const postCreateResults = async (req, res) => {
     

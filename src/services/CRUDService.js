@@ -26,6 +26,19 @@ const deleteRiderById = async(RiderId) => {
         `DELETE FROM Rider WHERE idrider = ?`, [RiderId]
     );
 }
+
+const getAllTeam = async() =>{
+    let [results, fields] = await connection.query('select * from Team u');
+    return results;
+}
+const getAllCalender = async() =>{
+    let [results, fields] = await connection.query('select * from Calendar u');
+    return results;
+}
+const getAllResults = async() =>{
+    let [results, fields] = await connection.query('select * from Results u');
+    return results;
+}
 module.exports ={
-    getAllRider, getRiderbyId, updateRiderById, deleteRiderById
+    getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalender, getAllResults
 }
