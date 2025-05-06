@@ -48,23 +48,27 @@
         <% } else if(type === 'team') { %>
             <form action="/create-team" method="POST" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>Create Riders</legend>
+                    <legend>Create Team</legend>
                     <div class="input-group">
                         <label for="">Name: </label>
                         <input id="name" type="text" name="name" />
                     </div>
                     <div class="input-group">
-                        <label for="">Idteam: </label>
-                        <input type="text" name="idteam" />
+                        <label for="">Country: </label>
+                        <input type="text" name="country" />
                     </div>
                     <div class="input-group">
                         <label for="">Chon file uplpad</label>
-                        <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
+                        <input type="file" id="fileInput" name="pictureTeam" onchange="previewImage(event)" />
                     </div>
                     <img id="preview" style="max-width: 200px; display: none;" />
                     <div class="input-group">
-                        <label for="">Points: </label>
-                        <input type="text" name="points" />
+                        <label for="">Member: </label>
+                        <input type="text" name="membes" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">idcalendar: </label>
+                        <input type="text" name="idcalendar" />
                     </div>
                     <div>
                         <button>Add new</button>
@@ -74,23 +78,18 @@
             <% } else if(type === 'calendar') { %>
                 <form action="/create-calendar" method="POST" >
                     <fieldset>
-                        <legend>Create Riders</legend>
+                        <legend>Create Calendar</legend>
                         <div class="input-group">
-                            <label for="">Name: </label>
-                            <input id="name" type="text" name="name" />
+                            <label for="">Address: </label>
+                            <input id="address" type="text" name="address" />
                         </div>
                         <div class="input-group">
-                            <label for="">Idteam: </label>
-                            <input type="text" name="idteam" />
+                            <label for="">Date: </label>
+                            <input type="text" name="dates" />
                         </div>
                         <div class="input-group">
-                            <label for="">Chon file uplpad</label>
-                            <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
-                        </div>
-                        <img id="preview" style="max-width: 200px; display: none;" />
-                        <div class="input-group">
-                            <label for="">Points: </label>
-                            <input type="text" name="points" />
+                            <label for="">Time: </label>
+                            <input type="text" name="times" />
                         </div>
                         <div>
                             <button>Add new</button>
@@ -98,25 +97,20 @@
                     </fieldset>
                 </form>
                 <% } else if(type === 'results') { %>
-                    <form action="/create-results" method="POST" >
+                    <form action="/create-result" method="POST" >
                         <fieldset>
-                            <legend>Create Riders</legend>
+                            <legend>Create Results</legend>
                             <div class="input-group">
-                                <label for="">Name: </label>
-                                <input id="name" type="text" name="name" />
+                                <label for="">Standing: </label>
+                                <input id="standing" type="text" name="standing" />
                             </div>
-                            <div class="input-group">
-                                <label for="">Idteam: </label>
-                                <input type="text" name="idteam" />
-                            </div>
-                            <div class="input-group">
-                                <label for="">Chon file uplpad</label>
-                                <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
-                            </div>
-                            <img id="preview" style="max-width: 200px; display: none;" />
                             <div class="input-group">
                                 <label for="">Points: </label>
                                 <input type="text" name="points" />
+                            </div>
+                            <div class="input-group">
+                                <label for="">Idrider: </label>
+                                <input type="text" name="idrider" />
                             </div>
                             <div>
                                 <button>Add new</button>

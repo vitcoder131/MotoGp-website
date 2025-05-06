@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const {DeleteResultsbyId,getResultsbyId,DeleteCalendarbyId, getCalendarbyId,getAllRider, getRiderbyId, updateRiderById, deleteRiderById , getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
+const {deleteResultsbyId,getResultsbyId,deleteCalendarbyId, getCalendarbyId,getAllRider, getRiderbyId, updateRiderById, deleteRiderById , getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
 const multer = require('multer');
 
 
@@ -86,13 +86,22 @@ const postCreateTeam = async (req, res) => {
     
 }
 const postUpdateTeam = async (req, res) => {
-    
+    let country = req.body.country;
+    let name = req.body.name;
+    let pictureTeam = req.body.pictureTeam;
+    let memebes = req.body.memebes;
+    let idcalendar = req.body.idcalendar;
+
+    await updateTeamById(name, country, pictureTeam, membes,idcalendar)
+    res.redirect('/team');
 }
 const getCreateTeam = async (req, res) => {
     
 }
 const getUpdateTeam = async (req, res) => {
-    
+    const TeamId = req.params.id;
+    let Team = await getTeambyId(TeamId);
+    res.render('edit.ejs', { TeamId: Team , type: 'team'});
 }
 const postDeleteTeam = async (req, res) => {
     const TeamId = req.params.id;
@@ -102,7 +111,7 @@ const postDeleteTeam = async (req, res) => {
 const postHandleRemoveTeam = async (req, res) => {
     const TeamId = req.body.TeamId;
     await deleteTeamById(TeamId);
-    res.redirect('/')
+    res.redirect('/team')
 }
 
 
@@ -118,9 +127,9 @@ const postUpdateCalendar = async (req, res) => {
     
 }
 const postDeleteCalendar = async (req, res) => {
-    let CalendarId =req.body.id;
+    let CalendarId =req.params.id;
     let Calendar = await getCalendarbyId(CalendarId);
-    res.render('delete.ejs' , {type : 'calendar' , CalendarId : Calendar});
+    res.render('delete.ejs' , { CalendarId : Calendar, type : 'calendar'});
 }
 const getCreateCalendar = async (req, res) => {
     
@@ -130,7 +139,7 @@ const getUpdateCalendar = async (req, res) => {
 }
 const postHandleRemoveCalendar = async (req, res) => {
     const CalendarId = req.body.CalendarId;
-    await DeleteCalendarbyId(CalendarId);
+    await deleteCalendarbyId(CalendarId);
     res.redirect('/calendar')
 }
 const getResultspage = async (req, res) => {
@@ -144,7 +153,7 @@ const postUpdateResults = async (req, res) => {
     
 }
 const postDeleteResults = async (req, res) => {
-    let ResultsId =req.body.id;
+    let ResultsId =req.params.id;
     let Results = await getResultsbyId(ResultsId);
     res.render('delete.ejs' , {type : 'results' , ResultsId : Results});
 }
@@ -156,7 +165,7 @@ const getUpdateResults = async (req, res) => {
 }
 const postHandleRemoveResults = async (req, res) => {
     const ResultsId = req.body.ResultsId;
-    await DeleteResultsbyId(ResultsId);
+    await deleteResultsbyId(ResultsId);
     res.redirect('/results')
 }
 

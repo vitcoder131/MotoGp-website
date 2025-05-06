@@ -58,7 +58,7 @@ router.post('/delete-result', postHandleRemoveResults);
 //team
 router.get('/team', getTeampage);
 router.post('/creat-team', postCreateTeam);
-router.post('/update-Team', postUpdateTeam);
+router.post('/update-team', postUpdateTeam);
 router.get('/creatT', getCreateTeam);
 router.get('/updateT/:id', getUpdateTeam);
 router.post('/delete-Team/:id', postDeleteTeam);

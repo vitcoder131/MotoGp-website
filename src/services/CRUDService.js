@@ -8,9 +8,7 @@ const getAllRider = async () => {
 
 const getRiderbyId = async (RiderId) => {
     let [results, fields] = await connection.query('select * from Rider where idrider=?', [RiderId]);
-
     let Rider = results && results.length > 0 ? results[0] : {};
-
     return Rider;
 }
 const updateRiderById = async (name, idteam, pictureId, points, RiderId) => {
@@ -18,7 +16,7 @@ const updateRiderById = async (name, idteam, pictureId, points, RiderId) => {
         `UPDATE Rider 
         SET name = ?,idteam =?, pictureId =?, points = ?
         WHERE idrider = ?`
-        , [name, idteam, pictureId, point, RiderId]
+        , [name, idteam, pictureId, points, RiderId]
     );
 }
 const deleteRiderById = async (RiderId) => {
@@ -42,6 +40,14 @@ const deleteTeamById = async (TeamId) => {
         `DELETE FROM Team WHERE idteam = ?`, [TeamId]
     );
 }
+const updateTeamById = async (name, country, pictureTeam, membes,idcalendar, TeamId) => {
+    let [result, fields] = await connection.query(
+        `UPDATE Team 
+        SET name = ?,country =?, pictureTeam =?, membes = ?, idcalendar =?
+        WHERE idTeam = ?`
+        , [name, country, pictureTeam, membes,idcalendar, TeamId]
+    );
+}
 //xu ly data calandar
 const getAllCalendar = async () => {
     let [results, fields] = await connection.query('select * from Calendar u');
@@ -52,7 +58,7 @@ const getCalendarbyId = async (CalendarId) => {
     let Calendar = results && results.length > 0 ? results[0] : {};
     return Calendar;
 }
-const DeleteCalendarbyId = async (CalendarId) => {
+const deleteCalendarbyId = async (CalendarId) => {
     let [result, fields] = await connection.query(
         `DELETE FROM Calendar WHERE idcalendar = ?`, [CalendarId]
     );
@@ -69,11 +75,11 @@ const getResultsbyId = async (ResultsId) => {
     let Results = results && results.length > 0 ? results[0] : {};
     return Results;
 }
-const DeleteResultsbyId = async (ResultsId) => {
+const deleteResultsbyId = async (ResultsId) => {
     let [result, fields] = await connection.query(
         `DELETE FROM Results WHERE idresult = ?`, [ResultsId]
     );
 }
 module.exports = {
-    DeleteResultsbyId, getResultsbyId, DeleteCalendarbyId, getAllRider, getTeambyId, getRiderbyId, deleteTeamById, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, getCalendarbyId
+    updateTeamById,deleteResultsbyId, getResultsbyId, deleteCalendarbyId, getAllRider, getTeambyId, getRiderbyId, deleteTeamById, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, getCalendarbyId
 }

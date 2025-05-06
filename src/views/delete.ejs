@@ -1,4 +1,3 @@
-</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-
+    <title>Home page</title>
 <body>
 
-    <title>Home page</title>
     </head>
 
     <body>
@@ -31,7 +29,7 @@
                             <input id="RiderId" type="text" name="RiderId" value="<%=RiderId.idrider%>" />
                         </div>
                         <div class="input-group">
-                            <label for="">Are you sure to deleto this Rider with name: </label>
+                            <label for="">Are you sure to delete this Rider with name: </label>
                             <input id="name" type="text" name="name" value="<%=RiderId.name%>" />
                         </div>
 
@@ -49,10 +47,10 @@
                                 <input id="TeamId" type="text" name="TeamId" value="<%=TeamId.idteam%>" />
                             </div>
                             <div class="input-group">
-                                <label for="">Are you sure to deleto this Team with name: </label>
+                                <label for="">Are you sure to delete this Team with name: </label>
                                 <input id="name" type="text" name="name" value="<%=TeamId.name%>" />
                             </div>
-    
+
                             <div>
                                 <button>Confirm</button>
                             </div>
@@ -67,10 +65,10 @@
                                     <input id="CalendarId" type="text" name="CalendarId" value="<%=CalendarId.idcalendar%>" />
                                 </div>
                                 <div class="input-group">
-                                    <label for="">Are you sure to deleto this Team with name: </label>
+                                    <label for="">Are you sure to delete this Calendar with name: </label>
                                     <input id="address" type="text" name="address" value="<%=CalendarId.address%>" />
                                 </div>
-        
+
                                 <div>
                                     <button>Confirm</button>
                                 </div>
@@ -79,16 +77,17 @@
                         <% } else if(type==='results' ) { %>
                             <form action="/delete-result" method="POST">
                                 <fieldset>
-                                    <legend>delete Results</legend>
+                                    <legend>Delete Results</legend>
                                     <div class="input-group d-none">
                                         <label for="">Id: </label>
-                                        <input id="ResultsId" type="text" name="ResultsId" value="<%=ResultsId.idresult%>" />
+                                        <input id="ResultsId" type="text" name="ResultsId"
+                                            value="<%=ResultsId.idresult%>" />
                                     </div>
                                     <div class="input-group">
-                                        <label for="">Are you sure to deleto this Team with name: </label>
+                                        <label for="">Are you sure you want to delete this result for rider ID: </label>
                                         <input id="idrider" type="text" name="idrider" value="<%=ResultsId.idrider%>" />
                                     </div>
-            
+
                                     <div>
                                         <button>Confirm</button>
                                     </div>
