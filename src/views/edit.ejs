@@ -5,46 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Update Rider</title>
+    <title>Update </title>
 </head>
 
 <body>
-    
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/update-rider">News</a></li>
-        </ul>
 
-        <div class="form">
-            <form action="/update-rider" method="POST">
+    <ul>
+        <li><a href="/">Rider</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/calendar">Calender</a></li>
+        <li><a href="/results">Results</a></li>
+
+    </ul>
+
+    <div class="form">
+        <% if(type==='rider' ) { %>
+            <form action="/update-rider" method="POST" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Update Riders</legend>
                     <div class="input-group d-none">
                         <label for="">Id: </label>
-                        <input id="id" type="text" name="RiderId" value="<%=RiderId.id%>"/>
+                        <input id="id" type="text" name="RiderId" value="<%=RiderId.id%>" />
                     </div>
                     <div class="input-group">
                         <label for="">Name: </label>
-                        <input id="name" type="text" name="name" value="<%=RiderId.name%>"/>
+                        <input id="name" type="text" name="name" value="<%=RiderId.name%>" />
                     </div>
                     <div class="input-group">
                         <label for="">Idteam: </label>
-                        <input type="text" name="idteam" value="<%=RiderId.idteam%>"/>
+                        <input type="text" name="idteam" value="<%=RiderId.idteam%>" />
                     </div>
                     <div class="input-group">
+
                         <label for="">pictureID: </label>
-                        <input type="text" name="pictureId" value="<%=RiderId.pictureId%>"/>
+                        <img style="max-width: 200px; display: none;" src="/src/public/images/<%=RiderId.pictureId%>" />
+                        <input type="file" name="pictureId" />
                     </div>
+
                     <div class="input-group">
                         <label for="">Points: </label>
-                        <input type="text" name="points" value="<%=RiderId.points%>"/>
+                        <input type="text" name="points" value="<%=RiderId.points%>" />
                     </div>
                     <div>
                         <button>Add new</button>
                     </div>
                 </fieldset>
             </form>
-        </div>
+            <% } else if(type==='team' ) { %>
+                <form action="/update-team" method="POST" enctype="multipart/form-data">
+                    <fieldset>
+                        <legend>Update Riders</legend>
+                        <div class="input-group d-none">
+                            <label for="">Id: </label>
+                            <input id="id" type="text" name="RiderId" value="<%=RiderId.id%>" />
+                        </div>
+                        <div class="input-group">
+                            <label for="">Name: </label>
+                            <input id="name" type="text" name="name" value="<%=RiderId.name%>" />
+                        </div>
+                        <div class="input-group">
+                            <label for="">Idteam: </label>
+                            <input type="text" name="idteam" value="<%=RiderId.idteam%>" />
+                        </div>
+                        <div class="input-group">
+
+                            <label for="">pictureID: </label>
+                            <img style="max-width: 200px; display: none;"
+                                src="/src/public/images/<%=RiderId.pictureId%>" />
+                            <input type="file" name="pictureId" />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="">Points: </label>
+                            <input type="text" name="points" value="<%=RiderId.points%>" />
+                        </div>
+                        <div>
+                            <button>Add new</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <% } else if(type==='calendar' ) { %>
+                    <form action="/update-rider" method="POST">
+                        <fieldset>
+                            <legend>Update Riders</legend>
+                            <div class="input-group d-none">
+                                <label for="">Id: </label>
+                                <input id="id" type="text" name="RiderId" value="<%=RiderId.id%>" />
+                            </div>
+                            <div class="input-group">
+                                <label for="">Name: </label>
+                                <input id="name" type="text" name="name" value="<%=RiderId.name%>" />
+                            </div>
+                            <div class="input-group">
+                                <label for="">Idteam: </label>
+                                <input type="text" name="idteam" value="<%=RiderId.idteam%>" />
+                            </div>
+                            <div class="input-group">
+
+                                <label for="">pictureID: </label>
+                                <img style="max-width: 200px; display: none;"
+                                    src="/src/public/images/<%=RiderId.pictureId%>" />
+                                <input type="file" name="pictureId" />
+                            </div>
+
+                            <div class="input-group">
+                                <label for="">Points: </label>
+                                <input type="text" name="points" value="<%=RiderId.points%>" />
+                            </div>
+                            <div>
+                                <button>Add new</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <% }else if(type==='results' ) { %>
+                        <form action="/update-rider" method="POST">
+                            <fieldset>
+                                <legend>Update Riders</legend>
+                                <div class="input-group d-none">
+                                    <label for="">Id: </label>
+                                    <input id="id" type="text" name="RiderId" value="<%=RiderId.id%>" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Name: </label>
+                                    <input id="name" type="text" name="name" value="<%=RiderId.name%>" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Idteam: </label>
+                                    <input type="text" name="idteam" value="<%=RiderId.idteam%>" />
+                                </div>
+                                <div class="input-group">
+
+                                    <label for="">pictureID: </label>
+                                    <img style="max-width: 200px; display: none;"
+                                        src="/src/public/images/<%=RiderId.pictureId%>" />
+                                    <input type="file" name="pictureId" />
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="">Points: </label>
+                                    <input type="text" name="points" value="<%=RiderId.points%>" />
+                                </div>
+                                <div>
+                                    <button>Add new</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <% } %>
+    </div>
+    <script src="/src/public/js/menu.js"></script>
 
 </body>
 

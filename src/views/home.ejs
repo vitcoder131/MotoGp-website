@@ -16,7 +16,7 @@
         <ul>
             <li><a href="/">Rider</a></li>
             <li><a href="/team">Team</a></li>
-            <li><a href="/calender">Calender</a></li>
+            <li><a href="/calendar">Calender</a></li>
             <li><a href="/results">Results</a></li>
 
         </ul>
@@ -27,8 +27,8 @@
                     List rider
                     <% } else if(type==='team' ) { %>
                         List Team
-                        <% } else if(type==='calender' ) { %>
-                            List Calender
+                        <% } else if(type==='calendar' ) { %>
+                            List Calendar
                             <% } else if(type==='results' ) { %>
                                 List Results
                                 <% } %>
@@ -55,7 +55,7 @@
                                 <th>idcalender</th>
                                 <th>Action</th>
                             </tr>
-                            <% } else if(type==='calender' ) { %>
+                            <% } else if(type==='calendar' ) { %>
                                 <tr class="w3-light-grey">
                                     <th>IdCalender</th>
                                     <th>Address</th>
@@ -94,6 +94,8 @@
                                 <%= item.points %>
                             </td>
                             <td>
+                                <div>
+                                    <a href="/CreateR">Create</a></div>
                                 <a href="/updateR/<%= item.idrider%>">Edit</a>
                                 <form action="/delete-rider/<%= item.idrider%>" method="POST">
                                     <button>Delete</button>
@@ -120,20 +122,22 @@
 
                                 </td>
                                 <td>
-                                    <%= item.idcalender %>
+                                    <%= item.idcalendar %>
                                 </td>
                                 <td>
-                                    <a href="/updateR/<%= item.idrider%>">Edit</a>
-                                    <form action="/delete-rider/<%= item.idrider%>" method="POST">
+                                    <div>
+                                        <a href="/CreateT">Create</a></div>
+                                    <a href="/updateR/<%= item.idteam%>">Edit</a>
+                                    <form action="/delete-team/<%= item.idteam%>" method="POST">
                                         <button>Delete</button>
                                     </form>
                                 </td>
                             </tr>
 
-                            <% } else if(type==='calender' ) { %>
+                            <% } else if(type==='calendar' ) { %>
                                 <tr>
                                     <td>
-                                        <%= item.idcalender %>
+                                        <%= item.idcalendar %>
                                     </td>
                                     <td>
                                         <%= item.address %>
@@ -145,8 +149,10 @@
                                         <%= item.times %>
                                     </td>
                                     <td>
-                                        <a href="/updateR/<%= item.idrider%>">Edit</a>
-                                        <form action="/delete-rider/<%= item.idrider%>" method="POST">
+                                        <div>
+                                        <a href="/CreateC">Create</a></div>
+                                        <a href="/updateR/<%= item.idcalendar%>">Edit</a>
+                                        <form action="/delete-calendar/<%= item.idcalendar%>" method="POST">
                                             <button>Delete</button>
                                         </form>
                                     </td>
@@ -166,8 +172,11 @@
                                             <%= item.idrider %>
                                         </td>
                                         <td>
-                                            <a href="/updateR/<%= item.idrider%>">Edit</a>
-                                            <form action="/delete-rider/<%= item.idrider%>" method="POST">
+                                            <div>
+                                                <a href="/CreateS">Create</a></div>
+                                            <a href="/updateR/<%= item.idresult%>">Edit</a>
+
+                                            <form action="/delete-result/<%= item.idresult%>" method="POST">
                                                 <button>Delete</button>
                                             </form>
                                         </td>

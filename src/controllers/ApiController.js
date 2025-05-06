@@ -1,16 +1,11 @@
 const connection = require("../config/database")
 
-//const pool = require('../config/database')
-
 let getAllRider = async (req, res) => {
-    //http
-    // 501 server broken
     const [rows, fields] = await connection.execute('SELECT * FROM Rider');
     return res.status(200).json({
         message: 'ok',
         data: rows
     })
-
 }
 
 let createNewRider = async (req, res) => {
@@ -24,7 +19,6 @@ let createNewRider = async (req, res) => {
     await connection.execute(` INSERT INTO Rider( name, idteam, pictureId, points )  
         VALUES (?, ?, ?, ?)`,
         [name, idteam, pictureId, points]);
-
 
     return res.status(200).json({
         message: 'ok'

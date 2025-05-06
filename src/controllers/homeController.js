@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { getAllRider, getRiderbyId, updateRiderById, deleteRiderById , getAllTeam, getAllCalender, getAllResults } = require('../services/CRUDService');
+const {DeleteResultsbyId,getResultsbyId,DeleteCalendarbyId, getCalendarbyId,getAllRider, getRiderbyId, updateRiderById, deleteRiderById , getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
 const multer = require('multer');
 
 
@@ -41,12 +41,12 @@ const getCreateRider = (req, res) => {
 const getUpdateRider = async (req, res) => {
     const RiderId = req.params.id;
     let Rider = await getRiderbyId(RiderId);
-    res.render('edit.ejs', { RiderId: Rider });
+    res.render('edit.ejs', { RiderId: Rider , type: 'rider'});
 }
 const postDeleteRider = async (req, res) => {
     const RiderId = req.params.id;
     let Rider = await getRiderbyId(RiderId);
-    res.render('delete.ejs', { RiderId: Rider });
+    res.render('delete.ejs', { RiderId: Rider ,  type: 'rider'});
 }
 const postHandleRemoveRider = async (req, res) => {
     const RiderId = req.body.RiderId;
@@ -76,28 +76,7 @@ let postHandleUploadFile = async (req, res) => {
     res.send(`You have uploaded this image: <hr/><img src="/images/${req.file.filename}" width="500"><hr /><a href="/upload">Upload another image</a>`);
     });
 }
-// const getRiderpage = async (req, res) => {
-    
-// }
 
-// const postCreateRider = async (req, res) => {
-    
-// }
-// const postUpdateRider = async (req, res) => {
-    
-// }
-// const getCreateRider = async (req, res) => {
-    
-// }
-// const getUpdateRider = async (req, res) => {
-    
-// }
-// const postDeleteRider = async (req, res) => {
-    
-// }
-// const postHandleRemoveRider = async (req, res) => {
-    
-// }
 const getTeampage = async (req, res) => {
     let results = await getAllTeam();
     return res.render('home.ejs' , {type: 'team', listUsers : results});
@@ -116,33 +95,43 @@ const getUpdateTeam = async (req, res) => {
     
 }
 const postDeleteTeam = async (req, res) => {
-    
+    const TeamId = req.params.id;
+    let Team = await getTeambyId(TeamId);
+    res.render('delete.ejs', { TeamId: Team ,  type: 'team'});
 }
 const postHandleRemoveTeam = async (req, res) => {
+    const TeamId = req.body.TeamId;
+    await deleteTeamById(TeamId);
+    res.redirect('/')
+}
+
+
+const getCalendarpage = async (req, res) => {
+    let results = await getAllCalendar();
+    return res.render('home.ejs' , {type: 'calendar', listUsers : results});
     
 }
-const getCalenderpage = async (req, res) => {
-    let results = await getAllCalender();
-    return res.render('home.ejs' , {type: 'calender', listUsers : results});
+const postCreateCalendar = async (req, res) => {
     
 }
-const postCreateCalender = async (req, res) => {
+const postUpdateCalendar = async (req, res) => {
     
 }
-const postUpdateCalender = async (req, res) => {
+const postDeleteCalendar = async (req, res) => {
+    let CalendarId =req.body.id;
+    let Calendar = await getCalendarbyId(CalendarId);
+    res.render('delete.ejs' , {type : 'calendar' , CalendarId : Calendar});
+}
+const getCreateCalendar = async (req, res) => {
     
 }
-const postDeleteCalender = async (req, res) => {
+const getUpdateCalendar = async (req, res) => {
     
 }
-const getCreateCalender = async (req, res) => {
-    
-}
-const getUpdateCalender = async (req, res) => {
-    
-}
-const postHandleRemoveCalender = async (req, res) => {
-    
+const postHandleRemoveCalendar = async (req, res) => {
+    const CalendarId = req.body.CalendarId;
+    await DeleteCalendarbyId(CalendarId);
+    res.redirect('/calendar')
 }
 const getResultspage = async (req, res) => {
     let results = await getAllResults();
@@ -155,7 +144,9 @@ const postUpdateResults = async (req, res) => {
     
 }
 const postDeleteResults = async (req, res) => {
-    
+    let ResultsId =req.body.id;
+    let Results = await getResultsbyId(ResultsId);
+    res.render('delete.ejs' , {type : 'results' , ResultsId : Results});
 }
 const getCreateResults = async (req, res) => {
     
@@ -164,12 +155,14 @@ const getUpdateResults = async (req, res) => {
     
 }
 const postHandleRemoveResults = async (req, res) => {
-    
+    const ResultsId = req.body.ResultsId;
+    await DeleteResultsbyId(ResultsId);
+    res.redirect('/results')
 }
 
 
 
 module.exports = {
     postHandleUploadFile, getUploadfile, getHomepage, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
-    getCalenderpage, postCreateCalender, postUpdateCalender, getCreateCalender, getUpdateCalender, postDeleteCalender, postHandleRemoveCalender 
+    getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar 
 }

@@ -1,3 +1,4 @@
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,36 +6,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home.css">
-    <title>Delete Rider</title>
-</head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 
 <body>
-    
+
+    <title>Home page</title>
+    </head>
+
+    <body>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/creat-rider">News</a></li>
+            <li><a href="/">Rider</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/calendar">Calender</a></li>
+            <li><a href="/results">Results</a></li>
+
         </ul>
+        <div class="table-container">
+            <% if(type==='rider' ) { %>
+                <form action="/delete-rider" method="POST">
+                    <fieldset>
+                        <legend>delete Riders</legend>
+                        <div class="input-group d-none">
+                            <label for="">Id: </label>
+                            <input id="RiderId" type="text" name="RiderId" value="<%=RiderId.idrider%>" />
+                        </div>
+                        <div class="input-group">
+                            <label for="">Are you sure to deleto this Rider with name: </label>
+                            <input id="name" type="text" name="name" value="<%=RiderId.name%>" />
+                        </div>
 
-        <div class="form">
-            <form action="/delete-rider" method="POST">
-                <fieldset>
-                    <legend>delete Riders</legend>
-                    <div class="input-group d-none">
-                        <label for="">Id: </label>
-                        <input id="RiderId" type="text" name="RiderId" value="<%=RiderId.idrider%>"/>
-                    </div>
-                    <div class="input-group">
-                        <label for="">Are you sure to deleto this Rider with name:  </label>
-                        <input id="name" type="text" name="email" value="<%=RiderId.name%>"/>
-                    </div>
-                    
-                    <div>
-                        <button>Confirm</button>
-                    </div>
-                </fieldset>
-            </form>
+                        <div>
+                            <button>Confirm</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <% } else if(type==='team' ) { %>
+                    <form action="/delete-team" method="POST">
+                        <fieldset>
+                            <legend>delete team</legend>
+                            <div class="input-group d-none">
+                                <label for="">Id: </label>
+                                <input id="TeamId" type="text" name="TeamId" value="<%=TeamId.idteam%>" />
+                            </div>
+                            <div class="input-group">
+                                <label for="">Are you sure to deleto this Team with name: </label>
+                                <input id="name" type="text" name="name" value="<%=TeamId.name%>" />
+                            </div>
+    
+                            <div>
+                                <button>Confirm</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <% } else if(type==='calendar' ) { %>
+                        <form action="/delete-calendar" method="POST">
+                            <fieldset>
+                                <legend>delete calendar</legend>
+                                <div class="input-group d-none">
+                                    <label for="">Id: </label>
+                                    <input id="CalendarId" type="text" name="CalendarId" value="<%=CalendarId.idcalendar%>" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Are you sure to deleto this Team with name: </label>
+                                    <input id="address" type="text" name="address" value="<%=CalendarId.address%>" />
+                                </div>
+        
+                                <div>
+                                    <button>Confirm</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <% } else if(type==='results' ) { %>
+                            <form action="/delete-result" method="POST">
+                                <fieldset>
+                                    <legend>delete Results</legend>
+                                    <div class="input-group d-none">
+                                        <label for="">Id: </label>
+                                        <input id="ResultsId" type="text" name="ResultsId" value="<%=ResultsId.idresult%>" />
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="">Are you sure to deleto this Team with name: </label>
+                                        <input id="idrider" type="text" name="idrider" value="<%=ResultsId.idrider%>" />
+                                    </div>
+            
+                                    <div>
+                                        <button>Confirm</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <% } %>
+
         </div>
-
-</body>
+    </body>
 
 </html>

@@ -11,11 +11,15 @@
 <body>
 
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/createR">News</a></li>
+        <li><a href="/">Rider</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/calendar">Calender</a></li>
+        <li><a href="/results">Results</a></li>
+
     </ul>
 
     <div class="form">
+        <% if(type === 'rider') { %>
         <form action="/create-rider" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>Create Riders</legend>
@@ -41,26 +45,88 @@
                 </div>
             </fieldset>
         </form>
+        <% } else if(type === 'team') { %>
+            <form action="/create-team" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Create Riders</legend>
+                    <div class="input-group">
+                        <label for="">Name: </label>
+                        <input id="name" type="text" name="name" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Idteam: </label>
+                        <input type="text" name="idteam" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Chon file uplpad</label>
+                        <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
+                    </div>
+                    <img id="preview" style="max-width: 200px; display: none;" />
+                    <div class="input-group">
+                        <label for="">Points: </label>
+                        <input type="text" name="points" />
+                    </div>
+                    <div>
+                        <button>Add new</button>
+                    </div>
+                </fieldset>
+            </form>
+            <% } else if(type === 'calendar') { %>
+                <form action="/create-calendar" method="POST" >
+                    <fieldset>
+                        <legend>Create Riders</legend>
+                        <div class="input-group">
+                            <label for="">Name: </label>
+                            <input id="name" type="text" name="name" />
+                        </div>
+                        <div class="input-group">
+                            <label for="">Idteam: </label>
+                            <input type="text" name="idteam" />
+                        </div>
+                        <div class="input-group">
+                            <label for="">Chon file uplpad</label>
+                            <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
+                        </div>
+                        <img id="preview" style="max-width: 200px; display: none;" />
+                        <div class="input-group">
+                            <label for="">Points: </label>
+                            <input type="text" name="points" />
+                        </div>
+                        <div>
+                            <button>Add new</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <% } else if(type === 'results') { %>
+                    <form action="/create-results" method="POST" >
+                        <fieldset>
+                            <legend>Create Riders</legend>
+                            <div class="input-group">
+                                <label for="">Name: </label>
+                                <input id="name" type="text" name="name" />
+                            </div>
+                            <div class="input-group">
+                                <label for="">Idteam: </label>
+                                <input type="text" name="idteam" />
+                            </div>
+                            <div class="input-group">
+                                <label for="">Chon file uplpad</label>
+                                <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
+                            </div>
+                            <img id="preview" style="max-width: 200px; display: none;" />
+                            <div class="input-group">
+                                <label for="">Points: </label>
+                                <input type="text" name="points" />
+                            </div>
+                            <div>
+                                <button>Add new</button>
+                            </div>
+                        </fieldset>
+                    </form>
+        <% } %>
     </div>
-    <script>
-        function previewImage(event) {
-            const file = event.target.files[0];
-            const preview = document.getElementById('preview');
+    <script src="/src/public/js/menu.js">
 
-            if (file) {
-                const reader = new FileReader();
-
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                }
-
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-            }
-        }
     </script>
 </body>
 

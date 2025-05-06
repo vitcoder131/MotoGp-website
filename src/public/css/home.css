@@ -67,3 +67,13 @@ button{
 .table-container img{
     width: 100px;
 }
+
+td a{
+    border: 1px solid black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+td a:hover{
+    background-color: gray;
+    transition: 0.3s;
+}
