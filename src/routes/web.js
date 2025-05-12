@@ -1,5 +1,5 @@
 const express = require('express');
-const { postHandleUploadFile, getUploadfile, getHomepage, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
+const { postHandleUploadFile, getUploadfile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
 const router = express.Router();
 const multer = require('multer');
@@ -34,10 +34,6 @@ router.post('/upload-profile-pic', upload.single('profile-pic'), postHandleUploa
 //router.get('/upload-rider', getUploadfile);
 
 
-//home
-router.get('/ride', getHomepage);
-
-
 //rider
 router.get('/', getRiderpage);
 router.post('/create-rider', upload.single('pictureId'), postCreateRider);
@@ -49,26 +45,26 @@ router.post('/delete-rider', postHandleRemoveRider);
 
 //result
 router.get('/results', getResultspage);
-router.post('/creat-result', postCreateResults);
+router.post('/create-result', postCreateResults);
 router.post('/update-result', postUpdateResults);
-router.get('/creatS', getCreateResults);
+router.get('/createS', getCreateResults);
 router.get('/updateS/:id', getUpdateResults);
 router.post('/delete-result/:id', postDeleteResults);
 router.post('/delete-result', postHandleRemoveResults);
 //team
 router.get('/team', getTeampage);
-router.post('/creat-team', postCreateTeam);
+router.post('/create-team', postCreateTeam);
 router.post('/update-team', postUpdateTeam);
-router.get('/creatT', getCreateTeam);
+router.get('/createT', getCreateTeam);
 router.get('/updateT/:id', getUpdateTeam);
 router.post('/delete-Team/:id', postDeleteTeam);
 router.post('/delete-Team', postHandleRemoveTeam);
 
 //calendar
 router.get('/calendar', getCalendarpage);
-router.post('/creat-calendar', postCreateCalendar);
+router.post('/create-calendar', postCreateCalendar);
 router.post('/update-calendar', postUpdateCalendar);
-router.get('/creatC', getCreateCalendar);
+router.get('/createC', getCreateCalendar);
 router.get('/updateC/:id', getUpdateCalendar);
 router.post('/delete-calendar/:id', postDeleteCalendar);
 router.post('/delete-calendar', postHandleRemoveCalendar);

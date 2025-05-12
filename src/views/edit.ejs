@@ -47,7 +47,7 @@
                         <input type="text" name="points" value="<%=RiderId.points%>" />
                     </div>
                     <div>
-                        <button>Add new</button>
+                        <button>Update</button>
                     </div>
                 </fieldset>
             </form>
@@ -84,7 +84,7 @@
                             <input type="text" name="idcalendar" id="" value="<%=TeamId.idcalendar%>">
                         </div>
                         <div>
-                            <button>Add new</button>
+                            <button>Update</button>
                         </div>
                     </fieldset>
                 </form>
@@ -109,11 +109,11 @@
                                 <input type="text" name="times" value="<%=CalendarId.times%>" />
                             </div>
                             <div>
-                                <button>Add new</button>
+                                <button>Update</button>
                             </div>
                         </fieldset>
                     </form>
-                    <% }else if(type==='results' ) { %>
+                    <% }else if(type==='result' ) { %>
                         <form action="/update-result" method="POST">
                             <fieldset>
                                 <legend>Update Results</legend>
@@ -134,7 +134,7 @@
                                     <input type="text" name="idrider" value="<%=ResultsId.idrider%>" />
                                 </div>
                                 <div>
-                                    <button>Add new</button>
+                                    <button>Update</button>
                                 </div>
                             </fieldset>
                         </form>

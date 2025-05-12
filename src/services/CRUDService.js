@@ -63,14 +63,21 @@ const deleteCalendarbyId = async (CalendarId) => {
         `DELETE FROM Calendar WHERE idcalendar = ?`, [CalendarId]
     );
 }
-
+const updateCalendarById = async (address,dates , times, CalendarId) => {
+    let [result, fields] = await connection.query(
+        `UPDATE Calendar 
+        SET address = ?,dates =?, times =?
+        WHERE idcalendar = ?`
+        , [address,dates , times,  CalendarId]
+    );
+}
 
 //data results
 const getAllResults = async () => {
     let [results, fields] = await connection.query('select * from Results u');
     return results;
 }
-const getResultsbyId = async (ResultsId) => {
+const getResultbyId = async (ResultsId) => {
     let [results, fields] = await connection.query('SELECT * FROM Results WHERE idresult =?', [ResultsId]);
     let Results = results && results.length > 0 ? results[0] : {};
     return Results;
@@ -80,6 +87,14 @@ const deleteResultsbyId = async (ResultsId) => {
         `DELETE FROM Results WHERE idresult = ?`, [ResultsId]
     );
 }
+const updateResultById = async (standing, point, idrider, ResultId) => {
+    let [result, fields] = await connection.query(
+        `UPDATE Results 
+        SET standing = ?,point =?, idrider =? 
+        WHERE idresult = ?`
+        , [standing, point, idrider, ResultId]
+    );
+}
 module.exports = {
-    updateTeamById,deleteResultsbyId, getResultsbyId, deleteCalendarbyId, getAllRider, getTeambyId, getRiderbyId, deleteTeamById, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, getCalendarbyId
+    updateResultById,updateCalendarById,updateTeamById,deleteResultsbyId, getResultbyId, deleteCalendarbyId, getAllRider, getTeambyId, getRiderbyId, deleteTeamById, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, getCalendarbyId
 }

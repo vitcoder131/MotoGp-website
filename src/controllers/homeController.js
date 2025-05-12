@@ -1,13 +1,7 @@
 const connection = require('../config/database');
-const {deleteResultsbyId,getResultsbyId,deleteCalendarbyId, getCalendarbyId,getAllRider, getRiderbyId, updateRiderById, deleteRiderById , getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
+const {updateResultById,updateCalendarById,updateTeamById,deleteResultsbyId,getResultbyId,deleteCalendarbyId, getCalendarbyId,getAllRider, getRiderbyId, updateRiderById, deleteRiderById , getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
 const multer = require('multer');
 
-
-const getHomepage = async (req, res) => {
-
-    // let results = await getAllRider();
-    // return res.render('home.ejs', { listRiders: results })
-}
 const getRiderpage = async (req , res ) => {
     let results = await getAllRider();
     return res.render('home.ejs' , {type: 'rider', listUsers : results});
@@ -83,20 +77,32 @@ const getTeampage = async (req, res) => {
     
 }
 const postCreateTeam = async (req, res) => {
+    let name = req.body.name;
+    let country = req.body.country;
+    let pictureTeam = req.file.filename;
+    let membes = req.body.membes;
+    let idcalendar = req.body.idcalendar;
+
+    console.log('name =', name, 'pictureTeam =', pictureTeam, 'country =', country, 'membes =',  membes, 'idcalendar=', idcalendar);
     
+    let [result, fields] = await connection.query(
+        ` INSERT INTO Team( name, pictureTeam, country, membes, idcalendar )  VALUES (?, ?, ?, ?, ?)`, [name, pictureTeam, country,membes, idcalendar]
+    );
+    console.log("check", result);
+    res.send('Create team succeed !')
 }
 const postUpdateTeam = async (req, res) => {
     let country = req.body.country;
     let name = req.body.name;
     let pictureTeam = req.body.pictureTeam;
-    let memebes = req.body.memebes;
+    let membes = req.body.membes;
     let idcalendar = req.body.idcalendar;
 
     await updateTeamById(name, country, pictureTeam, membes,idcalendar)
     res.redirect('/team');
 }
 const getCreateTeam = async (req, res) => {
-    
+    res.render('create.ejs' , {type: 'team'});
 }
 const getUpdateTeam = async (req, res) => {
     const TeamId = req.params.id;
@@ -121,10 +127,25 @@ const getCalendarpage = async (req, res) => {
     
 }
 const postCreateCalendar = async (req, res) => {
+    let address = req.body.address;
+    let dates = req.body.dates;
+    let times = req.body.times;
+
+    console.log('address =', address, 'dates =', dates, 'times =', times);
     
+    let [result, fields] = await connection.query(
+        ` INSERT INTO Calendar( address, dates, times )  VALUES (?, ?, ?)`, [address, dates, times]
+    );
+    console.log("check", result);
+    res.send('Create calendar succeed !')
 }
 const postUpdateCalendar = async (req, res) => {
-    
+    let address = req.body.address;
+    let dates = req.body.dates;
+    let times = req.body.times;
+
+    await updateCalendarById(address,dates , times)
+    res.redirect('/calendar');
 }
 const postDeleteCalendar = async (req, res) => {
     let CalendarId =req.params.id;
@@ -132,10 +153,12 @@ const postDeleteCalendar = async (req, res) => {
     res.render('delete.ejs' , { CalendarId : Calendar, type : 'calendar'});
 }
 const getCreateCalendar = async (req, res) => {
-    
+    res.render('create.ejs' , {type: 'calendar'});
 }
 const getUpdateCalendar = async (req, res) => {
-    
+    const CalendarId = req.params.id;
+    let Calendar = await getCalendarbyId(CalendarId);
+    res.render('edit.ejs', { CalendarId: Calendar , type: 'calendar'});
 }
 const postHandleRemoveCalendar = async (req, res) => {
     const CalendarId = req.body.CalendarId;
@@ -147,10 +170,25 @@ const getResultspage = async (req, res) => {
     return res.render('home.ejs' , {type: 'results', listUsers : results});
 }
 const postCreateResults = async (req, res) => {
+    let standing = req.body.standing;
+    let points = req.body.points;
+    let idrider = req.body.idrider;
+
+    console.log('standing =', standing, 'points =', points, 'idrider =', idrider);
     
+    let [result, fields] = await connection.query(
+        ` INSERT INTO Results( standing, points, idrider )  VALUES (?, ?, ?)`, [standing, points, idrider]
+    );
+    console.log("check", result);
+    res.send('Create result succeed !')
 }
 const postUpdateResults = async (req, res) => {
-    
+    let standing = req.body.standing;
+    let point = req.body.point;
+    let idrider = req.body.idrider;
+
+    await updateResultById(standing, point, idrider)
+    res.redirect('/result');
 }
 const postDeleteResults = async (req, res) => {
     let ResultsId =req.params.id;
@@ -158,10 +196,12 @@ const postDeleteResults = async (req, res) => {
     res.render('delete.ejs' , {type : 'results' , ResultsId : Results});
 }
 const getCreateResults = async (req, res) => {
-    
+    res.render('create.ejs' , {type: 'result'});
 }
 const getUpdateResults = async (req, res) => {
-    
+    const ResultId = req.params.id;
+    let Result = await getResultbyId(ResultId);
+    res.render('edit.ejs', { ResultId: Result , type: 'result'});
 }
 const postHandleRemoveResults = async (req, res) => {
     const ResultsId = req.body.ResultsId;
@@ -172,6 +212,6 @@ const postHandleRemoveResults = async (req, res) => {
 
 
 module.exports = {
-    postHandleUploadFile, getUploadfile, getHomepage, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
+    postHandleUploadFile, getUploadfile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar 
 }
