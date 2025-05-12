@@ -23,7 +23,7 @@ const postCreateRider = async (req, res) => {
 const postUpdateRider = async (req, res) => {
     let points = req.body.points;
     let name = req.body.name;
-    let pictureId = req.body.pictureId;
+    let pictureId = req.file.filename;
     let idteam = req.body.idteam;
 
     await updateRiderById(name, pictureId, idteam,points)
@@ -49,9 +49,9 @@ const postHandleRemoveRider = async (req, res) => {
 }
 
 //upload file
-let getUploadfile = async (req, res) => {
-    return res.render('uploadfile.ejs')
-}
+// let getUploadfile = async (req, res) => {
+//     return res.render('uploadfile.ejs')
+// }
 
 const upload = multer().single('profile-pic');
 let postHandleUploadFile = async (req, res) => {
@@ -80,13 +80,13 @@ const postCreateTeam = async (req, res) => {
     let name = req.body.name;
     let country = req.body.country;
     let pictureTeam = req.file.filename;
-    let membes = req.body.membes;
+    let members = req.body.members;
     let idcalendar = req.body.idcalendar;
 
-    console.log('name =', name, 'pictureTeam =', pictureTeam, 'country =', country, 'membes =',  membes, 'idcalendar=', idcalendar);
+    console.log('name =', name, 'pictureTeam =', pictureTeam, 'country =', country, 'membes =',  members, 'idcalendar=', idcalendar);
     
     let [result, fields] = await connection.query(
-        ` INSERT INTO Team( name, pictureTeam, country, membes, idcalendar )  VALUES (?, ?, ?, ?, ?)`, [name, pictureTeam, country,membes, idcalendar]
+        ` INSERT INTO Team( name, pictureTeam, country, membes, idcalendar )  VALUES (?, ?, ?, ?, ?)`, [name, pictureTeam, country,members, idcalendar]
     );
     console.log("check", result);
     res.send('Create team succeed !')
@@ -94,11 +94,11 @@ const postCreateTeam = async (req, res) => {
 const postUpdateTeam = async (req, res) => {
     let country = req.body.country;
     let name = req.body.name;
-    let pictureTeam = req.body.pictureTeam;
-    let membes = req.body.membes;
+    let pictureTeam = req.file.filename;
+    let members = req.body.members;
     let idcalendar = req.body.idcalendar;
 
-    await updateTeamById(name, country, pictureTeam, membes,idcalendar)
+    await updateTeamById(name, country, pictureTeam, members,idcalendar)
     res.redirect('/team');
 }
 const getCreateTeam = async (req, res) => {
@@ -184,24 +184,24 @@ const postCreateResults = async (req, res) => {
 }
 const postUpdateResults = async (req, res) => {
     let standing = req.body.standing;
-    let point = req.body.point;
+    let points = req.body.points;
     let idrider = req.body.idrider;
 
-    await updateResultById(standing, point, idrider)
-    res.redirect('/result');
+    await updateResultById(standing, points, idrider)
+    res.redirect('/results');
 }
 const postDeleteResults = async (req, res) => {
     let ResultsId =req.params.id;
-    let Results = await getResultsbyId(ResultsId);
+    let Results = await getResultbyId(ResultsId);
     res.render('delete.ejs' , {type : 'results' , ResultsId : Results});
 }
 const getCreateResults = async (req, res) => {
-    res.render('create.ejs' , {type: 'result'});
+    res.render('create.ejs' , {type: 'results'});
 }
 const getUpdateResults = async (req, res) => {
-    const ResultId = req.params.id;
-    let Result = await getResultbyId(ResultId);
-    res.render('edit.ejs', { ResultId: Result , type: 'result'});
+    const ResultsId = req.params.id;
+    let Result = await getResultbyId(ResultsId);
+    res.render('edit.ejs', { ResultsId: Result , type: 'results'});
 }
 const postHandleRemoveResults = async (req, res) => {
     const ResultsId = req.body.ResultsId;
@@ -212,6 +212,6 @@ const postHandleRemoveResults = async (req, res) => {
 
 
 module.exports = {
-    postHandleUploadFile, getUploadfile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
+    postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar 
 }

@@ -31,7 +31,7 @@ const getAllTeam = async () => {
     return results;
 }
 const getTeambyId = async (TeamId) => {
-    let [results, fields] = await connection.query('select * from Team where idteam=?', [TeamId]);
+    let [results, fields] = await connection.query('select * from Team where idteam=? ', [TeamId]);
     let Team = results && results.length > 0 ? results[0] : {};
     return Team;
 }
@@ -40,12 +40,12 @@ const deleteTeamById = async (TeamId) => {
         `DELETE FROM Team WHERE idteam = ?`, [TeamId]
     );
 }
-const updateTeamById = async (name, country, pictureTeam, membes,idcalendar, TeamId) => {
+const updateTeamById = async (name, country, pictureTeam, members,idcalendar, TeamId) => {
     let [result, fields] = await connection.query(
         `UPDATE Team 
         SET name = ?,country =?, pictureTeam =?, membes = ?, idcalendar =?
         WHERE idTeam = ?`
-        , [name, country, pictureTeam, membes,idcalendar, TeamId]
+        , [name, country, pictureTeam, members,idcalendar, TeamId]
     );
 }
 //xu ly data calandar
@@ -74,7 +74,7 @@ const updateCalendarById = async (address,dates , times, CalendarId) => {
 
 //data results
 const getAllResults = async () => {
-    let [results, fields] = await connection.query('select * from Results u');
+    let [results, fields] = await connection.query('select * from Results');
     return results;
 }
 const getResultbyId = async (ResultsId) => {
@@ -87,12 +87,12 @@ const deleteResultsbyId = async (ResultsId) => {
         `DELETE FROM Results WHERE idresult = ?`, [ResultsId]
     );
 }
-const updateResultById = async (standing, point, idrider, ResultId) => {
+const updateResultById = async (standing, points, idrider, ResultsId) => {
     let [result, fields] = await connection.query(
         `UPDATE Results 
-        SET standing = ?,point =?, idrider =? 
+        SET standing = ?,points =?, idrider =? 
         WHERE idresult = ?`
-        , [standing, point, idrider, ResultId]
+        , [standing, points, idrider, ResultsId]
     );
 }
 module.exports = {
