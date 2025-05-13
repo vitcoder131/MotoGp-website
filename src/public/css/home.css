@@ -69,9 +69,12 @@ button{
 }
 
 td a{
+    /* margin: 5px; */
     border: 1px solid black;
+    padding: 1px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 0px;
+    background-color: rgb(240, 240, 240);
 }
 td a:hover{
     background-color: gray;

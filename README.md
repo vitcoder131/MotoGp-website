@@ -22,4 +22,4 @@
 # B8: Vào Chrome truy cập localhost:3000 để trải nghiệm 
 
 === Lưu ý: Kiểm tra tải đúng version để tranh lỗi 
-           
+=== Phần edit cần phải nhập đủ thông tin (nếu không sẽ dính lỗi)           

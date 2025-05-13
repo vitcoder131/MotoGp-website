@@ -21,12 +21,15 @@ const postCreateRider = async (req, res) => {
     res.send('Create use succeed !')
 }
 const postUpdateRider = async (req, res) => {
-    let points = req.body.points;
+    let RiderId = req.body.RiderId;
+  
     let name = req.body.name;
     let pictureId = req.file.filename;
     let idteam = req.body.idteam;
+    let points = req.body.points;
 
-    await updateRiderById(name, pictureId, idteam,points)
+
+    await updateRiderById(name, pictureId, idteam, points, RiderId)
     res.redirect('/');
 }
 const getCreateRider = (req, res) => {
@@ -77,6 +80,7 @@ const getTeampage = async (req, res) => {
     
 }
 const postCreateTeam = async (req, res) => {
+    
     let name = req.body.name;
     let country = req.body.country;
     let pictureTeam = req.file.filename;
@@ -92,13 +96,15 @@ const postCreateTeam = async (req, res) => {
     res.send('Create team succeed !')
 }
 const postUpdateTeam = async (req, res) => {
+    console.log("DEBUG req.body:", req.body);
+    let TeamId = req.body.TeamId;
     let country = req.body.country;
     let name = req.body.name;
     let pictureTeam = req.file.filename;
     let members = req.body.members;
     let idcalendar = req.body.idcalendar;
 
-    await updateTeamById(name, country, pictureTeam, members,idcalendar)
+    await updateTeamById(name, country, pictureTeam, members,idcalendar, TeamId)
     res.redirect('/team');
 }
 const getCreateTeam = async (req, res) => {
@@ -140,11 +146,13 @@ const postCreateCalendar = async (req, res) => {
     res.send('Create calendar succeed !')
 }
 const postUpdateCalendar = async (req, res) => {
+    console.log("DEBUG req.body:", req.body);
+    let CalendarId = req.body.CalendarId;
     let address = req.body.address;
     let dates = req.body.dates;
     let times = req.body.times;
 
-    await updateCalendarById(address,dates , times)
+    await updateCalendarById(address,dates , times, CalendarId)
     res.redirect('/calendar');
 }
 const postDeleteCalendar = async (req, res) => {
@@ -173,21 +181,24 @@ const postCreateResults = async (req, res) => {
     let standing = req.body.standing;
     let points = req.body.points;
     let idrider = req.body.idrider;
+    let idcalendar = req.body.idcalendar;
 
-    console.log('standing =', standing, 'points =', points, 'idrider =', idrider);
+    console.log('standing =', standing, 'points =', points, 'idrider =', idrider, 'idcalendar =', idcalendar);
     
     let [result, fields] = await connection.query(
-        ` INSERT INTO Results( standing, points, idrider )  VALUES (?, ?, ?)`, [standing, points, idrider]
+        ` INSERT INTO Results( standing, points, idrider,idcalendar )  VALUES (?, ?, ?, ?)`, [standing, points, idrider, idcalendar]
     );
     console.log("check", result);
     res.send('Create result succeed !')
 }
 const postUpdateResults = async (req, res) => {
+    console.log("DEBUG req.body:", req.body);
+    let ResultsId = req.body.ResultsId;
     let standing = req.body.standing;
     let points = req.body.points;
     let idrider = req.body.idrider;
-
-    await updateResultById(standing, points, idrider)
+    let idcalendar = req.body.idcalendar;
+    await updateResultById(standing, points, idrider, idcalendar, ResultsId)
     res.redirect('/results');
 }
 const postDeleteResults = async (req, res) => {

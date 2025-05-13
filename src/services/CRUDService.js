@@ -11,12 +11,12 @@ const getRiderbyId = async (RiderId) => {
     let Rider = results && results.length > 0 ? results[0] : {};
     return Rider;
 }
-const updateRiderById = async (name, idteam, pictureId, points, RiderId) => {
+const updateRiderById = async (name,pictureId , idteam, points, RiderId) => {
     let [result, fields] = await connection.query(
         `UPDATE Rider 
-        SET name = ?,idteam =?, pictureId =?, points = ?
+        SET name = ?, pictureId =?,idteam =?, points = ?
         WHERE idrider = ?`
-        , [name, idteam, pictureId, points, RiderId]
+        , [name,pictureId , idteam, points, RiderId]
     );
 }
 const deleteRiderById = async (RiderId) => {
@@ -87,12 +87,13 @@ const deleteResultsbyId = async (ResultsId) => {
         `DELETE FROM Results WHERE idresult = ?`, [ResultsId]
     );
 }
-const updateResultById = async (standing, points, idrider, ResultsId) => {
+const updateResultById = async (standing, points, idrider, idcalendar, ResultsId) => {
+   
     let [result, fields] = await connection.query(
         `UPDATE Results 
-        SET standing = ?,points =?, idrider =? 
+        SET standing = ?,points =?, idrider =?, idcalendar =? 
         WHERE idresult = ?`
-        , [standing, points, idrider, ResultsId]
+        , [standing, points, idrider, idcalendar, ResultsId]
     );
 }
 module.exports = {

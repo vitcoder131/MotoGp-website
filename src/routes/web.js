@@ -37,7 +37,7 @@ router.post('/upload-profile-pic', upload.single('profile-pic'), postHandleUploa
 //rider
 router.get('/', getRiderpage);
 router.post('/create-rider', upload.single('pictureId'), postCreateRider);
-router.post('/update-rider', postUpdateRider);
+router.post('/update-rider',upload.single('pictureId'), postUpdateRider);
 router.get('/createR', getCreateRider);
 router.get('/updateR/:id', getUpdateRider);
 router.post('/delete-rider/:id', postDeleteRider);
@@ -53,8 +53,8 @@ router.post('/delete-result/:id', postDeleteResults);
 router.post('/delete-result', postHandleRemoveResults);
 //team
 router.get('/team', getTeampage);
-router.post('/create-team', postCreateTeam);
-router.post('/update-team', postUpdateTeam);
+router.post('/create-team', upload.single('pictureTeam'), postCreateTeam);
+router.post('/update-team',upload.single('pictureTeam'), postUpdateTeam);
 router.get('/createT', getCreateTeam);
 router.get('/updateT/:id', getUpdateTeam);
 router.post('/delete-Team/:id', postDeleteTeam);
