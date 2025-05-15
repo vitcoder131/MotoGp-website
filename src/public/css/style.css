@@ -204,7 +204,6 @@ footer .end p{
 
 
 .xoc {
-  /* position: fixed; */
   top: 20px;
   left: 20px;
   z-index: 1001;
@@ -220,7 +219,7 @@ footer .end p{
   left: -260px;
   width: 250px;
   height: 100%;
-  background-color: white;
+  background-color: rgb(25, 20, 20);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease-in-out;
   z-index: 1000;
@@ -269,14 +268,14 @@ footer .end p{
 
 .sidebar nav ul li a {
   text-decoration: none;
-  color: #222;
+  color: black;
   font-size: 16px;
   font-weight: 600;
   transition: 0.2s;
 }
 
 .sidebar nav ul li a:hover {
-  color: red;
+  color: rgb(44, 40, 40);
 }
 /* xong footer */
 

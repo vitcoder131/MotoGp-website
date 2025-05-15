@@ -220,25 +220,33 @@ const postHandleRemoveResults = async (req, res) => {
     res.redirect('/results')
 }
 
-const getInforPage = async(req, res) =>{
-    res.render('show.ejs', {type: 'home'})
+const getInforPage = async (req, res) => {
+    res.render('show.ejs', { type: 'home' })
 }
-const getInforRiderPage = async(req, res) =>{
-    res.render('show.ejs', {type: 'rider'})
+const getInforRiderPage = async (req, res) => {
+    let results = await getAllRider();
+    res.render('show.ejs', { type: 'rider', listUsers: results })
 }
-const getInforCalendarPage = async(req, res) =>{
-    res.render('show.ejs', {type: 'calendar'})
+const getInforCalendarPage = async (req, res) => {
+        let results = await getAllCalendar();
+
+    res.render('show.ejs', { type: 'calendar', listUsers: results })
 }
-const getInforResultPage = async(req, res) =>{
-    res.render('show.ejs', {type: 'result'})
+const getInforResultPage = async (req, res) => {
+        let results = await getAllResults();
+
+    res.render('show.ejs', { type: 'result', listUsers: results })
 }
-const getInforTeamPage = async(req, res) =>{
-    res.render('show.ejs', {type: 'team'})
+const getInforTeamPage = async (req, res) => {
+        let results = await getAllTeam();
+
+    res.render('show.ejs', { type: 'team', listUsers: results })
 }
 
-module.exports = {getInforPage,getInforRiderPage,getInforTeamPage,
-getInforCalendarPage,
-getInforResultPage,
+module.exports = {
+    getInforPage, getInforRiderPage, getInforTeamPage,
+    getInforCalendarPage,
+    getInforResultPage,
     postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar
 }
