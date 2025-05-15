@@ -46,6 +46,12 @@
                             <th>IDteam</th>
                             <th>Picture</th>
                             <th>Points</th>
+                            <th>Season</th>
+                            <th>Victory</th>
+                            <th>Podium</th>
+                            <th>Race</th>
+                            <th>Poles</th>
+                            <th>Worldchampionships</th>
                             <th>Action</th>
                             
                         </tr>
@@ -71,6 +77,9 @@
                                     <th>Address</th>
                                     <th>Date</th>
                                     <th>Time</th>
+                                    <th>Season</th>
+                                    <th>Rounds</th>
+                                    <th>Calendar Name</th>
 
                                     <th>Action</th>
                                 </tr>
@@ -84,6 +93,9 @@
                                         <th>Points</th>
                                         <th>idrider</th>
                                         <th>idcalendar</th>
+                                        <th>Season</th>
+                                        <th>Mvp name</th>
+                                        <th>Time finish</th>
                                         <th>Action</th>
                                     </tr>
                                     <% } %>
@@ -106,6 +118,24 @@
                             </td>
                             <td>
                                 <%= item.points %>
+                            </td>
+                            <td>
+                                <%= item.season %>
+                            </td>
+                            <td>
+                                <%= item.victory %>
+                            </td>
+                            <td>
+                                <%= item.podium %>
+                            </td>
+                            <td>
+                                <%= item.race %>
+                            </td>
+                            <td>
+                                <%= item.poles %>
+                            </td>
+                            <td>
+                                <%= item.worldchampionships %>
                             </td>
                             <td>
                                 <a href="/updateR/<%= item.idrider%>">Edit</a>
@@ -160,6 +190,15 @@
                                         <%= item.times %>
                                     </td>
                                     <td>
+                                        <%= item.season %>
+                                    </td>
+                                    <td>
+                                        <%= item.rounds %>
+                                    </td>
+                                    <td>
+                                        <%= item.calendar_name %>
+                                    </td>
+                                    <td>
                                         
                                         <a href="/updateC/<%= item.idcalendar%>">Edit</a>
                                         <form action="/delete-calendar/<%= item.idcalendar%>" method="POST">
@@ -183,6 +222,15 @@
                                         </td>
                                         <td>
                                             <%= item.idcalendar %>
+                                        </td>
+                                        <td>
+                                            <%= item.season %>
+                                        </td>
+                                        <td>
+                                            <%= item.mpv_name %>
+                                        </td>
+                                        <td>
+                                            <%= item.time_finish %>
                                         </td>
                                         <td>
                                             

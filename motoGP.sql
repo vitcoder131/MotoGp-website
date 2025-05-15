@@ -20,6 +20,7 @@ CREATE TABLE Rider (
     podium INT DEFAULT 0,
     race INT DEFAULT 0,
     poles INT DEFAULT 0,
+    country varchar(300),
     worldchampionships INT DEFAULT 0,
     FOREIGN KEY (idteam) REFERENCES Team(idteam)
 );
@@ -31,7 +32,7 @@ CREATE TABLE Calendar (
     dates DATE,
     times TIME,
     season ENUM('moto1', 'moto2', 'moto3', 'motoE'),
-    round INT,
+    rounds INT,
     calendar_name VARCHAR(225)
 );
 -- BẢNG RESULTS
@@ -143,3 +144,5 @@ VALUES
 UPDATE Rider
 SET pictureId = 'h2.png'
 WHERE idrider = 9;
+
+

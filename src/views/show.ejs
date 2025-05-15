@@ -89,7 +89,7 @@
 
         <!-- Các phần nội dung, Ngọc làm vào đây -->
         <% }else if(type==='rider' ) { %>
-
+<div class="containerA">
           <div id="riders" class="page">
             <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
             <section id="riders-section">
@@ -110,9 +110,7 @@
                 <button>MotoE™</button>
               </div>
 
-              <div class="official-title">
                 <h2>OFFICIAL</h2>
-              </div>
               <!-- sua -->
               <div class="rider-grid">
                 <% listUsers.forEach(function(item) { %>
@@ -125,54 +123,27 @@
                             <%= item.name %>
                           </span>
                       </h2>
-                      <p>🇪🇸 Spain | <%= item.name %>
+                      <p>🇪🇸<%= item.country %> | <%= item.name %>
                       </p>
-                      <p><strong>ID:</strong>
-                        <%= item.idrider %>
-                      </p>
-                      <p><strong>Team ID:</strong>
-                        <%= item.idteam %>
-                      </p>
-                      <p><strong>Points:</strong>
-                        <%= item.points %>
-                      </p>
+                      
                     </div>
                   </div>
                   <% }); %>
-
-
-                    <div class="rider-card empty"></div>
-
-                    <div class="official-title">
                       <h2>WILDCARDS</h2>
-                    </div>
 
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
 
                     <div class="rider-card" onclick="openRiderDetail()">
                       <img src="/images/rider23.png" alt="Takaaki Nakagami">
                       <div class="rider-info">
                         <h2>#TN30<br><span>Takaaki Nakagami</span></h2>
                         <p>🇯🇵 Japan | HRC Test Team</p>
-                        <p><strong>ID:</strong> 23</p>
-                        <p><strong>Team ID:</strong> HRC</p>
-                        <p><strong>Points:</strong> 31</p>
+                        
                       </div>
                     </div>
 
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
 
-                    <div class="official-title">
                       <h2>SUBSTITUTE</h2>
-                    </div>
 
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
 
                     <div class="rider-card" onclick="openRiderDetail()">
                       <img src="/images/rider24.png" alt="Lorenzo Savadori">
@@ -185,17 +156,9 @@
                       </div>
                     </div>
 
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
 
-                    <div class="official-title">
                       <h2>TEST RIDERS</h2>
-                    </div>
 
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
-                    <div class="rider-card empty"></div>
 
                     <div class="rider-card" onclick="openRiderDetail()">
                       <img src="/images/rider25.png" alt="Andrea Dovizioso">
@@ -265,10 +228,8 @@
                     </div>
               </div>
 
-              <div class="official-title">
                 <!-- den day -->
                 <h2>BEST SELLERS</h2>
-              </div>
 
               <div class="shirt-slider">
                 <div class="shirt-track">
@@ -299,7 +260,7 @@
 
             </section>
           </div>
-
+</div>
           <% } else if(type==='team' ) { %>
             <div id="riders" class="page">
               <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
