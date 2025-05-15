@@ -11,12 +11,12 @@ const getRiderbyId = async (RiderId) => {
     let Rider = results && results.length > 0 ? results[0] : {};
     return Rider;
 }
-const updateRiderById = async (name,pictureId , idteam, points, RiderId) => {
+const updateRiderById = async (name, pictureId, idteam, points, RiderId) => {
     let [result, fields] = await connection.query(
         `UPDATE Rider 
         SET name = ?, pictureId =?,idteam =?, points = ?
         WHERE idrider = ?`
-        , [name,pictureId , idteam, points, RiderId]
+        , [name, pictureId, idteam, points, RiderId]
     );
 }
 const deleteRiderById = async (RiderId) => {
@@ -25,7 +25,6 @@ const deleteRiderById = async (RiderId) => {
     );
 }
 //data team
-
 const getAllTeam = async () => {
     let [results, fields] = await connection.query('select * from Team u');
     return results;
@@ -40,12 +39,12 @@ const deleteTeamById = async (TeamId) => {
         `DELETE FROM Team WHERE idteam = ?`, [TeamId]
     );
 }
-const updateTeamById = async (name, country, pictureTeam, members,idcalendar, TeamId) => {
+const updateTeamById = async (name, country, pictureTeam, members, idcalendar, TeamId) => {
     let [result, fields] = await connection.query(
         `UPDATE Team 
         SET name = ?,country =?, pictureTeam =?, membes = ?, idcalendar =?
         WHERE idTeam = ?`
-        , [name, country, pictureTeam, members,idcalendar, TeamId]
+        , [name, country, pictureTeam, members, idcalendar, TeamId]
     );
 }
 //xu ly data calandar
@@ -63,12 +62,12 @@ const deleteCalendarbyId = async (CalendarId) => {
         `DELETE FROM Calendar WHERE idcalendar = ?`, [CalendarId]
     );
 }
-const updateCalendarById = async (address,dates , times, CalendarId) => {
+const updateCalendarById = async (address, dates, times, CalendarId) => {
     let [result, fields] = await connection.query(
         `UPDATE Calendar 
         SET address = ?,dates =?, times =?
         WHERE idcalendar = ?`
-        , [address,dates , times,  CalendarId]
+        , [address, dates, times, CalendarId]
     );
 }
 
@@ -88,7 +87,7 @@ const deleteResultsbyId = async (ResultsId) => {
     );
 }
 const updateResultById = async (standing, points, idrider, idcalendar, ResultsId) => {
-   
+
     let [result, fields] = await connection.query(
         `UPDATE Results 
         SET standing = ?,points =?, idrider =?, idcalendar =? 
@@ -97,5 +96,5 @@ const updateResultById = async (standing, points, idrider, idcalendar, ResultsId
     );
 }
 module.exports = {
-    updateResultById,updateCalendarById,updateTeamById,deleteResultsbyId, getResultbyId, deleteCalendarbyId, getAllRider, getTeambyId, getRiderbyId, deleteTeamById, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, getCalendarbyId
+    updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getAllRider, getTeambyId, getRiderbyId, deleteTeamById, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, getCalendarbyId
 }

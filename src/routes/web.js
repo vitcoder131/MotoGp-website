@@ -1,5 +1,7 @@
 const express = require('express');
-const { postHandleUploadFile,  getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
+const {  getInforRiderPage,getInforTeamPage,
+getInforCalendarPage,
+getInforResultPage,getInforPage,postHandleUploadFile,  getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
 const router = express.Router();
 const multer = require('multer');
@@ -32,10 +34,10 @@ let upload = multer({ storage: storage, fileFilter: imageFilter });
 //upload motoGp
 router.post('/upload-profile-pic', upload.single('profile-pic'), postHandleUploadFile);
 //router.get('/upload-rider', getUploadfile);
-
+//addmin
 
 //rider
-router.get('/', getRiderpage);
+router.get('/rider', getRiderpage);
 router.post('/create-rider', upload.single('pictureId'), postCreateRider);
 router.post('/update-rider',upload.single('pictureId'), postUpdateRider);
 router.get('/createR', getCreateRider);
@@ -70,6 +72,15 @@ router.post('/delete-calendar/:id', postDeleteCalendar);
 router.post('/delete-calendar', postHandleRemoveCalendar);
 
 
+//user
+router.get('/' , getInforPage);
+router.get('/show-rider' , getInforRiderPage);
+router.get('/show-team' , getInforTeamPage);
+
+
+router.get('/show-calendar' , getInforCalendarPage);
+
+router.get('/show-result' , getInforResultPage);
 
 
 

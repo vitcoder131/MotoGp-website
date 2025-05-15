@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MotoGP</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="header-top">
+      <div class="empty"></div>
+      <ul>
+        <li><a href="">Vote</a></li>
+        <li><a href="">Tickets</a></li>
+        <li><a href="">Hospitality</a></li>
+        <li><a href="">Experiences</a></li>
+        <li><a href="">Store</a></li>
+        <li><a href="">Authentics</a></li>
+      </ul>
+
+      <a href="" class="i"><img src="/images/timeingpass.svg" alt=""></a>
+      <a href="" class="i"><img src="/images/videopass.svg" alt=""></a>
+      <a href="" class="subcribe">Subcribe</a>
+      <a href="" class="Eng"><select name="" id="">
+          <option value="">Eng</option>
+        </select></a>
+      <a href="" class="im"><img src="/images/FIM-logo.svg" alt=""></a>
+
+    </div>
+    <div class="border-white"></div>
+    <div class="header-bottom">
+      <div class="xoc" onclick="toggleMenu()"><i class="fa-solid fa-bars" style="color: white; font-size: 24px;"></i>
+      </div>
+      <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <ul>
+          <li><a href="/show-calendar">🏁 Calendar</a></li>
+          <li><a href="/show-result">📊 Results</a></li>
+          <li><a href="#">🏆 Standings</a></li>
+          <li><a href="/show-rider">🏍️ Riders & Teams</a></li>
+          <li><a href="#">🎥 VideoPass</a></li>
+          <li><a href="#">📰 News</a></li>
+          <li><a href="#">ℹ️ About MotoGP™</a></li>
+        </ul>
+      </div>
+
+      <a href="/"><img src="/images/logo.png" alt=""></a>
+      <ul>
+        <li><a href="/show-calendar">Calendar</a></li>
+        <li><a href="/show-result">Results & Standings</a></li>
+        <li><a href="/show-rider">Riders & Teams</a></li>
+        <li><a href="">VideoPass</a></li>
+        <li><a href="">Videos</a></li>
+        <li><a href="">News</a></li>
+      </ul>
+      <div class="xoc1">
+      </div>
+
+      <ul class="login">
+        <li><a href="">Login</a></li>
+        <li><a href="">Register</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="vien"></div>
+
+  <% if(type==='home' ) { %>
+
+    <!-- Các phần nội dung, Ngân làm vào đây -->
+    <div id="home" class="page active">
+
+    </div>
+    <% } else if(type==='calendar' ) { %>
+
+      <!-- Các phần nội dung, Duy làm vào đây -->
+      <div id="calendar" class="page">
+
+      </div>
+      <% } else if(type==='results' ) { %>
+        <!-- Các phần nội dung, Hoàng làm vào đây -->
+        <div id="results" class="page">
+
+        </div>
+
+        <!-- Các phần nội dung, Ngọc làm vào đây -->
+        <% }else if(type==='rider' ) { %>
+
+          <div id="riders" class="page">
+            <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+            <section id="riders-section">
+              <div class="riders-header">
+                <h1>RIDERS & TEAMS</h1>
+                <div class="tab-menu">
+
+                  <a href="/show-rider"><button class="active">RIDERS</button></a>
+                  <a href="/show-team"><button class="">TEAMS</button></a>
+                  <button>LEGENDS</button>
+                </div>
+              </div>
+
+              <div class="category-filter">
+                <button class="selected">MotoGP™</button>
+                <button>Moto2™</button>
+                <button>Moto3™</button>
+                <button>MotoE™</button>
+              </div>
+
+              <div class="official-title">
+                <h2>OFFICIAL</h2>
+              </div>
+<!-- sua -->
+              <div class="rider-grid">
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider1.png" alt="Jorge Martin">
+                  <div class="rider-info">
+                    <h2>#JM89<br><span>JORGE MARTIN</span></h2>
+                    <p>🇪🇸 Spain | Aprilia Racing</p>
+                    <p><strong>ID:</strong> 1</p>
+                    <p><strong>Team ID:</strong> APR</p>
+                    <p><strong>Points:</strong> 300</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider2.png" alt="Johann Zarco">
+                  <div class="rider-info">
+                    <h2>#JZ5<br><span>JOHANN ZARCO</span></h2>
+                    <p>🇫🇷 France | LCR Honda</p>
+                    <p><strong>ID:</strong> 2</p>
+                    <p><strong>Team ID:</strong> LCR</p>
+                    <p><strong>Points:</strong> 280</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider3.png" alt="Luca Marini">
+                  <div class="rider-info">
+                    <h2>#LM10<br><span>LUCA MARINI</span></h2>
+                    <p>🇮🇹 Italy | Honda HRC Castrol</p>
+                    <p><strong>ID:</strong> 3</p>
+                    <p><strong>Team ID:</strong> HRC</p>
+                    <p><strong>Points:</strong> 260</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider4.png" alt="Maverick Vinales">
+                  <div class="rider-info">
+                    <h2>#MV12<br><span>MAVERICK VINALES</span></h2>
+                    <p>🇪🇸 Spain | Red Bull KTM Tech3</p>
+                    <p><strong>ID:</strong> 4</p>
+                    <p><strong>Team ID:</strong> RKT3</p>
+                    <p><strong>Points:</strong> 250</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider5.png" alt="Fabio Quartararo">
+                  <div class="rider-info">
+                    <h2>#FQ20<br><span>FABIO QUARTARARO</span></h2>
+                    <p>🇫🇷 France | Monster Energy Yamaha MotoGP</p>
+                    <p><strong>ID:</strong> 5</p>
+                    <p><strong>Team ID:</strong> MEY</p>
+                    <p><strong>Points:</strong> 230</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider6.png" alt="Franco Morbidelli">
+                  <div class="rider-info">
+                    <h2>#FM21<br><span>FRANCO MORBIDELLI</span></h2>
+                    <p>🇮🇹 Italy | Pertamina Enduro VR46 Racing Team</p>
+                    <p><strong>ID:</strong> 6</p>
+                    <p><strong>Team ID:</strong> PER</p>
+                    <p><strong>Points:</strong> 220</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider7.png" alt="Enea Bastianini">
+                  <div class="rider-info">
+                    <h2>#EB23<br><span>ENEA BASTIANINI</span></h2>
+                    <p>🇮🇹 Italy | Red Bull KTM Tech3</p>
+                    <p><strong>ID:</strong> 7</p>
+                    <p><strong>Team ID:</strong> RKT3</p>
+                    <p><strong>Points:</strong> 210</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider8.png" alt="Raul Fernandez">
+                  <div class="rider-info">
+                    <h2>#RF25<br><span>RAUL FERNANDEZ</span></h2>
+                    <p>🇪🇸 Spain | Trackhouse MotoGP Team</p>
+                    <p><strong>ID:</strong> 8</p>
+                    <p><strong>Team ID:</strong> TRK</p>
+                    <p><strong>Points:</strong> 200</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider9.png" alt="Brad Binder">
+                  <div class="rider-info">
+                    <h2>#BB33<br><span>BRAD BINDER</span></h2>
+                    <p>🇿🇦 South Africa | Red Bull KTM Factory Racing</p>
+                    <p><strong>ID:</strong> 9</p>
+                    <p><strong>Team ID:</strong> RKT</p>
+                    <p><strong>Points:</strong> 190</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider10.png" alt="Somkiat Chantra">
+                  <div class="rider-info">
+                    <h2>#SC35<br><span>SOMKIAT CHANTRA</span></h2>
+                    <p>🇹🇭 Thailand | Honda HRC Castrol</p>
+                    <p><strong>ID:</strong> 10</p>
+                    <p><strong>Team ID:</strong> HRC</p>
+                    <p><strong>Points:</strong> 180</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider11.png" alt="Joan Mir">
+                  <div class="rider-info">
+                    <h2>#JM36<br><span>JOAN MIR</span></h2>
+                    <p>🇪🇸 Spain | Honda HRC Castrol</p>
+                    <p><strong>ID:</strong> 11</p>
+                    <p><strong>Team ID:</strong> HRC</p>
+                    <p><strong>Points:</strong> 170</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider12.png" alt="Pedro Acosta">
+                  <div class="rider-info">
+                    <h2>#PA51<br><span>PEDRO ACOSTA</span></h2>
+                    <p>🇪🇸 Spain | Red Bull KTM Factory Racing</p>
+                    <p><strong>ID:</strong> 12</p>
+                    <p><strong>Team ID:</strong> RKT</p>
+                    <p><strong>Points:</strong> 160</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider13.png" alt="Alex Rins">
+                  <div class="rider-info">
+                    <h2>#AR42<br><span>ALEX RINS</span></h2>
+                    <p>🇪🇸 Spain | Monster Energy Yamaha MotoGP</p>
+                    <p><strong>ID:</strong> 13</p>
+                    <p><strong>Team ID:</strong> MEY</p>
+                    <p><strong>Points:</strong> 150</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider14.png" alt="Jack Miller">
+                  <div class="rider-info">
+                    <h2>#JM43<br><span>JACK MILLER</span></h2>
+                    <p>🇦🇺 Australia | Prima Pramac Yamaha MotoGP</p>
+                    <p><strong>ID:</strong> 14</p>
+                    <p><strong>Team ID:</strong> PRM</p>
+                    <p><strong>Points:</strong> 140</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider15.png" alt="Fabio Di Giannantonio">
+                  <div class="rider-info">
+                    <h2># FD59<br><span>FABIO DI GIANNANTONIO</span></h2>
+                    <p>🇮🇹 Italy | Pertamina Enduro VR46 Racing Team</p>
+                    <p><strong>ID:</strong> 15</p>
+                    <p><strong>Team ID:</strong> PER</p>
+                    <p><strong>Points:</strong> 130</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider16.png" alt="Fermin Aldeguer">
+                  <div class="rider-info">
+                    <h2># FA77<br><span>FERMIN ALDEGUER</span></h2>
+                    <p>🇪🇸 Spain | BK8 Gresini Racing MotoGP</p>
+                    <p><strong>ID:</strong> 16</p>
+                    <p><strong>Team ID:</strong> BK8</p>
+                    <p><strong>Points:</strong> 120</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider17.png" alt="Francesco Bagnaia">
+                  <div class="rider-info">
+                    <h2># FB1<br><span>FRANCESCO BAGNAIA</span></h2>
+                    <p>🇮🇹 Italy | Ducati Lenovo Team</p>
+                    <p><strong>ID:</strong> 17</p>
+                    <p><strong>Team ID:</strong> DCT</p>
+                    <p><strong>Points:</strong> 250</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider18.png" alt="Marco Bezzecchi">
+                  <div class="rider-info">
+                    <h2>#MB63<br><span>MARCO BEZZECCHI</span></h2>
+                    <p>🇮🇹 Italy | Aprilia Racing</p>
+                    <p><strong>ID:</strong> 18</p>
+                    <p><strong>Team ID:</strong> APR</p>
+                    <p><strong>Points:</strong> 220</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider19.png" alt="Alex Marquez">
+                  <div class="rider-info">
+                    <h2>#AM73<br><span>ALEX MARQUEZ</span></h2>
+                    <p>🇪🇸 Spain | BK8 Gresini Racing MotoGP</p>
+                    <p><strong>ID:</strong> 19</p>
+                    <p><strong>Team ID:</strong> BK8</p>
+                    <p><strong>Points:</strong> 210</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider20.png" alt="Ai Ogura">
+                  <div class="rider-info">
+                    <h2>#AO79<br><span>AI OGURA</span></h2>
+                    <p>🇯🇵 Japan | Trackhouse MotoGP Team</p>
+                    <p><strong>ID:</strong> 20</p>
+                    <p><strong>Team ID:</strong> TRK</p>
+                    <p><strong>Points:</strong> 180</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider21.png" alt="Miguel Oliveira">
+                  <div class="rider-info">
+                    <h2>#MO88<br><span>MIGUEL OLIVEIRA</span></h2>
+                    <p>🇵🇹 Portugal | Prima Pramac Yamaha MotoGP</p>
+                    <p><strong>ID:</strong> 21</p>
+                    <p><strong>Team ID:</strong> PRM</p>
+                    <p><strong>Points:</strong> 170</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider22.png" alt="Marc Marquez">
+                  <div class="rider-info">
+                    <h2>#MM93<br><span>MARC MARQUEZ</span></h2>
+                    <p>🇪🇸 Spain | Ducati Lenovo Team</p>
+                    <p><strong>ID:</strong> 22</p>
+                    <p><strong>Team ID:</strong> DCT</p>
+                    <p><strong>Points:</strong> 160</p>
+                  </div>
+                </div>
+
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+
+                <div class="official-title">
+                  <h2>WILDCARDS</h2>
+                </div>
+
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider23.png" alt="Takaaki Nakagami">
+                  <div class="rider-info">
+                    <h2>#TN30<br><span>Takaaki Nakagami</span></h2>
+                    <p>🇯🇵 Japan | HRC Test Team</p>
+                    <p><strong>ID:</strong> 23</p>
+                    <p><strong>Team ID:</strong> HRC</p>
+                    <p><strong>Points:</strong> 31</p>
+                  </div>
+                </div>
+
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+
+                <div class="official-title">
+                  <h2>SUBSTITUTE</h2>
+                </div>
+
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider24.png" alt="Lorenzo Savadori">
+                  <div class="rider-info">
+                    <h2>#LS32<br><span>Lorenzo Savadori</span></h2>
+                    <p>🇮🇹 Italy | Aprilia Racing</p>
+                    <p><strong>ID:</strong> 24</p>
+                    <p><strong>Team ID:</strong> APR</p>
+                    <p><strong>Points:</strong> 0</p>
+                  </div>
+                </div>
+
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+
+                <div class="official-title">
+                  <h2>TEST RIDERS</h2>
+                </div>
+
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+                <div class="rider-card empty"></div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider25.png" alt="Andrea Dovizioso">
+                  <div class="rider-info">
+                    <h2>#AD04<br><span>Andrea Dovizioso</span></h2>
+                    <p>🇮🇹 Italy | Ducati Test Rider</p>
+                    <p><strong>ID:</strong> 25</p>
+                    <p><strong>Team ID:</strong> DUC</p>
+                    <p><strong>Points:</strong> 0</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider26.png" alt="Augusto Fernandez">
+                  <div class="rider-info">
+                    <h2>#AF7<br><span>Augusto Fernandez</span></h2>
+                    <p>🇪🇸 Spain | KTM Test Rider</p>
+                    <p><strong>ID:</strong> 26</p>
+                    <p><strong>Team ID:</strong> KTM</p>
+                    <p><strong>Points:</strong> 0</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider27.png" alt="Dani Pedrosa">
+                  <div class="rider-info">
+                    <h2>#DP26<br><span>Dani Pedrosa</span></h2>
+                    <p>🇪🇸 Spain | KTM Test Rider</p>
+                    <p><strong>ID:</strong> 27</p>
+                    <p><strong>Team ID:</strong> KTM</p>
+                    <p><strong>Points:</strong> 0</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider28.png" alt="Aleix Espargaro">
+                  <div class="rider-info">
+                    <h2>#AE41<br><span>Aleix Espargaro</span></h2>
+                    <p>🇪🇸 Spain | Aprilia Racing</p>
+                    <p><strong>ID:</strong> 28</p>
+                    <p><strong>Team ID:</strong> APR</p>
+                    <p><strong>Points:</strong> 140</p>
+                  </div>
+                </div>
+
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider29.png" alt="Pol Espargaro">
+                  <div class="rider-info">
+                    <h2>#PE44<br><span>Pol Espargaro</span></h2>
+                    <p>🇪🇸 Spain | KTM Test Rider</p>
+                    <p><strong>ID:</strong> 29</p>
+                    <p><strong>Team ID:</strong> KTM</p>
+                    <p><strong>Points:</strong> 0</p>
+                  </div>
+                </div>
+
+                <div class="rider-card" onclick="openRiderDetail()">
+                  <img src="/images/rider30.png" alt="Michele Pirro">
+                  <div class="rider-info">
+                    <h2>#MP51<br><span>Michele Pirro</span></h2>
+                    <p>🇮🇹 Italy | Ducati Test Rider</p>
+                    <p><strong>ID:</strong> 30</p>
+                    <p><strong>Team ID:</strong> DUC</p>
+                    <p><strong>Points:</strong> 0</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="official-title">
+                <h2>BEST SELLERS</h2>
+              </div>
+
+              <div class="shirt-slider">
+                <div class="shirt-track">
+                  <img src="/images/rider31.png" alt="Shirt 1">
+                  <img src="/images/rider32.png" alt="Shirt 2">
+                  <img src="/images/rider33.png" alt="Shirt 3">
+                  <img src="/images/rider34.png" alt="Shirt 4">
+                  <img src="/images/rider35.png" alt="Shirt 5">
+                  <img src="/images/rider36.png" alt="Shirt 6">
+                  <img src="/images/rider37.png" alt="Shirt 7">
+                  <img src="/images/rider38.png" alt="Shirt 8">
+                  <img src="/images/rider39.png" alt="Shirt 9">
+                </div>
+              </div>
+
+              <div class="favourite-rider">
+                <div class="favourite-img">
+                  <img src="/images/rider40.png" alt="Favourite Riders">
+                </div>
+
+                <div class="favourite-text">
+                  <h2>👀 WHO'S YOUR FAVOURITE RIDER? 👀</h2>
+                  <p>Personalize your MotoGP™ experience by logging in and selecting your all-time favourite rider on
+                    your account!</p>
+                  <a href="#" class="select-btn">SELECT RIDER NOW!</a>
+                </div>
+              </div>
+
+            </section>
+          </div>
+
+          <% } else if(type==='team' ) { %>
+            <div id="riders" class="page">
+              <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+              <section id="riders-section">
+                <div class="riders-header">
+                  <h1>RIDERS & TEAMS</h1>
+                  <div class="tab-menu">
+
+                    <a href="/show-rider"><button class="">RIDERS</button></a>
+                    <a href="/show-team"><button class="active">TEAMS</button></a>
+                    <button>LEGENDS</button>
+                  </div>
+                </div>
+
+                <div class="category-filter">
+                  <button class="selected">MotoGP™</button>
+                  <button>Moto2™</button>
+                  <button>Moto3™</button>
+                  <button>MotoE™</button>
+                </div>
+                <!-- Phần teams đây nhé -->
+                <div class="official-title">
+                  <h2>OFFICIAL</h2>
+                </div>
+
+                <div class="team-grid">
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider41.png" alt="Aprilia Racing">
+                    <div class="team-info">
+                      <h2>Aprilia Racing</h2>
+                      <p><strong>ID:</strong> APR</p>
+                      <p><strong>Country:</strong> Italy</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider42.png" alt="BK8 Gresini Racing MotoGP">
+                    <div class="team-info">
+                      <h2>BK8 Gresini Racing MotoGP</h2>
+                      <p><strong>ID:</strong> BK8</p>
+                      <p><strong>Country:</strong> Italy</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider43.png" alt="Ducati Lenovo Team">
+                    <div class="team-info">
+                      <h2>Ducati Lenovo Team</h2>
+                      <p><strong>ID:</strong> DCT</p>
+                      <p><strong>Country:</strong> Italy</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider44.png" alt="Honda HRC Castrol">
+                    <div class="team-info">
+                      <h2>Honda HRC Castrol</h2>
+                      <p><strong>ID:</strong> HRC</p>
+                      <p><strong>Country:</strong> Japan</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider45.png" alt="LCR Honda">
+                    <div class="team-info">
+                      <h2>LCR Honda</h2>
+                      <p><strong>ID:</strong> LCR</p>
+                      <p><strong>Country:</strong> Japan</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider46.png" alt="Monster Energy Yamaha MotoGP">
+                    <div class="team-info">
+                      <h2>Monster Energy Yamaha MotoGP</h2>
+                      <p><strong>ID:</strong> MEY</p>
+                      <p><strong>Country:</strong> Japan</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider47.png" alt="Pertamina Enduro VR46 Racing Team">
+                    <div class="team-info">
+                      <h2>Pertamina Enduro VR46 Racing Team</h2>
+                      <p><strong>ID:</strong> PER</p>
+                      <p><strong>Country:</strong> Italy</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider48.png" alt="Prima Pramac Yamaha MotoGP">
+                    <div class="team-info">
+                      <h2>Prima Pramac Yamaha MotoGP</h2>
+                      <p><strong>ID:</strong> PRM</p>
+                      <p><strong>Country:</strong> Italy</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider49.png" alt="Red Bull KTM Factory Racing">
+                    <div class="team-info">
+                      <h2>Red Bull KTM Factory Racing</h2>
+                      <p><strong>ID:</strong> RKT</p>
+                      <p><strong>Country:</strong> Austria</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider50.png" alt="Red Bull KTM Tech3">
+                    <div class="team-info">
+                      <h2>Red Bull KTM Tech3</h2>
+                      <p><strong>ID:</strong> RKT3</p>
+                      <p><strong>Country:</strong> Austria</p>
+                    </div>
+                  </div>
+                  <div class="team-card" onclick="openTeamDetail()">
+                    <img src="/images/rider51.png" alt="Trackhouse MotoGP Team">
+                    <div class="team-info">
+                      <h2>Trackhouse MotoGP Team</h2>
+                      <p><strong>ID:</strong> TRK</p>
+                      <p><strong>Country:</strong> USA</p>
+                    </div>
+                  </div>
+                </div>
+
+                <% } %>
+                  <footer>
+                    <img class="logo" src="/images/footer1.png" alt="" class="motogp">
+                    <p>Official Sponsors</p>
+                    <div class="logong">
+                      <ul>
+                        <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                        <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                        <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                        <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                        <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                        <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                      </ul>
+                    </div>
+                    <div class="container">
+                      <ul class="media">
+                        <li><a href="" class="ma">Media & Commercial</a></li>
+                        <li><a href="">Official Sponsors</a></li>
+                        <li><a href="">TV Broadcast</a></li>
+                        <li><a href="">MotoGP™ Apps</a></li>
+                      </ul>
+                      <ul class="media">
+                        <li><a href="" class="ma">Media & Commercial</a></li>
+                        <li><a href="">Official Sponsors</a></li>
+                        <li><a href="">TV Broadcast</a></li>
+                        <li><a href="">MotoGP™ Apps</a></li>
+                      </ul>
+                      <ul class="media">
+                        <li><a href="" class="ma">Media & Commercial</a></li>
+                        <li><a href="">Official Sponsors</a></li>
+                        <li><a href="">TV Broadcast</a></li>
+                        <li><a href="">MotoGP™ Apps</a></li>
+                      </ul>
+                      <ul class="media">
+                        <li><a href="" class="ma">Media & Commercial</a></li>
+                        <li><a href="">Official Sponsors</a></li>
+                        <li><a href="">TV Broadcast</a></li>
+                        <li><a href="">MotoGP™ Apps</a></li>
+                      </ul>
+                      <ul class="media">
+                        <li><a href="" class="ma">Media & Commercial</a></li>
+                        <li><a href="">Official Sponsors</a></li>
+                        <li><a href="">TV Broadcast</a></li>
+                        <li><a href="">MotoGP™ Apps</a></li>
+                      </ul>
+
+                    </div>
+                    <div class="contact">
+                      <div class="col-1"></div>
+                      <div class="col-2">
+                        <p>Download the Official MotoGP™ App</p>
+
+                      </div>
+                      <div class="col-4">
+                        <a href=""><img src="/images/f1.png" alt=""></a>
+                      </div>
+                      <div class="col-6">
+                        <a href=""><img src="/images/f2.png" alt=""></a>
+                      </div>
+                    </div>
+                    <div class="border-black"></div>
+                    <div class="end">
+                      <p>© 2025 Dorna Sports SL. All rights reserved. All trademarks are the property of their
+                        respective
+                        owners.</p>
+                    </div>
+                  </footer>
+
+
+
+                  <script>
+                    function toggleMenu() {
+                      document.getElementById('sidebar').classList.toggle('open');
+                    }
+
+                  </script>
+</body>
+
+</html>
