@@ -19,109 +19,164 @@
     </ul>
 
     <div class="form">
-        <% if(type === 'rider') { %>
-        <form action="/create-rider" method="POST" enctype="multipart/form-data">
-            <fieldset>
-                <legend>Create Riders</legend>
-                <div class="input-group">
-                    <label for="">Name: </label>
-                    <input id="name" type="text" name="name" />
-                </div>
-                <div class="input-group">
-                    <label for="">Idteam: </label>
-                    <input type="text" name="idteam" />
-                </div>
-                <div class="input-group">
-                    <label for="">Chon file uplpad</label>
-                    <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
-                </div>
-                <img id="preview" style="max-width: 200px; display: none;" />
-                <div class="input-group">
-                    <label for="">Points: </label>
-                    <input type="text" name="points" />
-                </div>
-                <div>
-                    <button>Add new</button>
-                </div>
-            </fieldset>
-        </form>
-        <% } else if(type === 'team') { %>
-            <form action="/create-team" method="POST" enctype="multipart/form-data">
+        <% if(type==='rider' ) { %>
+            <form action="/create-rider" method="POST" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>Create Team</legend>
+                    <legend>Create Riders</legend>
                     <div class="input-group">
                         <label for="">Name: </label>
-                        <input type="text" name="name" />
+                        <input id="name" type="text" name="name" />
                     </div>
                     <div class="input-group">
-                        <label for="">Country: </label>
-                        <input type="text" name="country" />
+                        <label for="">Idteam: </label>
+                        <input type="text" name="idteam" />
                     </div>
                     <div class="input-group">
                         <label for="">Chon file uplpad</label>
-                        <input type="file" id="fileInput" name="pictureTeam" onchange="previewImage(event)" />
+                        <input type="file" id="fileInput" name="pictureId" onchange="previewImage(event)" />
                     </div>
                     <img id="preview" style="max-width: 200px; display: none;" />
                     <div class="input-group">
-                        <label for="">Member: </label>
-                        <input type="text" name="members" />
+                        <label for="">Points: </label>
+                        <input type="text" name="points" />
+                    </div>
+                    <select name="season" required>
+                        <option value="moto1">Moto 1</option>
+                        <option value="moto2">Moto 2</option>
+                        <option value="moto3">Moto 3</option>
+                        <option value="motoE">Moto E</option>
+                    </select>
+                    <div class="input-group">
+                        <label for="">Victory: </label>
+                        <input type="text" name="victory" />
                     </div>
                     <div class="input-group">
-                        <label for="">idcalendar: </label>
-                        <input type="text" name="idcalendar" />
+                        <label for="">Poldium: </label>
+                        <input type="text" name="podium" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">race: </label>
+                        <input type="text" name="race" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Poles: </label>
+                        <input type="text" name="poles" />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Worldchampionships: </label>
+                        <input type="text" name="worldchampionships" />
                     </div>
                     <div>
                         <button>Add new</button>
                     </div>
                 </fieldset>
             </form>
-            <% } else if(type === 'calendar') { %>
-                <form action="/create-calendar" method="POST" >
+            <% } else if(type==='team' ) { %>
+                <form action="/create-team" method="POST" enctype="multipart/form-data">
                     <fieldset>
-                        <legend>Create Calendar</legend>
+                        <legend>Create Team</legend>
                         <div class="input-group">
-                            <label for="">Address: </label>
-                            <input id="address" type="text" name="address" />
+                            <label for="">Name: </label>
+                            <input type="text" name="name" />
                         </div>
                         <div class="input-group">
-                            <label for="">Date: </label>
-                            <input type="text" name="dates" />
+                            <label for="">Country: </label>
+                            <input type="text" name="country" />
                         </div>
                         <div class="input-group">
-                            <label for="">Time: </label>
-                            <input type="text" name="times" />
+                            <label for="">Chon file uplpad</label>
+                            <input type="file" id="fileInput" name="pictureTeam" onchange="previewImage(event)" />
+                        </div>
+                        <img id="preview" style="max-width: 200px; display: none;" />
+                        <div class="input-group">
+                            <label for="">Member: </label>
+                            <input type="text" name="members" />
+                        </div>
+                        <div class="input-group">
+                            <label for="">idcalendar: </label>
+                            <input type="text" name="idcalendar" />
                         </div>
                         <div>
                             <button>Add new</button>
                         </div>
                     </fieldset>
                 </form>
-                <% } else if(type === 'results') { %>
-                    <form action="/create-result" method="POST" >
+                <% } else if(type==='calendar' ) { %>
+                    <form action="/create-calendar" method="POST">
                         <fieldset>
-                            <legend>Create Results</legend>
+                            <legend>Create Calendar</legend>
                             <div class="input-group">
-                                <label for="">Standing: </label>
-                                <input id="standing" type="text" name="standing" />
+                                <label for="">Address: </label>
+                                <input id="address" type="text" name="address" />
                             </div>
                             <div class="input-group">
-                                <label for="">Points: </label>
-                                <input type="text" name="points" />
+                                <label for="">Date: </label>
+                                <input type="text" name="dates" />
                             </div>
                             <div class="input-group">
-                                <label for="">Idrider: </label>
-                                <input type="text" name="idrider" />
+                                <label for="">Time: </label>
+                                <input type="text" name="times" />
+                            </div>
+                            <select name="season" required>
+                                <option value="moto1">Moto 1</option>
+                                <option value="moto2">Moto 2</option>
+                                <option value="moto3">Moto 3</option>
+                                <option value="motoE">Moto E</option>
+                            </select>
+                            <div class="input-group">
+                                <label for="">Rounds: </label>
+                                <input type="text" name="rounds" />
                             </div>
                             <div class="input-group">
-                                <label for="">idcalendar: </label>
-                                <input type="text" name="idcalendar" />
+                                <label for="">Calendar Name: </label>
+                                <input type="text" name="calendar_name" />
                             </div>
                             <div>
                                 <button>Add new</button>
                             </div>
                         </fieldset>
                     </form>
-        <% } %>
+                    <% } else if(type==='results' ) { %>
+                        <form action="/create-result" method="POST">
+                            <fieldset>
+                                <legend>Create Results</legend>
+                                <div class="input-group">
+                                    <label for="">Standing: </label>
+                                    <input id="standing" type="text" name="standing" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Points: </label>
+                                    <input type="text" name="points" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Idrider: </label>
+                                    <input type="text" name="idrider" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="">idcalendar: </label>
+                                    <input type="text" name="idcalendar" />
+
+                                </div>
+                                <select name="season" required>
+                                    <option value="moto1">Moto 1</option>
+                                    <option value="moto2">Moto 2</option>
+                                    <option value="moto3">Moto 3</option>
+                                    <option value="motoE">Moto E</option>
+                                </select>
+                                <div class="input-group">
+                                    <label for="">Mvp_Name: </label>
+                                    <input type="text" name="mvp_name" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Time Finish: </label>
+                                    <input type="text" name="time_finish" />
+                                </div>
+                                <div>
+                                    <button>Add new</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <% } %>
     </div>
     <script src="/src/public/js/menu.js">
 

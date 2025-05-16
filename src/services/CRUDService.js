@@ -11,12 +11,12 @@ const getRiderbyId = async (RiderId) => {
     let Rider = results && results.length > 0 ? results[0] : {};
     return Rider;
 }
-const updateRiderById = async (name, pictureId, idteam, points, RiderId) => {
+const updateRiderById = async (name, pictureId, idteam, points, season,victory,podium,race,poles,worldchampionships, RiderId) => {
     let [result, fields] = await connection.query(
         `UPDATE Rider 
-        SET name = ?, pictureId =?,idteam =?, points = ?
+        SET name = ?, pictureId =?,idteam =?, points = ?, season = ?,victory = ?,podium = ?,race = ?,poles = ?,worldchampionships = ?
         WHERE idrider = ?`
-        , [name, pictureId, idteam, points, RiderId]
+        , [name, pictureId, idteam, points, season,victory,podium,race,poles,worldchampionships, RiderId]
     );
 }
 const deleteRiderById = async (RiderId) => {
@@ -62,12 +62,12 @@ const deleteCalendarbyId = async (CalendarId) => {
         `DELETE FROM Calendar WHERE idcalendar = ?`, [CalendarId]
     );
 }
-const updateCalendarById = async (address, dates, times, CalendarId) => {
+const updateCalendarById = async (address, dates, times, season,rounds,calendar_name, CalendarId) => {
     let [result, fields] = await connection.query(
         `UPDATE Calendar 
-        SET address = ?,dates =?, times =?
+        SET address = ?,dates =?, times =? , season= ?,rounds= ?,calendar_name= ?
         WHERE idcalendar = ?`
-        , [address, dates, times, CalendarId]
+        , [address, dates, times, season,rounds,calendar_name, CalendarId]
     );
 }
 
@@ -86,13 +86,13 @@ const deleteResultsbyId = async (ResultsId) => {
         `DELETE FROM Results WHERE idresult = ?`, [ResultsId]
     );
 }
-const updateResultById = async (standing, points, idrider, idcalendar, ResultsId) => {
+const updateResultById = async (standing, points, idrider, idcalendar, season,mvp_name,time_finish, ResultsId) => {
 
     let [result, fields] = await connection.query(
         `UPDATE Results 
-        SET standing = ?,points =?, idrider =?, idcalendar =? 
+        SET standing = ?,points =?, idrider =?, idcalendar =? , season=?,mvp_name=?,time_finish=?
         WHERE idresult = ?`
-        , [standing, points, idrider, idcalendar, ResultsId]
+        , [standing, points, idrider, idcalendar, season,mvp_name,time_finish, ResultsId]
     );
 }
 module.exports = {

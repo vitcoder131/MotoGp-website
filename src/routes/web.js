@@ -1,6 +1,7 @@
 const express = require('express');
-const {  getInforRiderPage,getInforTeamPage,
-getInforCalendarPage,
+const {  getInforRiderPage,getInforTeamPage,getInforStandingPage,
+getInforRecordPage,
+getInforCalendarPage,getRider,getTeam,
 getInforResultPage,getInforPage,postHandleUploadFile,  getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
 const router = express.Router();
@@ -75,12 +76,16 @@ router.post('/delete-calendar', postHandleRemoveCalendar);
 //user
 router.get('/' , getInforPage);
 router.get('/show-rider' , getInforRiderPage);
+router.get('/show-detail-rider/:id' , getRider);
+router.get('/show-detail-team/:id' , getTeam);
 router.get('/show-team' , getInforTeamPage);
 
 
 router.get('/show-calendar' , getInforCalendarPage);
 
 router.get('/show-result' , getInforResultPage);
+router.get('/show-standing' , getInforStandingPage);
+router.get('/show-record' , getInforRecordPage);
 
 
 

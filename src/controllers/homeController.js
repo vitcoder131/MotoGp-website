@@ -12,24 +12,35 @@ const postCreateRider = async (req, res) => {
     let pictureId = req.file.filename;
     let points = req.body.points;
 
-    console.log('name =', name, 'pictureId =', pictureId, 'idteam =', idteam, 'points =', points);
+    let season = req.body.season;
+    let victory = req.body.victory;
+    let podium = req.body.podium;
+    let race = req.body.race;
+    let poles = req.body.poles;
+    let worldchampionships = req.body.worldchampionships;
+
+    console.log('name =', name, 'pictureId =', pictureId, 'idteam =', idteam, 'points =', points, 'season =', season, 'victory =', victory, 'podium=', podium, 'race =', race, 'poles =', poles, 'worldchampionships=', worldchampionships);
 
     let [result, fields] = await connection.query(
-        ` INSERT INTO Rider( name, pictureId, idteam, points )  VALUES (?, ?, ?, ?)`, [name, pictureId, idteam, points]
+        ` INSERT INTO Rider( name, pictureId, idteam, points, season,victory,podium,race,poles,worldchampionships )  VALUES (?,?,?,?,?,?,?, ?, ?, ?)`, [name, pictureId, idteam, points, season, victory, podium, race, poles, worldchampionships]
     );
     console.log("check", result);
     res.redirect('/rider');
 }
 const postUpdateRider = async (req, res) => {
     let RiderId = req.body.RiderId;
-
     let name = req.body.name;
     let pictureId = req.file.filename;
     let idteam = req.body.idteam;
     let points = req.body.points;
+    let season = req.body.season;
+    let victory = req.body.victory;
+    let podium = req.body.podium;
+    let race = req.body.race;
+    let poles = req.body.poles;
+    let worldchampionships = req.body.worldchampionships;
 
-
-    await updateRiderById(name, pictureId, idteam, points, RiderId)
+    await updateRiderById(name, pictureId, idteam, points, season, victory, podium, race, poles, worldchampionships, RiderId)
     res.redirect('/rider');
 }
 const getCreateRider = (req, res) => {
@@ -50,11 +61,6 @@ const postHandleRemoveRider = async (req, res) => {
     await deleteRiderById(RiderId);
     res.redirect('/rider')
 }
-
-//upload file
-// let getUploadfile = async (req, res) => {
-//     return res.render('uploadfile.ejs')
-// }
 
 const upload = multer().single('profile-pic');
 let postHandleUploadFile = async (req, res) => {
@@ -136,11 +142,14 @@ const postCreateCalendar = async (req, res) => {
     let address = req.body.address;
     let dates = req.body.dates;
     let times = req.body.times;
+    let season = req.body.season;
+    let rounds = req.body.rounds;
+    let calendar_name = req.body.calendar_name;
 
-    console.log('address =', address, 'dates =', dates, 'times =', times);
+    console.log('address =', address, 'dates =', dates, 'times =', times, 'season =', season, 'rounds =', rounds, 'calendar_name =', calendar_name);
 
     let [result, fields] = await connection.query(
-        ` INSERT INTO Calendar( address, dates, times )  VALUES (?, ?, ?)`, [address, dates, times]
+        ` INSERT INTO Calendar( address, dates, times, season,rounds,calendar_name )  VALUES (?, ?, ?,?,?,?)`, [address, dates, times, season, rounds, calendar_name]
     );
     console.log("check", result);
     res.redirect('/calendar');
@@ -151,8 +160,11 @@ const postUpdateCalendar = async (req, res) => {
     let address = req.body.address;
     let dates = req.body.dates;
     let times = req.body.times;
+    let season = req.body.season;
+    let rounds = req.body.rounds;
+    let calendar_name = req.body.calendar_name;
 
-    await updateCalendarById(address, dates, times, CalendarId)
+    await updateCalendarById(address, dates, times, season, rounds, calendar_name, CalendarId)
     res.redirect('/calendar');
 }
 const postDeleteCalendar = async (req, res) => {
@@ -182,11 +194,14 @@ const postCreateResults = async (req, res) => {
     let points = req.body.points;
     let idrider = req.body.idrider;
     let idcalendar = req.body.idcalendar;
+    let season = req.body.season;
+    let mvp_name = req.body.mvp_name;
+    let time_finish = req.body.time_finish;
 
-    console.log('standing =', standing, 'points =', points, 'idrider =', idrider, 'idcalendar =', idcalendar);
+    console.log('standing =', standing, 'points =', points, 'idrider =', idrider, 'idcalendar =', idcalendar, 'season =', season, 'mvp_name=', mvp_name, 'time_finish =', time_finish);
 
     let [result, fields] = await connection.query(
-        ` INSERT INTO Results( standing, points, idrider,idcalendar )  VALUES (?, ?, ?, ?)`, [standing, points, idrider, idcalendar]
+        ` INSERT INTO Results( standing, points, idrider,idcalendar, season,mvp_name,time_finish )  VALUES (?, ?, ?, ?,?,?,?)`, [standing, points, idrider, idcalendar, season, mvp_name, time_finish]
     );
     console.log("check", result);
     res.redirect('/results');
@@ -198,7 +213,10 @@ const postUpdateResults = async (req, res) => {
     let points = req.body.points;
     let idrider = req.body.idrider;
     let idcalendar = req.body.idcalendar;
-    await updateResultById(standing, points, idrider, idcalendar, ResultsId)
+    let season = req.body.season;
+    let mvp_name = req.body.mvp_name;
+    let time_finish = req.body.time_finish;
+    await updateResultById(standing, points, idrider, idcalendar, season, mvp_name, time_finish, ResultsId)
     res.redirect('/results');
 }
 const postDeleteResults = async (req, res) => {
@@ -228,25 +246,46 @@ const getInforRiderPage = async (req, res) => {
     res.render('show.ejs', { type: 'rider', listUsers: results })
 }
 const getInforCalendarPage = async (req, res) => {
-        let results = await getAllCalendar();
+    let results = await getAllCalendar();
 
     res.render('show.ejs', { type: 'calendar', listUsers: results })
 }
 const getInforResultPage = async (req, res) => {
-        let results = await getAllResults();
+    let results = await getAllResults();
 
     res.render('show.ejs', { type: 'result', listUsers: results })
 }
+const getInforStandingPage = async (req, res) => {
+    let results = await getAllResults();
+
+    res.render('show.ejs', { type: 'standing', listUsers: results })
+}
+const getInforRecordPage = async (req, res) => {
+    let results = await getAllResults();
+
+    res.render('show.ejs', { type: 'record', listUsers: results })
+}
 const getInforTeamPage = async (req, res) => {
-        let results = await getAllTeam();
+    let results = await getAllTeam();
 
     res.render('show.ejs', { type: 'team', listUsers: results })
 }
-
+const getRider = async (req, res) => {
+    const RiderId = req.params.id;
+    let Rider = await getRiderbyId(RiderId);
+    res.render('show-detail.ejs', { RiderId: Rider, type: 'rider' });
+}
+const getTeam = async (req, res) => {
+    const TeamId = req.params.id;
+    let Team = await getTeambyId(TeamId);
+    res.render('show-detail.ejs', { TeamId: Team, type: 'team' });
+}
 module.exports = {
+    getRider,getTeam,
     getInforPage, getInforRiderPage, getInforTeamPage,
     getInforCalendarPage,
-    getInforResultPage,
+    getInforResultPage,getInforStandingPage,
+getInforRecordPage,
     postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar
 }

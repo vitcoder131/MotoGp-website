@@ -1,0 +1,1086 @@
+.featured-article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background: linear-gradient(to right, #1c0000, #000000);
+    color: white;
+    border-radius: 10px;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.article-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.article-text h2 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.source-date {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.share-button {
+    background-color: #222;
+    color: white;
+    border: 1px solid #666;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.article-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.article-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+
+/* latest videos*/
+.latest-videos {
+    padding: 30px 10px;
+}
+
+.latest-videos {
+    margin-top: 30px;
+
+}
+
+.latest-videos h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.videos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background-color: #111;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail {
+    position: relative;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    display: block;
+}
+
+.duration {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.video-content {
+    padding: 12px;
+}
+
+.video-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.video-date {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.view-more {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.view-more a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+/* latest news */
+.latest-news {
+    padding: 30px 10px;
+}
+
+.latest-news h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.news-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.news-card:hover {}
+
+.news-card a {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.news-card img {
+    width: 100%;
+    display: block;
+}
+
+.news-card:hover img {}
+
+.news-card h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 12px;
+    line-height: 1.4;
+}
+
+.news-card .date,
+.news-card .author {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0 12px 8px;
+}
+
+/*videopass-promo */
+.videopass-promo {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+}
+
+.promo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.promo-img img {
+    width: 100%;
+    max-width: 700px;
+    /* tăng ảnh */
+    border-radius: 15px;
+}
+
+.promo-content {
+    max-width: 400px;
+}
+
+.promo-content h2 {
+    font-size: 2rem;
+    /* giảm size */
+    color: #d50000;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.promo-content p {
+    font-size: 1rem;
+    /* giảm size */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.subscribe-button {
+    display: inline-block;
+    background-color: #d50000;
+    color: #fff;
+    padding: 10px 25px;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.subscribe-button:hover {
+    background-color: #a00000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .promo-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promo-content {
+        text-align: center;
+    }
+}
+
+/* latest races */
+/* latest races */
+.latest-races {
+    padding: 30px 10px;
+    margin-top: 30px;
+}
+
+.latest-races h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.races-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.race-card {
+    background-color: #111;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.race-thumbnail {
+    position: relative;
+}
+
+.race-thumbnail img {
+    width: 100%;
+    display: block;
+}
+
+.race-content {
+    padding: 12px;
+}
+
+.race-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.race-date {
+    font-size: 12px;
+    color: #aaa;
+}
+
+
+/* upcoming events*/
+.upcoming-events {
+    padding: 40px 20px;
+}
+
+.upcoming-events h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* GRID CONTAINER */
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* EVENT CARD */
+.event-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px solid red;
+}
+
+/* BACKGROUND IMAGE */
+.event-bg {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+/* CONTENT OVERLAY */
+.event-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 60%);
+    color: white;
+    z-index: 1;
+}
+
+/* GP LABEL */
+.event-gp {
+    background-color: #e30613;
+    padding: 4px 12px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* LOCATION */
+.event-location {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+/* DATE AND FLAG */
+.event-info {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    gap: 8px;
+}
+
+.flag-icon {
+    width: 18px;
+    height: 12px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* for you section*/
+.for-you-section {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.for-you-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.for-you-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.for-you-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.for-you-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.for-you-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.watch-button {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.watch-button:hover {
+    background-color: darkred;
+}
+
+/* must see*/
+.must-see {
+    padding: 40px 20px;
+    background-color: white;
+    font-family: sans-serif;
+}
+
+.must-see-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.must-see-header h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background-color: black;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail {
+    position: relative;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.duration {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.video-content {
+    padding: 12px;
+}
+
+.video-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.video-date {
+    font-size: 12px;
+    color: white;
+}
+
+/* Recommended Section */
+.recommended-section {
+    padding: 30px 10px;
+}
+
+.recommended-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: left;
+    /* Căn lề trái */
+}
+
+.recommended-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.recommended-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recommended-card a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding-left: 10px;
+    /* 👈 Thêm padding bên trái */
+}
+
+.recommended-card img {
+    width: 100%;
+    height: 180px;
+    /* ✅ Chiều cao ảnh cố định */
+    object-fit: cover;
+    /* ✅ Cắt ảnh cho đều */
+    display: block;
+}
+
+.recommended-card h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 12px;
+    line-height: 1.4;
+}
+
+.recommended-card .date,
+.recommended-card .source {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0 12px 8px;
+}
+
+.card-footer {
+    font-size: 12px;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-top: auto;
+    margin-bottom: 12px;
+    /* Cách nền dưới 1 dòng */
+}
+
+/*fanclub-section*/
+.fanclub-section {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+}
+
+
+.fanclub-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.fanclub-text {
+    flex: 1 1 45%;
+}
+
+.fanclub-text h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.fanclub-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.join-btn {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.join-btn:hover {
+    background-color: darkred;
+}
+
+.fanclub-image {
+    flex: 1 1 45%;
+    text-align: center;
+}
+
+.fanclub-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+
+/*tickets-section*/
+.tickets-section {
+    padding: 20px 10px;
+    /* Điều chỉnh padding */
+    text-align: left;
+    /* Căn trái tiêu đề */
+}
+
+.tickets-section h2 {
+    font-size: 1.8rem;
+    /* Giảm kích thước tiêu đề */
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    /* Điều chỉnh margin */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    /* Giảm letter-spacing */
+}
+
+.tickets-container {
+    display: flex;
+    justify-content: space-between;
+    /* Giữ căn đều */
+    gap: 15px;
+    /* Giảm khoảng cách giữa các thẻ */
+    overflow-x: auto;
+    padding-bottom: 15px;
+    /* Điều chỉnh padding bottom */
+}
+
+.ticket-card {
+    position: relative;
+    flex: 1 0 auto;
+    width: auto;
+    height: 180px;
+    /* Giảm chiều cao thẻ */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    /* Giảm border-radius */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Giảm box-shadow */
+}
+
+.ticket-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    /* Điều chỉnh độ mờ */
+    color: white;
+    padding: 10px;
+    /* Giảm padding overlay */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.ticket-overlay .buy-now {
+    background-color: red;
+    padding: 5px 10px;
+    /* Giảm padding nút */
+    font-size: 0.8rem;
+    /* Giảm kích thước chữ nút */
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 4px;
+    /* Giảm border-radius nút */
+    position: absolute;
+    top: 8px;
+    /* Điều chỉnh vị trí nút */
+    left: 8px;
+    /* Điều chỉnh vị trí nút */
+}
+
+.ticket-overlay h3 {
+    font-size: 1.1rem;
+    /* Giảm kích thước tiêu đề */
+    margin: 5px 0;
+    /* Điều chỉnh margin tiêu đề */
+    font-weight: bold;
+}
+
+.ticket-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    /* Giảm kích thước chữ p */
+    display: flex;
+    align-items: center;
+}
+
+.ticket-overlay p img.flag {
+    width: 18px;
+    /* Giảm kích thước cờ */
+    height: auto;
+    margin-right: 5px;
+    /* Giảm margin cờ */
+}
+
+/*riders-section*/
+.riders-section {
+    padding: 30px 20px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.riders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.riders-header h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.riders-header .view-more {
+    font-weight: bold;
+    color: #111;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.riders-header .view-more span {
+    color: red;
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.riders-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.rider-card {
+    flex: 0 0 auto;
+    width: 260px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rider-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+
+/* mgp fanclub */
+.fanclub-section {
+    padding: 20px 10px;
+    background-color: #f8f8f8;
+    /* Màu nền cho section nếu cần */
+}
+
+.fanclub-container {
+    max-width: none;
+    /* Loại bỏ max-width để container có thể rộng hết cỡ */
+    margin: 0;
+    /* Loại bỏ margin mặc định của container */
+    padding: 0;
+}
+
+.mgp-banner-image {
+    display: block;
+    /* Loại bỏ khoảng trắng thừa dưới ảnh */
+    width: 100%;
+    /* Ảnh rộng 100% container */
+    border-radius: 5px;
+    /* Bo tròn góc nếu cần */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Thêm bóng đổ nhẹ nếu cần */
+}
+
+/* best seller*/
+.best-sellers {
+    padding: 30px 20px;
+    text-align: left;
+}
+
+.best-sellers h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.best-sellers .container {
+    display: flex;
+    gap: 20px;
+    /* Tăng khoảng cách giữa các ô */
+    overflow-x: auto;
+    padding: 20px;
+    /* Thêm padding xung quanh container */
+}
+
+.best-sellers .card {
+    flex: 0 0 auto;
+    width: 260px;
+    /* Tăng chiều rộng ô */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.best-sellers .card img {
+    width: 100%;
+    /* Ảnh full chiều rộng ô */
+    height: auto;
+    display: block;
+}
+
+/* watch*/
+.watch {
+    padding: 30px 20px;
+    text-align: left;
+}
+
+.watch h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.watch .container {
+    display: flex;
+    gap: 20px;
+    /* Increased gap to match .best-sellers */
+    overflow-x: auto;
+    padding: 20px;
+    /* Added padding to match .best-sellers */
+}
+
+.watch .card {
+    flex: 0 0 auto;
+    width: 260px;
+    /* Increased width to match .best-sellers */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.watch .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    /* Keep border-radius for images */
+}
+
+
+
+/*MotoGP™ Documentaries */
+.Documentaries {
+    padding: 30px 20px;
+    text-align: left;
+}
+
+.Documentaries h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.Documentaries .container {
+    display: flex;
+    gap: 20px;
+    /* Increased gap to match .best-sellers */
+    overflow-x: auto;
+    padding: 20px;
+    /* Added padding to match .best-sellers */
+}
+
+.Documentaries .card {
+    flex: 0 0 auto;
+    width: 260px;
+    /* Increased width to match .best-sellers */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Documentaries .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    /* Keep border-radius for images */
+}
+
+
+
+/* new motogp */
+.new-motogp {
+    padding: 30px 10px;
+    margin-top: 30px;
+}
+
+.new-motogp h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.new-motogp .videos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.new-motogp .video-card {
+    background-color: #111;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.new-motogp .video-thumbnail {
+    position: relative;
+}
+
+.new-motogp .video-thumbnail img {
+    width: 100%;
+    display: block;
+}
+
+.new-motogp .duration {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.new-motogp .video-content {
+    padding: 12px;
+}
+
+.new-motogp .video-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.new-motogp .video-date {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.new-motogp .view-more {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.new-motogp .view-more a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+/* newsletter section */
+.newsletter {
+    width: 100%;
+    /* hoặc max-width: 100%; */
+    padding: 40px 40px;
+    /* tăng padding 2 bên nếu muốn */
+    box-sizing: border-box;
+    /* để padding không làm tràn ra ngoài */
+    border-radius: 8px;
+    background-color: #13171b;
+    color: #fff;
+    text-align: center;
+    margin-top: 60px;
+}
+
+
+.newsletter h2 {
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.newsletter {
+    background-color: #13171b;
+    color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 60px;
+    /* ✅ tạo khoảng cách phía trên */
+}
+
+.btn-signup {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 999px;
+    /* bo tròn hoàn toàn */
+    transition: background 0.3s ease;
+    margin-top: 60px;
+}
+
+.btn-signup:hover {
+    background-color: #ddd;
+}
+
+
+
+/* Hoang css  */

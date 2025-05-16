@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGP™ Results and Standings | 2025</title>
+    <link rel="stylesheet" href="/css/show-rider.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <div class="empty"></div>
+            <ul>
+                <li><a href="">Vote</a></li>
+                <li><a href="">Tickets</a></li>
+                <li><a href="">Hospitality</a></li>
+                <li><a href="">Experiences</a></li>
+                <li><a href="">Store</a></li>
+                <li><a href="">Authentics</a></li>
+            </ul>
+
+            <a href="" class="i"><img src="/images/timeingpass.svg" alt=""></a>
+            <a href="" class="i"><img src="/images/videopass.svg" alt=""></a>
+            <a href="" class="subcribe">Subcribe</a>
+            <a href="" class="Eng"><select name="" id="">
+                    <option value="">Eng</option>
+                </select></a>
+            <a href="" class="im"><img src="/images/FIM-logo.svg" alt=""></a>
+
+        </div>
+        <div class="border-white"></div>
+        <div class="header-bottom">
+            <div class="xoc" onclick="toggleMenu()"><i class="fa-solid fa-bars"
+                    style="color: white; font-size: 24px;"></i>
+            </div>
+            <div class="sidebar" id="sidebar">
+                <div class="close-btn" onclick="toggleMenu()">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <ul>
+                    <li><a href="/show-calendar">🏁 Calendar</a></li>
+                    <li><a href="/show-result">📊 Results</a></li>
+                    <li><a href="#">🏆 Standings</a></li>
+                    <li><a href="/show-rider">🏍️ Riders & Teams</a></li>
+                    <li><a href="#">🎥 VideoPass</a></li>
+                    <li><a href="#">📰 News</a></li>
+                    <li><a href="#">ℹ️ About MotoGP™</a></li>
+                </ul>
+            </div>
+
+            <a href="/"><img src="/images/logo.png" alt=""></a>
+            <ul>
+                <li><a href="/show-calendar">Calendar</a></li>
+                <li><a href="/show-result">Results & Standings</a></li>
+                <li><a href="/show-rider">Riders & Teams</a></li>
+                <li><a href="">VideoPass</a></li>
+                <li><a href="">Videos</a></li>
+                <li><a href="">News</a></li>
+            </ul>
+            <div class="xoc1">
+            </div>
+
+            <ul class="login">
+                <li><a href="">Login</a></li>
+                <li><a href="">Register</a></li>
+            </ul>
+        </div>
+    </header>
+    <main id="main_content">
+        <% if (type==='rider' ){ %>
+            <div class="default_template">
+                <div class="rider_hero">
+                    <div class="rider_hero_container js-lazy-load-images">
+                        <div class="rider_hero_background">
+                            <div class="rider_hero_background_team_colour"
+                                style="background-color: rgb(155, 174, 228);">
+                            </div>
+                            <div class="rider_hero_background-info">
+                                <div class="rider_hero_background-initials">
+                                    <%=RiderId.idrider%>
+                                </div>
+                                <div class="rider_hero_background-name">
+                                    <%=RiderId.name%>
+                                </div>
+                            </div>
+                            <div class="rider_hero_background-gradient"></div>
+                            <div class="rider_hero_background-image">
+                                <div class="rider_image_container">
+                                    <div class="rider_image">
+                                        <div class="js-lazy-load u-observed lazy-image-wrapper">
+                                            <picture class=" picture">
+                                                <img src="/images/<%= RiderId.pictureId %>">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rider_hero_background-image-gradient"></div>
+                        </div>
+                        <div class="rider_hero_info-container">
+                            <span class="rider_hero_info-hashtag">
+                                <%=RiderId.idrider%>
+                            </span>
+                            <span class="rider_hero_info-name">
+                                <%=RiderId.name%>
+                            </span>
+                            <div class="rider_hero_details-container">
+                                <span class="rider_hero_details-country">
+
+                                    <%=RiderId.country%>
+                                </span>
+                                <span class="rider_hero_details-team">
+                                    <%=RiderId.idteam%> MotoGP
+                                </span>
+                            </div>
+                            <a href="#" class="rider_hero_shop-now-button">
+                                <img src="/images/icon/Shopping cart.svg" alt="" class="shop_now">
+                                Shop Now
+                            </a>
+                            <div class="rider_hero_current-season-container">
+                                <div class="rider_hero_current-season-title">
+                                    Current Season
+                                </div>
+                                <div class="rider_hero_current-season-stats-container">
+                                    <div class="rider_hero_current-season-stats-stat">
+                                        <span class="rider_hero_current-season-stats-title">Position</span>
+                                        <span class="rider_hero_current-season-stats-value">
+                                            <%=RiderId.podium%>
+                                        </span>
+                                    </div>
+                                    <div class="rider_hero_current-season-stats-stat">
+                                        <span class="rider_hero_current-season-stats-title">Points</span>
+                                        <span class="rider_hero_current-season-stats-value">
+                                            <%=RiderId.points%>
+                                        </span>
+                                    </div>
+                                    <div class="rider_hero_current-season-stats-stat">
+                                        <span class="rider_hero_current-season-stats-title">Victories</span>
+                                        <span class="rider_hero_current-season-stats-value">
+                                            <%=RiderId.victory%>
+                                        </span>
+                                    </div>
+                                </div>
+
+
+                                <a href="/results/index.html" class="rider_hero_results-and-standings-button">
+                                    Results & Standings
+                                    <img src="/images/icon/chevron.svg" class=" chevron">
+                                </a>
+                                <div class="rider_hero_teammate-container">
+                                    <a href="" class="rider_hero_teammate-profile">
+                                        <div class="rider_hero_teammate">
+                                            <div class="rider_hero_teammate-image-container">
+                                                <div class="rider_image_container">
+                                                    <div class="rider_image">
+                                                        <div class="u-observed">
+                                                            <picture class="picture">
+                                                                <img src="/images/rider/F. Aldeguer.webp"
+                                                                    class="img undefined picture_img ">
+                                                            </picture>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rider_hero_teammate-details">
+                                                <div class="rider_hero_teammate-title">Teammate</div>
+                                                <div class="rider_hero_teammate-name">
+                                                    <%=RiderId.name%>
+                                                </div>
+                                            </div>
+                                            <img src="/images/icon/chevron.svg" class="chevron">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="profile_tabs">
+                    <div class="tabs_tab_content tabs_tab_content--grey ">
+                        <div class="rider_stats">
+                            <div class="rider_stats_header">
+                                <header class="widget_header">
+                                    <h2 class="widget_header_title">
+                                        Rider Starts
+                                    </h2>
+                                </header>
+                            </div>
+                            <div class="rider_stats_container">
+                                <div class="rider_stats_menu-container">
+                                    <button title="total" class="rider_stats_menu-button active">Total</button>
+                                    <button title="MotoGP™" class="rider_stats_menu-button">MotoGP™</button>
+                                    <button title="Moto2™" class="rider_stats_menu-button">Moto2™</button>
+                                    <button title="Moto3™" class="rider_stats_menu-button">Moto3™</button>
+                                </div>
+                                <div class="rider_stats_stats-container rider_stats_stats-container--tablet ">
+                                    <div class="rider_stats_stats-stat">
+                                        <span class="rider_stats_stats-stat-title">
+                                            WORLD CHAMPIONSHIPS
+                                        </span>
+                                        <span class="rider_stats_stats-stat-value ">
+                                            <%=RiderId.worldchampionships%>
+                                        </span>
+                                    </div>
+                                    <div class="rider_stats_stats-stat">
+                                        <span class="rider_stats_stats-stat-title">
+                                            Victories
+                                        </span>
+                                        <span class="rider_stats_stats-stat-value ">
+                                            <%=RiderId.victory%>
+
+                                        </span>
+                                    </div>
+                                    <div class="rider_stats_stats-stat">
+                                        <span class="rider_stats_stats-stat-title">
+                                            Podiums
+                                        </span>
+                                        <span class="rider_stats_stats-stat-value ">
+                                            <%=RiderId.podium%>
+                                        </span>
+                                    </div>
+                                    <div class="rider_stats_stats-stat">
+                                        <span class="rider_stats_stats-stat-title">
+                                            Poles
+                                        </span>
+                                        <span class="rider_stats_stats-stat-value ">
+                                            <%=RiderId.poles%>
+                                        </span>
+                                    </div>
+                                    <div class="rider_stats_stats-stat">
+                                        <span class="rider_stats_stats-stat-title">
+                                            Races
+                                        </span>
+                                        <span class="rider_stats_stats-stat-value ">
+                                            <%=RiderId.race%>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content_grid">
+                            <div class="content_grid_container widget-outer-spacing">
+                                <header class="widget-header content-listing-header">
+                                    <h2 class="widget_header_title">Videos</h2>
+                                </header>
+                                <div class="content_grid_listing">
+                                    <ul class="content_grid_listing-container block-list-4">
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class=" object_fit_cover_picture ">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_1.webp"
+                                                                alt="UNSEEN: I'm not going to gift you anything!">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:04:30
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">UNSEEN: "I'm not going to gift you
+                                                        anything!"</h3>
+                                                    <p class="content_item_description">
+                                                        Don’t miss Alex Marquez’s celebration in Jerez, going from
+                                                        excitement to euphoria after his historic win, and his chat with
+                                                        his
+                                                        brother Marc
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">01 May
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_2.webp"
+                                                                alt="UNHEARD: I'd forgotten what it's like to be here">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:02:12
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">UNHEARD: "I'd forgotten what it's
+                                                        like to
+                                                        be here"</h3>
+                                                    <p class="content_item_description">
+                                                        An inside look at the riders reconnecting and relaxing in the
+                                                        paddock before the big day in Jerez.
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_3.webp"
+                                                                alt="Today is my day - Alex Marquez reflects on breakthrough victory">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:00:55
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">"Today is my day" - Alex Marquez
+                                                        reflects
+                                                        on breakthrough victory</h3>
+                                                    <p class="content_item_description">
+                                                        Emotions overflow for Alex Marquez after claiming his
+                                                        long-awaited
+                                                        win in front of home fans.
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_4.webp"
+                                                                alt="Marc and Alex Marquez: MotoGP’s first winning brothers">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:01:41
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">Marc and Alex Marquez: MotoGP’s first
+                                                        winning brothers</h3>
+                                                    <p class="content_item_description">
+                                                        History made as the Marquez brothers both take victories in the
+                                                        same
+                                                        weekend – relive the moment.
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_5.webp"
+                                                                alt="After the Flag: Spanish GP">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:36:02
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">After the Flag: Spanish GP</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_6.webp"
+                                                                alt="Patience pays off for Alex Marquez as focus turns to Sunday">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:01:59
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">Patience pays off for Alex Marquez as
+                                                        focus turns to Sunday</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">26 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_7.webp"
+                                                                alt="Crash, reset, record – Alex Marquez strikes back in Jerez">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:00:45
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">Crash, reset, record – Alex Marquez
+                                                        strikes back in Jerez</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">25 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_8.webp"
+                                                                alt="LAST 5 MINS: Jerez sees first ever 1:35 lap in Practice thriller">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:07:32
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">LAST 5 MINS: Jerez sees first ever
+                                                        1:35
+                                                        lap in Practice thriller</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">25 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <footer class="widget_footer content_grid_footer">
+                                    <button
+                                        class="widget_footer_button content_grid_show-more-button button button--primary-light">
+                                        <span class="u-screen-reader">Load More</span>
+                                    </button>
+                                </footer>
+                            </div>
+                        </div>
+
+                        <section class="rider_bio_container widget-outer-spacing">
+
+                            <section class="rider_bio">
+                                <header class="widget_header">
+                                    <h2 class="widget_header_title">Rider Bio</h2>
+
+                                </header>
+                                <div class="rider_bio_table">
+                                    <div class="rider_bio_row">
+                                        <p class="rider_bio_key">Bike</p>
+                                        <p class="rider_bio_value">Ducati</p>
+                                    </div>
+                                    <div class="rider_bio_row">
+                                        <p class="rider_bio_key">Date of birth</p>
+                                        <p class="rider_bio_value">23/04/1996</p>
+                                    </div>
+                                    <div class="rider_bio_row">
+                                        <p class="rider_bio_key">Place of birth</p>
+                                        <p class="rider_bio_value">Cervera
+                                        </p>
+                                    </div>
+                                    <div class="rider_bio_row">
+                                        <p class="rider_bio_key">Height</p>
+                                        <p class="rider_bio_value">
+                                            180 cm
+                                        </p>
+                                    </div>
+                                    <div class="rider_bio_row">
+                                        <p class="rider_bio_key">Weight</p>
+                                        <p class="rider_bio_value">
+                                            65 kg
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="rider_story">
+                                <header class="widget_header">
+                                    <h2 class="widget_header_title">Rider Story</h2>
+
+
+                                </header>
+                                <div class="rider_story_content">
+                                    <p></p>
+                                    <p style="margin-bottom:32px">The younger brother of reigning MotoGP™ World Champion
+                                        Marc Marquez, Alex Marquez began his path to the world stage in 2010 when he
+                                        joined
+                                        Team Competition Monlau 125 in the FIM CEV Repsol. He did not participate in the
+                                        first race of the Championship, as he was five days below the minimum age to
+                                        compete. Yet in the second race, held at Albacete, he achieved 11th place. That
+                                        year
+                                        he finished 11th in the final standings with 24 points. In 2011 he then came
+                                        very
+                                        close finishing the season top, but just missed out to older rival Alex Rins.
+                                        2012
+                                        proved to be his year, as he won the Moto3™ CEV title, and took part in numerous
+                                        wildcard rides in the Moto3™ World Championship including an incredible
+                                        performance
+                                        at the Catalan GP. For the 2013 season he stepped up full time with the Estrella
+                                        Galicia 0,0 team and secured his first victory at Motegi, coming fourth overall.
+                                        In
+                                        2014, Marquez won more races and took more podiums on the way to taking the
+                                        Moto3™
+                                        World Championship. </p>
+
+                                    <p style="margin-bottom:32px">Marquez then moved up to Moto2™ with the EG0,0 Marc
+                                        VDS
+                                        team for 2015 and had a tough rookie year with two top four finishes, looking to
+                                        expand on the potential he showed the following year as rider and team remained
+                                        together in 2016. He started the season with an arm injury, but then took his
+                                        first
+                                        podium finish with a stunning ride at MotorLand Aragon to come home P2 after a
+                                        last
+                                        corner duel. Taking his first intermediate class win after proving unstoppable
+                                        on
+                                        home turf at Jerez, Marquez followed it up with another win at home in the
+                                        Catalan
+                                        GP. Then injured mid-season and taking some time to recover fully, the rider
+                                        from
+                                        Cervera was unable to fight for the title but took fourth overall, after another
+                                        victory at Motegi in a tactical masterpiece. In 2018, Marquez was able to claim
+                                        six
+                                        podium finishes, but he went the year without a win. Remaining with the team for
+                                        another year, 2019 saw Marquez step up to the plate. Five victories and another
+                                        five
+                                        podiums saw him claim his second World Championship with a race to spare, and
+                                        following Jorge Lorenzo’s retirement from MotoGP™, the then Moto2™ World
+                                        Champion
+                                        stepped into the Repsol Honda colours to partner his brother Marc for 2020. </p>
+
+                                    <p style="margin-bottom:32px">While it was a year to forget for the older Marquez
+                                        brother, Alex made hay as he claimed back-to-back second places in the French
+                                        and
+                                        Aragon GPs. He narrowly missed out on the Rookie of the Year award, coming 14th
+                                        overall in his maiden year. 2021 saw him remain with Honda, but in the LCR Honda
+                                        Castrol ranks under the guidance of Lucio Cecchinello. A struggling Honda
+                                        package
+                                        saw Marquez struggle to find any real form, but P4 at the Algarve GP was a
+                                        reminder
+                                        of the speed Marquez possesses. Staying with LCR in 2022, a brand-new HRC bike
+                                        couldn't deliver an upturn in results as Marquez failed to break into the top
+                                        six
+                                        all year. 2023 saw the Spaniard jump on Bagnaia's Championship-winning GP22 as
+                                        he
+                                        replaced Bastianini at Gresini Racing. Two Sunday podiums arrived, the best of
+                                        which
+                                        came in Malaysia with a P2, while a Sprint win was claimed at Silverstone. A
+                                        second
+                                        season with Gresini Ducati awaited in 2024, with the highlight coming in Germany
+                                        as
+                                        he and elder brother (and teammate) Marc stood on the Sunday podium together.
+                                        After
+                                        a P7 Championship finish and strong end to the season, Marquez will be pushing
+                                        for
+                                        that maiden win and regular podiums when he stays with Gresini in 2025. </p>
+                                    <p></p>
+                                </div>
+                            </section>
+
+                        </section>
+                    </div>
+                </section>
+            </div>
+            <!-- detail-team -->
+            <% }else if (type==='team' ){ %>
+                <section class="team-header">
+                    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+                    <div class="team-info">
+                        <a href="/show-team" class="back-link">&lt; ALL TEAMS</a>
+                        <h1 class="team-name"><%= TeamId.name %></h1>
+                        <p class="manufacturer">BIKE <%= TeamId.name %> <span><%= TeamId.country %></span></p>
+
+                        <h2 class="team-riders-title"><span>/</span>TEAM RIDERS</h2>
+                        <div class="rider-list">
+                            <div class="rider-item">
+                                <img src="/images/<%= TeamId.pictureTeam %>" alt="Jorge Martin">
+                                <div class="rider-details">
+                                    <p class="rider-number">#JM1</p>
+                                    <p class="rider-name">Jorge Martin</p>
+                                </div>
+                                <span class="arrow">&gt;</span>
+                            </div>
+                            <div class="rider-item">
+                                <img src="/images/<%= TeamId.pitureTeam %>" alt="Marco Bezzecchi">
+                                <div class="rider-details">
+                                    <p class="rider-number">#MB72</p>
+                                    <p class="rider-name">Marco Bezzecchi</p>
+                                </div>
+                                <span class="arrow">&gt;</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-bike">
+                        <img src="/images/<%= TeamId.pictureTeam %>" alt="Aprilia Bike">
+                    </div>
+
+                    <div class="background-text">RACING</div>
+
+                </section>
+                <div class="content_grid">
+                            <div class="content_grid_container widget-outer-spacing">
+                                <header class="widget-header content-listing-header">
+                                    <h2 class="widget_header_title">Videos</h2>
+                                </header>
+                                <div class="content_grid_listing">
+                                    <ul class="content_grid_listing-container block-list-4">
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class=" object_fit_cover_picture ">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_1.webp"
+                                                                alt="UNSEEN: I'm not going to gift you anything!">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:04:30
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">UNSEEN: "I'm not going to gift you
+                                                        anything!"</h3>
+                                                    <p class="content_item_description">
+                                                        Don’t miss Alex Marquez’s celebration in Jerez, going from
+                                                        excitement to euphoria after his historic win, and his chat with
+                                                        his
+                                                        brother Marc
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">01 May
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_2.webp"
+                                                                alt="UNHEARD: I'd forgotten what it's like to be here">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:02:12
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">UNHEARD: "I'd forgotten what it's
+                                                        like to
+                                                        be here"</h3>
+                                                    <p class="content_item_description">
+                                                        An inside look at the riders reconnecting and relaxing in the
+                                                        paddock before the big day in Jerez.
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_3.webp"
+                                                                alt="Today is my day - Alex Marquez reflects on breakthrough victory">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:00:55
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">"Today is my day" - Alex Marquez
+                                                        reflects
+                                                        on breakthrough victory</h3>
+                                                    <p class="content_item_description">
+                                                        Emotions overflow for Alex Marquez after claiming his
+                                                        long-awaited
+                                                        win in front of home fans.
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_4.webp"
+                                                                alt="Marc and Alex Marquez: MotoGP’s first winning brothers">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:01:41
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">Marc and Alex Marquez: MotoGP’s first
+                                                        winning brothers</h3>
+                                                    <p class="content_item_description">
+                                                        History made as the Marquez brothers both take victories in the
+                                                        same
+                                                        weekend – relive the moment.
+                                                    </p>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_5.webp"
+                                                                alt="After the Flag: Spanish GP">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:36:02
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">After the Flag: Spanish GP</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">27 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_6.webp"
+                                                                alt="Patience pays off for Alex Marquez as focus turns to Sunday">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:01:59
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">Patience pays off for Alex Marquez as
+                                                        focus turns to Sunday</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">26 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_7.webp"
+                                                                alt="Crash, reset, record – Alex Marquez strikes back in Jerez">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:00:45
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">Crash, reset, record – Alex Marquez
+                                                        strikes back in Jerez</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">25 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="content_item content_item_video-item">
+                                            <a href="" class="content_item_link">
+                                                <div class="content_item_thumbnail">
+                                                    <div class="u-observed">
+                                                        <picture class="object_fit_cover_picture">
+                                                            <img class="fade-in-on-load object-fit-cover-picture__img is-loaded"
+                                                                src="/images/img_video/video_8.webp"
+                                                                alt="LAST 5 MINS: Jerez sees first ever 1:35 lap in Practice thriller">
+                                                        </picture>
+                                                        <div
+                                                            class="content_item_thumbnail-duration-container content_item_thumbnail-icon">
+                                                            <time class="content_item_thumbnail-duration">
+                                                                <div class="content_item_thumbnail-play-icon">
+                                                                    <img class="play_icon" src="/images/icon/play.svg"
+                                                                        alt="">
+                                                                </div>
+                                                                00:07:32
+                                                            </time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content_item_info">
+                                                    <h3 class="content_item_title">LAST 5 MINS: Jerez sees first ever
+                                                        1:35
+                                                        lap in Practice thriller</h3>
+                                                    <footer class="content_item_footer">
+                                                        <p class="content_item_publish-text">
+                                                            <time class="date content_item_publish-time">25 Apr
+                                                                2025</time>
+                                                        </p>
+                                                    </footer>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <footer class="widget_footer content_grid_footer">
+                                    <button
+                                        class="widget_footer_button content_grid_show-more-button button button--primary-light">
+                                        <span class="u-screen-reader">Load More</span>
+                                    </button>
+                                </footer>
+                            </div>
+                        </div>
+                <!-- detail-calendar -->
+                <% }else if (type==='calendar' ){ %>
+
+                    <% } %>
+    </main>
+    <footer>
+        <img class="logo" src="/images/footer1.png" alt="" class="motogp">
+        <p>Official Sponsors</p>
+        <div class="logong">
+            <ul>
+                <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <ul class="media">
+                <li><a href="" class="ma">Media & Commercial</a></li>
+                <li><a href="">Official Sponsors</a></li>
+                <li><a href="">TV Broadcast</a></li>
+                <li><a href="">MotoGP™ Apps</a></li>
+            </ul>
+            <ul class="media">
+                <li><a href="" class="ma">Media & Commercial</a></li>
+                <li><a href="">Official Sponsors</a></li>
+                <li><a href="">TV Broadcast</a></li>
+                <li><a href="">MotoGP™ Apps</a></li>
+            </ul>
+            <ul class="media">
+                <li><a href="" class="ma">Media & Commercial</a></li>
+                <li><a href="">Official Sponsors</a></li>
+                <li><a href="">TV Broadcast</a></li>
+                <li><a href="">MotoGP™ Apps</a></li>
+            </ul>
+            <ul class="media">
+                <li><a href="" class="ma">Media & Commercial</a></li>
+                <li><a href="">Official Sponsors</a></li>
+                <li><a href="">TV Broadcast</a></li>
+                <li><a href="">MotoGP™ Apps</a></li>
+            </ul>
+            <ul class="media">
+                <li><a href="" class="ma">Media & Commercial</a></li>
+                <li><a href="">Official Sponsors</a></li>
+                <li><a href="">TV Broadcast</a></li>
+                <li><a href="">MotoGP™ Apps</a></li>
+            </ul>
+
+        </div>
+        <div class="contact">
+            <div class="col-1"></div>
+            <div class="col-2">
+                <p>Download the Official MotoGP™ App</p>
+
+            </div>
+            <div class="col-4">
+                <a href=""><img src="/images/f1.png" alt=""></a>
+            </div>
+            <div class="col-6">
+                <a href=""><img src="/images/f2.png" alt=""></a>
+            </div>
+        </div>
+        <div class="border-black"></div>
+        <div class="end">
+            <p>© 2025 Dorna Sports SL. All rights reserved. All trademarks are the property of their
+                respective
+                owners.</p>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

@@ -313,8 +313,7 @@ footer .end p {
   overflow-y: auto;
 }
 
-
-#riders-section {
+.containerA #rider-section {
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -326,27 +325,23 @@ footer .end p {
   justify-content: flex-start;
   align-items: flex-start;
 }
-
-.riders-header {
+.containerA .rider-header {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
 }
-
-.riders-header h1 {
+.containerA .riders-header h1 {
   font-family: 'Russo One', sans-serif;
   font-size: 48px;
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 20px;
-  color: black;
+  color: rgb(7, 7, 7);
 }
-
 .tab-menu {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 30px;
 }
-
 .tab-menu button {
   background: transparent;
   border: none;
@@ -357,17 +352,14 @@ footer .end p {
   border-bottom: 2px solid transparent;
   cursor: pointer;
 }
-
 .tab-menu button.active {
   border-bottom: 2px solid red;
 }
-
 .category-filter {
   margin-top: 30px;
   display: flex;
   justify-content: flex-start;
 }
-
 .category-filter button {
   border: none;
   padding: 10px 20px;
@@ -378,12 +370,10 @@ footer .end p {
   color: #333;
   cursor: pointer;
 }
-
 .category-filter .selected {
   background: #c00;
   color: white;
 }
-
 h2 {
   margin-top: 50px;
   color: black;
@@ -399,14 +389,13 @@ h2 {
   width: 1450px;
   margin: auto;
 }
-.rider-grid {
+.rider-grid, .team-grid {
   display: flex;
   gap: 5px;
   justify-items: center;
   flex-wrap: wrap;
 }
-
-.rider-card {
+.rider-card, .team-card {
   height: 450px;
   position: relative;
   width: 100%;
@@ -421,8 +410,7 @@ h2 {
   margin-left: 7px;
 
 }
-
-.rider-info h2 {
+.rider-info h2, .team-info h2 {
   color: white;
   width: 100%;
   font-family: 'Russo One', sans-serif;
@@ -431,37 +419,25 @@ h2 {
   margin: 5px;
   clear: both;
 }
-
-.rider-card img {
+.rider-card img, .team-card img {
   width: 100%;
   object-fit: cover;
 
 }
-
-.rider-info {
+.rider-info,.team-info {
   padding: 20px;
   font-family: Arial, sans-serif;
   position: absolute;
   bottom: 1px;
 }
-
-
-
-.rider-info h2 span {
+.rider-info h2 span, .team-info h2 span {
   font-size: 28px;
   font-weight: bold;
 }
-
-.rider-info p {
+.rider-info p, .team-info p {
   font-family: 'Russo One', sans-serif;
   font-size: 16px;
 }
-
-.rider-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .shirt-slider {
   width: 100%;
   overflow-x: auto;
@@ -497,8 +473,6 @@ h2 {
   width: 100%;
   flex-wrap: wrap;
 }
-
-
 .favourite-img img {
   max-width: 600px;
   width: 100%;
@@ -506,27 +480,23 @@ h2 {
   border-radius: 0;
   object-fit: cover;
 }
-
 .favourite-text {
   max-width: 600px;
   font-family: 'Russo One', sans-serif;
   color: #000;
   margin-right: 80px;
 }
-
 .favourite-text h2 {
   font-size: 36px;
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
-
 .favourite-text p {
   font-size: 18px;
   margin-bottom: 30px;
   line-height: 1.6;
   color: #333;
 }
-
 .select-btn {
   background-color: #c00;
   color: white;
@@ -537,60 +507,15 @@ h2 {
   font-weight: bold;
   transition: background-color 0.3s;
 }
-
 .select-btn :hover {
   background-color: #a00;
 }
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  justify-items: center;
-}
-
-.team-card {
-  width: 100%;
-  max-width: 300px;
-  background: linear-gradient(to bottom right, #1c1c3a, #111);
-  border-radius: 20px;
-  overflow: hidden;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s;
-  cursor: pointer;
-  margin-left: 15px;
-  flex-grow: 1;
-}
-
-.team-card img {
-  width: 100%;
-  object-fit: cover;
-}
-
-.team-info {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.team-info h2 {
-  font-family: 'Russo One', sans-serif;
-  font-size: 24px;
-  margin-bottom: 5px;
-}
-
-.team-info p {
-  font-family: 'Russo One', sans-serif;
-  margin: 6px 0;
-  font-size: 16px;
-}
-
-.team-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 /* Ngan */
+
+
+
+
+
 
 /* hoang */
 
