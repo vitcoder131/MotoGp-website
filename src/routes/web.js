@@ -2,7 +2,7 @@ const express = require('express');
 const {  getInforRiderPage,getInforTeamPage,getInforStandingPage,
 getInforRecordPage,
 getInforCalendarPage,getRider,getTeam,
-getInforResultPage,getInforPage,postHandleUploadFile,  getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
+getInforResultwithnametem,getInforPage,postHandleUploadFile,  getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
 const router = express.Router();
 const multer = require('multer');
@@ -83,7 +83,7 @@ router.get('/show-team' , getInforTeamPage);
 
 router.get('/show-calendar' , getInforCalendarPage);
 
-router.get('/show-result' , getInforResultPage);
+router.get('/show-result' , getInforResultwithnametem);
 router.get('/show-standing' , getInforStandingPage);
 router.get('/show-record' , getInforRecordPage);
 

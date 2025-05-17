@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
+const { getResults,updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
 const multer = require('multer');
 
 const getRiderpage = async (req, res) => {
@@ -250,18 +250,18 @@ const getInforCalendarPage = async (req, res) => {
 
     res.render('show.ejs', { type: 'calendar', listUsers: results })
 }
-const getInforResultPage = async (req, res) => {
-    let results = await getAllResults();
+const getInforResultwithnametem = async (req, res) => {
+    let results = await getResults();
 
     res.render('show.ejs', { type: 'result', listUsers: results })
 }
 const getInforStandingPage = async (req, res) => {
-    let results = await getAllResults();
+    let results = await getResults();
 
     res.render('show.ejs', { type: 'standing', listUsers: results })
 }
 const getInforRecordPage = async (req, res) => {
-    let results = await getAllResults();
+    let results = await getResults();
 
     res.render('show.ejs', { type: 'record', listUsers: results })
 }
@@ -284,7 +284,7 @@ module.exports = {
     getRider,getTeam,
     getInforPage, getInforRiderPage, getInforTeamPage,
     getInforCalendarPage,
-    getInforResultPage,getInforStandingPage,
+    getInforResultwithnametem,getInforStandingPage,
 getInforRecordPage,
     postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar
