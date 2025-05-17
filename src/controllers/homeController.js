@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { getResults,updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
+const { getSeachByName,getSeason,getResults,updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
 const multer = require('multer');
 
 const getRiderpage = async (req, res) => {

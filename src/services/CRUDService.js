@@ -110,7 +110,39 @@ const updateResultById = async (standing, points, idrider, idcalendar, season, m
         , [standing, points, idrider, idcalendar, season, mvp_name, time_finish, ResultsId]
     );
 }
+const getSeachByName = async (name) => {
+    let [results, fields] = await connection.query(` SELECT 
+            Rider.*, 
+            Results.*, 
+            Team.name AS team_name
+        FROM 
+            Rider
+        JOIN 
+            Results ON Rider.idrider = Results.idrider
+        JOIN 
+            Team ON Rider.idteam = Team.idteam
+        WHERE 
+            Rider.name = ?`, [name]);
+    let Rider = results && results.length > 0 ? results[0] : {};
+    return Rider;
+}
+const getSeason = async (season) => {
+    let [results, fields] = await connection.query(`SELECT 
+            Rider.*, 
+            Results.*, 
+            Team.name AS team_name
+        FROM 
+            Rider
+        JOIN 
+            Results ON Rider.idrider = Results.idrider
+        JOIN 
+            Team ON Rider.idteam = Team.idteam
+        WHERE 
+            Results.season = ?`, [season]);
+    let Season = results && results.length > 0 ? results[0] : {};
+    return Season;
+}
 module.exports = {
-    getResults,
+    getResults,getSeachByName,getSeason,
     updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getAllRider, getTeambyId, getRiderbyId, deleteTeamById, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, getCalendarbyId
 }

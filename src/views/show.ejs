@@ -682,49 +682,49 @@
               <tbody>
                 <% listUsers.forEach(function(item){ %>
                   <tr class="standings_table_body-row">
-                      <td class="standings_table_body-cell standings_table_body-cell--pos"
-                        style="border-left: 4px solid rgb(155, 174, 228);">
-                        <%= item.idrider %>
-                      </td>
-                      <td class="standings_table_body-cell standings_table_body-cell--rider">
-                        <div class="standings_table_rider-details">
-                          <div class="rider_image_container">
-                            <div class="rider_image">
-                              <div class="js-lazy-load u-observed lazy-image-wrapper">
-                                <picture class="picture">
-                                  <img src="/images/<%= item.pictureId %>" alt="Marc Marquez"
-                                    class="img undefined picture_img">
-                                </picture>
-                              </div>
+                    <td class="standings_table_body-cell standings_table_body-cell--pos"
+                      style="border-left: 4px solid rgb(155, 174, 228);">
+                      <%= item.idrider %>
+                    </td>
+                    <td class="standings_table_body-cell standings_table_body-cell--rider">
+                      <div class="standings_table_rider-details">
+                        <div class="rider_image_container">
+                          <div class="rider_image">
+                            <div class="js-lazy-load u-observed lazy-image-wrapper">
+                              <picture class="picture">
+                                <img src="/images/<%= item.pictureId %>" alt="Marc Marquez"
+                                  class="img undefined picture_img">
+                              </picture>
                             </div>
-                          </div>
-                          <div class="standings_table_rider-name-wrapper">
-                            <div class="standings_table_rider-name">
-                              <span class="standings_table_body-cell standings_table_body-cell--number">
-                                <%= item.idrider %>
-                              </span>
-                              <span class="standings_table_body-cell standings_table_body-cell--full-name">
-                                <a href="/show-detail-rider/<%= item.idrider %>" class="standings_table_rider-link">
-                                  <%= item.name %>
-                                </a>
-                              </span>
-                            </div>
-                            <img src="/images/flags/es.svg" alt="ES flag" class="standings_table_body-cell-flag">
                           </div>
                         </div>
-                      </td>
-                      <td class="standings_table_body-cell standings_table_body-cell--team">
-                        <span>
-                          <%= item.team_name %>
-                        </span>
-                      </td>
-                      <td class="standings_table_body-cell standings_table_body-cell--points">
-                        <%= item.points %>
-                      </td>
-                      <td class="standings_table_body-cell standings_table_body-cell--gap">
-                        <%= item.mpv_name %>
-                      </td>
-                    
+                        <div class="standings_table_rider-name-wrapper">
+                          <div class="standings_table_rider-name">
+                            <span class="standings_table_body-cell standings_table_body-cell--number">
+                              <%= item.idrider %>
+                            </span>
+                            <span class="standings_table_body-cell standings_table_body-cell--full-name">
+                              <a href="/show-detail-rider/<%= item.idrider %>" class="standings_table_rider-link">
+                                <%= item.name %>
+                              </a>
+                            </span>
+                          </div>
+                          <img src="/images/flags/es.svg" alt="ES flag" class="standings_table_body-cell-flag">
+                        </div>
+                      </div>
+                    </td>
+                    <td class="standings_table_body-cell standings_table_body-cell--team">
+                      <span>
+                        <%= item.team_name %>
+                      </span>
+                    </td>
+                    <td class="standings_table_body-cell standings_table_body-cell--points">
+                      <%= item.points %>
+                    </td>
+                    <td class="standings_table_body-cell standings_table_body-cell--gap">
+                      <%= item.mpv_name %>
+                    </td>
+
                   </tr>
                   <% }); %>
 

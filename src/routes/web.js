@@ -1,8 +1,8 @@
 const express = require('express');
-const {  getInforRiderPage,getInforTeamPage,getInforStandingPage,
-getInforRecordPage,
-getInforCalendarPage,getRider,getTeam,
-getInforResultwithnametem,getInforPage,postHandleUploadFile,  getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam,postHandleRemoveTeam,
+const { getInforRiderPage, getInforTeamPage, getInforStandingPage,
+    getInforRecordPage,
+    getInforCalendarPage, getRider, getTeam,
+    getInforResultwithnametem, getInforPage, postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
 const router = express.Router();
 const multer = require('multer');
@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 
     filename: function (req, file, cb) {
         const fname = req.body.name;
-        cb(null, fname  + path.extname(file.originalname));
+        cb(null, fname + path.extname(file.originalname));
     }
 });
 
@@ -40,7 +40,7 @@ router.post('/upload-profile-pic', upload.single('profile-pic'), postHandleUploa
 //rider
 router.get('/rider', getRiderpage);
 router.post('/create-rider', upload.single('pictureId'), postCreateRider);
-router.post('/update-rider',upload.single('pictureId'), postUpdateRider);
+router.post('/update-rider', upload.single('pictureId'), postUpdateRider);
 router.get('/createR', getCreateRider);
 router.get('/updateR/:id', getUpdateRider);
 router.post('/delete-rider/:id', postDeleteRider);
@@ -57,7 +57,7 @@ router.post('/delete-result', postHandleRemoveResults);
 //team
 router.get('/team', getTeampage);
 router.post('/create-team', upload.single('pictureTeam'), postCreateTeam);
-router.post('/update-team',upload.single('pictureTeam'), postUpdateTeam);
+router.post('/update-team', upload.single('pictureTeam'), postUpdateTeam);
 router.get('/createT', getCreateTeam);
 router.get('/updateT/:id', getUpdateTeam);
 router.post('/delete-Team/:id', postDeleteTeam);
@@ -74,18 +74,18 @@ router.post('/delete-calendar', postHandleRemoveCalendar);
 
 
 //user
-router.get('/' , getInforPage);
-router.get('/show-rider' , getInforRiderPage);
-router.get('/show-detail-rider/:id' , getRider);
-router.get('/show-detail-team/:id' , getTeam);
-router.get('/show-team' , getInforTeamPage);
+router.get('/', getInforPage);
+router.get('/show-rider', getInforRiderPage);
+router.get('/show-detail-rider/:id', getRider);
+router.get('/show-detail-team/:id', getTeam);
+router.get('/show-team', getInforTeamPage);
 
 
-router.get('/show-calendar' , getInforCalendarPage);
+router.get('/show-calendar', getInforCalendarPage);
 
-router.get('/show-result' , getInforResultwithnametem);
-router.get('/show-standing' , getInforStandingPage);
-router.get('/show-record' , getInforRecordPage);
+router.get('/show-result', getInforResultwithnametem);
+router.get('/show-standing', getInforStandingPage);
+router.get('/show-record', getInforRecordPage);
 
 
 
