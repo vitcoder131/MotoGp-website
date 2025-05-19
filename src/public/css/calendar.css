@@ -1,0 +1,716 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.headers {
+  background: linear-gradient(to right, #000000, #1a0000, #000000);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-title {
+  font-family: 'Russo One', sans-serif;
+  font-size: 48px;
+  color: white ;
+  letter-spacing: 2px;
+}
+
+.buttons button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  padding: 10px 20px;
+  background: #030202;
+}
+
+nav button {
+  margin-right: 10px;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.view-toggle {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.view-toggle button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.view-toggle .active {
+  background: black;
+  color: white;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.actions .right button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.actions .right .download {
+  background: red;
+  color: white;
+}
+
+div.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+main.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.event {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.event::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: white;
+  border-radius: 0 10px 0 10px;
+}
+
+.flag {
+  width: 32px;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.event.finished::before {
+  content: "FINISHED";
+  background: black;
+}
+
+.event.upnext::before {
+  content: "UP NEXT";
+  background: red;
+}
+
+.date {
+  font-size: 14px;
+  color: gray;
+}
+
+.round {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.title {
+  font-size: 14px;
+  color: #444;
+}
+
+.month-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.month-group h2 {
+  margin-bottom: 10px;
+  color: #333;
+  border-left: 4px solid red;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.event.upnext {
+  background-color: black;
+  color: white;
+}
+
+.event.upnext .date,
+.event.upnext .round,
+.event.upnext .title {
+  color: white;
+}
+
+nav button.active {
+  background: white ;
+  color: black;
+}
+
+main.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+}
+
+.event-list-item {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.event-list-item .left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.event-list-item .left img.flag {
+  width: 60px;
+  height: auto;
+}
+
+.event-list-item .left .date {
+  font-size: 18px;
+  color: rgb(22, 21, 14);
+}
+
+.event-list-item .left .round {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.event-list-item .left .title {
+  font-size: 18px;
+  color: #333;
+}
+
+.event-list-item .summary-img img {
+  max-height: 90px;
+  border-radius: 10px;
+}
+
+.tickets {
+  padding: 40px 20px;
+  background: #f4f4f4;
+}
+
+.tickets-heading {
+  font-family: 'Russo One', sans-serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.ticket-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ticket-card {
+  flex: 1 1 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  color: white ;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.ticket-card .buy-now {
+  background: red;
+  padding: 6px 12px;
+  font-weight: bold;
+  font-size: 13px;
+  align-self: flex-start;
+  border-radius: 0 6px 6px 0;
+}
+
+.ticket-card .info h3 {
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ticket-card .date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.ticket-card .date img {
+  width: 24px;
+  height: auto;
+  border-radius: 3px;
+}
+
+.guides {
+  display: block;
+  padding: 40px 20px;
+  background: #f4f4f4;
+}
+
+.guides-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.guides-header h2 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 26px;
+}
+
+.view-more {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+.view-more:hover {
+  color: red;
+}
+
+.guide-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  padding-right: 20px;
+}
+.guide-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.guide-card {
+  background: white;
+  border-radius: 12px;
+  flex: 0 0 340px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.guide-card .text {
+  padding: 12px;
+}
+
+.guide-card .text h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.guide-card .text .date {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.test-item {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.test-item .event-list-content {
+  padding: 24px 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.test-item .event-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.test-item .event-header .flag {
+  width: 30px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.test-item .event-title {
+  font-size: 28px;
+  font-family: 'Russo One', sans-serif;
+  color: black;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.test-item .subtitle {
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+}
+
+.test-item .event-img {
+  position: relative;
+  width: 400px; /* Chiều ngang ảnh lớn hơn */
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.test-item .event-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+}
+
+.test-item .event-status-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: black;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.test-item .event-status-upnext {
+  background: red !important;
+}
+
+
+
+
+/* detail */
+
+
+.gp-header {
+  display: flex;
+  justify-content: space-between;
+  background: url('/images/img/01Thai.jpg') center/cover no-repeat;
+  /* background-color: rgb(44, 43, 43); */
+  padding: 40px;
+  color: rgb(255, 255, 255);
+  flex-wrap: wrap;
+}
+
+.gp-info {
+  max-width: 50%;
+  min-width: 300px;
+  
+}
+
+.gp-date {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flag {
+  width: 30px;
+}
+
+.gp-number {
+  font-size: 36px;
+  display: block;
+}
+
+.gp-subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: -10px;
+}
+
+.gp-location {
+  margin-top: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gp-buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.gp-countdown {
+  text-align: center;
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 180px;
+  height: fit-content;
+}
+
+.starts-in {
+  background: red;
+  padding: 4px 8px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.countdown-timer div {
+  text-align: center;
+}
+
+.countdown-timer span {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+}
+
+.countdown-timer small {
+  font-size: 12px;
+}
+
+/* Tabs nav */
+.gp-nav {
+  background: #000;
+}
+
+.gp-nav ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.gp-nav li {
+  color: white;
+  padding: 15px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.gp-nav li.active {
+  border-bottom: 3px solid white;
+}
+
+/* Schedule section */
+.gp-schedule {
+  background: #f7f7f7;
+  padding: 40px 30px;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-header h2 {
+  font-size: 32px;
+}
+
+.live-on .channel {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-weight: bold;
+}
+
+.schedule-days {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.schedule-days .day {
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.schedule-days .day.active {
+  border-bottom: 3px solid black;
+}
+
+.schedule-days .number {
+  font-size: 32px;
+}
+
+.schedule-days .label {
+  font-size: 14px;
+  color: #444;
+}
+
+/* Toggle Timezone Buttons */
+.timezone-toggle {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.timezone-toggle button {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: #eee;
+  color: #000;
+}
+
+.timezone-toggle button.active {
+  background: black;
+  color: white;
+}
+
+.schedule-table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 16px;
+  max-width: 960px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-row.header {
+  font-weight: bold;
+  background: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #444;
+}
+
+.schedule-row .time,
+.schedule-row .category,
+.schedule-row .session {
+  padding: 4px 8px;
+}
+
+.schedule-row .category {
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  color: #555;
+}
+
+.schedule-row .session {
+  font-weight: 600;
+}
+
+.time-toggle {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.time-toggle button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  background: #eee;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.time-toggle button.active {
+  background: #000;
+  color: white;
+}

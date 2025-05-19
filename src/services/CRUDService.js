@@ -62,12 +62,12 @@ const deleteCalendarbyId = async (CalendarId) => {
         `DELETE FROM Calendar WHERE idcalendar = ?`, [CalendarId]
     );
 }
-const updateCalendarById = async (address, dates, times, season, rounds, calendar_name, CalendarId) => {
+const updateCalendarById = async (address, dates, times, season, rounds, calendar_name,pictureCountry, CalendarId) => {
     let [result, fields] = await connection.query(
         `UPDATE Calendar 
-        SET address = ?,dates =?, times =? , season= ?,rounds= ?,calendar_name= ?
+        SET address = ?,dates =?, times =? , season= ?,rounds= ?,calendar_name= ?, pictureCountry =?
         WHERE idcalendar = ?`
-        , [address, dates, times, season, rounds, calendar_name, CalendarId]
+        , [address, dates, times, season, rounds, calendar_name,pictureCountry,  CalendarId]
     );
 }
 

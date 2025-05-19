@@ -145,11 +145,13 @@ const postCreateCalendar = async (req, res) => {
     let season = req.body.season;
     let rounds = req.body.rounds;
     let calendar_name = req.body.calendar_name;
+    let pictureCountry = req.file.filename;
+    
 
-    console.log('address =', address, 'dates =', dates, 'times =', times, 'season =', season, 'rounds =', rounds, 'calendar_name =', calendar_name);
+    console.log('address =', address, 'dates =', dates, 'times =', times, 'season =', season, 'rounds =', rounds, 'calendar_name =', calendar_name, 'pictureCountry= ', pictureCountry);
 
     let [result, fields] = await connection.query(
-        ` INSERT INTO Calendar( address, dates, times, season,rounds,calendar_name )  VALUES (?, ?, ?,?,?,?)`, [address, dates, times, season, rounds, calendar_name]
+        ` INSERT INTO Calendar( address, dates, times, season,rounds,calendar_name )  VALUES (?, ?, ?,?,?,?, ?)`, [address, dates, times, season, rounds, calendar_name, pictureCountry]
     );
     console.log("check", result);
     res.redirect('/calendar');
@@ -163,8 +165,9 @@ const postUpdateCalendar = async (req, res) => {
     let season = req.body.season;
     let rounds = req.body.rounds;
     let calendar_name = req.body.calendar_name;
+    let pictureCountry = req.file.filename;
 
-    await updateCalendarById(address, dates, times, season, rounds, calendar_name, CalendarId)
+    await updateCalendarById(address, dates, times, season, rounds, calendar_name,pictureCountry, CalendarId)
     res.redirect('/calendar');
 }
 const postDeleteCalendar = async (req, res) => {
@@ -280,8 +283,13 @@ const getTeam = async (req, res) => {
     let Team = await getTeambyId(TeamId);
     res.render('show-detail.ejs', { TeamId: Team, type: 'team' });
 }
+const getCalendar = async (req, res) => {
+    const CalendarId = req.params.id;
+    let Calendar = await getCalendarbyId(CalendarId);
+    res.render('show-detail.ejs', { CalendarId: Calendar, type: 'calendar' });
+}
 module.exports = {
-    getRider,getTeam,
+    getRider,getTeam,getCalendar,
     getInforPage, getInforRiderPage, getInforTeamPage,
     getInforCalendarPage,
     getInforResultwithnametem,getInforStandingPage,

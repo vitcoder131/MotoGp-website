@@ -97,7 +97,7 @@
 
                             <label for="">pictureTeam: </label>
                             <img style="max-width: 200px; display: none;"
-                                src="/src/public/images/<%=TeamId.pictureTeam%>" />
+                                src="/images/<%=TeamId.pictureTeam%>" />
                             <input type="file" name="pictureTeam" />
                         </div>
 
@@ -115,7 +115,7 @@
                     </fieldset>
                 </form>
                 <% } else if(type==='calendar' ) { %>
-                    <form action="/update-calendar" method="POST">
+                    <form action="/update-calendar" method="POST" enctype="multipart/form-data">
                         <fieldset>
                             <legend>Update Calendar</legend>
                             <div class="input-group d-none">
@@ -148,6 +148,13 @@
                                 <label for="">calendar_name: </label>
                                 <input type="text" name="calendar_name" value="<%=CalendarId.calendar_name%>" />
                             </div>
+                            <div class="input-group">
+
+                            <label for="">pictureTeam: </label>
+                            <img style="max-width: 200px; display: none;"
+                                src="/images/<%=CalendarId.pictureCountry%>" />
+                            <input type="file" name="pictureCountry" />
+                        </div>
                             <div>
                                 <button>Update</button>
                             </div>

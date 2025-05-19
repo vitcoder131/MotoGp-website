@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoGP™ Results and Standings | 2025</title>
     <link rel="stylesheet" href="/css/show-rider.css">
+    <link rel="stylesheet" href="/css/calendar.css">
 </head>
 
 <body>
@@ -1021,6 +1022,161 @@
                 </div>
                 <!-- detail-calendar -->
                 <% }else if (type==='calendar' ){ %>
+                    <section class="gp-header">
+                        <div class="gp-info">
+                            <div class="gp-date">
+                                <img src="/images/<%= CalendarId.pictureCountry %>" class="flag" />
+                                <span><%= CalendarId.dates %></span>
+                            </div>
+                            <h1><span class="gp-number"><%= CalendarId.idcalendar %></span> <%= CalendarId.season %></h1>
+
+                            <p style ="margin-top: 10px;" class="gp-subtitle"><%= CalendarId.calendar_name %></p>
+                            <p class="gp-location">
+
+                                <%= CalendarId.address %>
+                            </p>
+                            <div class="gp-buttons">
+                                <button class="btn">TICKETS</button>
+                                <button class="btn">HOSPITALITY</button>
+                                <button class="btn">EXPERIENCES</button>
+                            </div>
+                        </div>
+
+                        <div class="gp-countdown">
+                            <div class="starts-in">STARTS IN</div>
+                            <div class="countdown-timer">
+                                <div><span id="days">00</span><small>DAYS</small></div>
+                                <div><span id="hours">00</span><small>HRS</small></div>
+                                <div><span id="minutes">00</span><small>MINUTES</small></div>
+                                <div><span id="seconds">00</span><small>SEC</small></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Navigation tabs -->
+                    <nav class="gp-nav">
+                        <ul>
+                            <li class="active">OVERVIEW</li>
+                            <li>STARTING GRID</li>
+                            <li>ENTRY LIST</li>
+                            <li>CIRCUIT INFO</li>
+                            <li>DESTINATION GUIDE</li>
+                        </ul>
+                    </nav>
+
+                    <!-- Schedule -->
+                    <section class="gp-schedule">
+                        <div class="schedule-header">
+                            <h2>SCHEDULE</h2>
+                            <div class="live-on">LIVE ON <span class="channel">SPOTV</span></div>
+                        </div>
+                        <div class="schedule-days">
+                            <div class="day active">
+                                <span class="number">6</span>
+                                <span class="label">FRIDAY</span>
+                            </div>
+                            <div class="day">
+                                <span class="number">7</span>
+                                <span class="label">SATURDAY</span>
+                            </div>
+                            <div class="day">
+                                <span class="number">8</span>
+                                <span class="label">SUNDAY</span>
+                            </div>
+                        </div>
+                        <div class="timezone-toggle">
+                            <button id="yourtimeBtn" class="active">YOUR TIME</button>
+                            <button id="trackTimeBtn">TRACK TIME</button>
+                        </div>
+                    </section>
+
+                    <section id="yourTimeTable" class="schedule-table">
+                        <div class="schedule-row header">
+                            <div class="time">TIME</div>
+                            <div class="category">CATEGORY</div>
+                            <div class="session">SESSION</div>
+                        </div>
+
+                        <div class="schedule-row">
+                            <div class="time">14:00–14:35</div>
+                            <div class="category">Moto3™</div>
+                            <div class="session">Free Practice Nr. 1</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">14:50–15:30</div>
+                            <div class="category">Moto2™</div>
+                            <div class="session">Free Practice Nr. 1</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">15:45–16:30</div>
+                            <div class="category">MotoGP™</div>
+                            <div class="session">Free Practice Nr. 1</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">18:15–18:50</div>
+                            <div class="category">Moto3™</div>
+                            <div class="session">Practice</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">19:05–19:45</div>
+                            <div class="category">Moto2™</div>
+                            <div class="session">Practice</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">20:00–21:00</div>
+                            <div class="category">MotoGP™</div>
+                            <div class="session">Practice</div>
+                        </div>
+                    </section>
+
+                    <section id="trackTimeTable" class="schedule-table" style="display: none;">
+                        <div class="schedule-row header">
+                            <div class="time">TIME</div>
+                            <div class="category">CATEGORY</div>
+                            <div class="session">SESSION</div>
+                        </div>
+
+                        <div class="schedule-row">
+                            <div class="time">08:40–09:10</div>
+                            <div class="category">Moto3™</div>
+                            <div class="session">Free Practice Nr. 2</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">09:25–09:55</div>
+                            <div class="category">Moto2™</div>
+                            <div class="session">Free Practice Nr. 2</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">10:10–10:40</div>
+                            <div class="category">MotoGP™</div>
+                            <div class="session">Free Practice Nr. 2</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">10:50–11:05</div>
+                            <div class="category">MotoGP™</div>
+                            <div class="session">Qualifying Nr. 1</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">11:15–11:30</div>
+                            <div class="category">MotoGP™</div>
+                            <div class="session">Qualifying Nr. 2</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">12:50–13:05</div>
+                            <div class="category">Moto3™</div>
+                            <div class="session">Qualifying Nr. 1</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">13:15–13:30</div>
+                            <div class="category">Moto3™</div>
+                            <div class="session">Qualifying Nr. 2</div>
+                        </div>
+                        <div class="schedule-row">
+                            <div class="time">13:45–14:00</div>
+                            <div class="category">Moto2™</div>
+                            <div class="session">Qualifying Nr. 1</div>
+                        </div>
+                    </section>
 
                     <% } %>
     </main>

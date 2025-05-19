@@ -1,5 +1,5 @@
 const express = require('express');
-const { getInforRiderPage, getInforTeamPage, getInforStandingPage,
+const { getInforRiderPage, getInforTeamPage, getInforStandingPage,getCalendar,
     getInforRecordPage,
     getInforCalendarPage, getRider, getTeam,
     getInforResultwithnametem, getInforPage, postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
@@ -65,8 +65,8 @@ router.post('/delete-Team', postHandleRemoveTeam);
 
 //calendar
 router.get('/calendar', getCalendarpage);
-router.post('/create-calendar', postCreateCalendar);
-router.post('/update-calendar', postUpdateCalendar);
+router.post('/create-calendar',upload.single('pictureCountry'), postCreateCalendar);
+router.post('/update-calendar',upload.single('pictureCountry'), postUpdateCalendar);
 router.get('/createC', getCreateCalendar);
 router.get('/updateC/:id', getUpdateCalendar);
 router.post('/delete-calendar/:id', postDeleteCalendar);
@@ -82,11 +82,11 @@ router.get('/show-team', getInforTeamPage);
 
 
 router.get('/show-calendar', getInforCalendarPage);
+router.get('/show-detail-calendar/:id', getCalendar);
 
 router.get('/show-result', getInforResultwithnametem);
 router.get('/show-standing', getInforStandingPage);
 router.get('/show-record', getInforRecordPage);
-
 
 
 module.exports = router;
