@@ -61,32 +61,32 @@ html {
 /* MGPDisplay Fonts */
 @font-face {
     font-family: 'MGPDisplayLight';
-    src: url('../../assets/fonts/MGPDisplay-Light.woff2') format('woff2');
+    src: url('/images/fonts/MGPDisplay-Light.woff2') format('woff2');
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'MGPDisplay';
-    src: url('../../assets/fonts/MGPDisplay-Bold.woff2') format('woff2');
+    src: url('/images/fonts/MGPDisplay-Bold.woff2') format('woff2');
     font-weight: 700;
 }
 
 /* MGPText Fonts */
 @font-face {
     font-family: 'MGPTextLight';
-    src: url('../../assets/fonts/MGPText-Light.woff2') format('woff2');
+    src: url('/images/fonts/MGPText-Light.woff2') format('woff2');
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'MGPTextMedium';
-    src: url('../../assets/fonts/MGPText-Medium.woff2') format('woff2');
+    src: url('/images/fonts/MGPText-Medium.woff2') format('woff2');
     font-weight: 500;
 }
 
 @font-face {
     font-family: 'MGPTextBold';
-    src: url('../../assets/fonts/MGPText-Bold.woff2') format('woff2');
+    src: url('/images/fonts/MGPText-Bold.woff2') format('woff2');
     font-weight: 700;
 }
 
@@ -120,8 +120,7 @@ html {
     letter-spacing: -.02em;
 }
 
-.heading-xl,
-h1 {
+.heading-xl,h1 {
     font-size: 3.5rem;
     line-height: 4.8rem;
     font-family: MGPDisplay, helvetica, sans-serif;
@@ -710,7 +709,7 @@ table {
 
 .pdf_table_table-row:before {
     display: block;
-    background-image: url(../../assets/icon/pdf-icon.svg);
+    background-image: url(/images/icon/pdf-icon.svg);
     opacity: .63;
     margin-right: .6rem;
 }
@@ -718,7 +717,7 @@ table {
 .pdf_table_table-row:after {
     display: flex;
     flex: 1;
-    background-image: url(../../assets/icon/external-link.svg);
+    background-image: url(/images/icon/external-link.svg);
     background-position: 100%;
 }
 
@@ -1307,7 +1306,7 @@ table {
 
 .pdf_table_table-row:before {
     display: block;
-    background-image: url(../../assets/icon/pdf-icon.svg);
+    background-image: url(/images/icon/pdf-icon.svg);
     opacity: .63;
     margin-right: .6rem;
 }
@@ -1315,7 +1314,7 @@ table {
 .pdf_table_table-row:after {
     display: flex;
     flex: 1;
-    background-image: url(../../assets/icon/external-link.svg);
+    background-image: url(/images/icon/external-link.svg);
     background-position: 100%;
 }
 

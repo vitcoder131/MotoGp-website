@@ -769,10 +769,8 @@
 
 
       <div id="testContainer" class="list" style="display: none;">
-
+<% listUsers.forEach(function(item) { %>
         <div class="month-group">
-          <% listUsers.forEach(function(item) { %>
-
             <h2>
               <%= item.dates %>
             </h2>
@@ -4120,7 +4118,7 @@
                     <section id="rider-section">
 
                       <div class="rider-header">
-                        <h1>RIDERS & TEAMS</h1>
+                        <h1 style="color: black">RIDERS & TEAMS</h1>
                         <div class="tab-menu">
 
                           <a href="/show-rider"><button class="active">RIDERS</button></a>
@@ -4156,104 +4154,7 @@
                             </div>
                           </a>
                           <% }); %>
-                            <h2>WILDCARDS</h2>
-
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider23.png" alt="Takaaki Nakagami">
-                              <div class="rider-info">
-                                <h2>#TN30<br><span>Takaaki Nakagami</span></h2>
-                                <p>🇯🇵 Japan | HRC Test Team</p>
-
-                              </div>
-                            </div>
-
-
-                            <h2>SUBSTITUTE</h2>
-
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider24.png" alt="Lorenzo Savadori">
-                              <div class="rider-info">
-                                <h2>#LS32<br><span>Lorenzo Savadori</span></h2>
-                                <p>🇮🇹 Italy | Aprilia Racing</p>
-                                <p><strong>ID:</strong> 24</p>
-                                <p><strong>Team ID:</strong> APR</p>
-                                <p><strong>Points:</strong> 0</p>
-                              </div>
-                            </div>
-
-
-                            <h2>TEST RIDERS</h2>
-
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider25.png" alt="Andrea Dovizioso">
-                              <div class="rider-info">
-                                <h2>#AD04<br><span>Andrea Dovizioso</span></h2>
-                                <p>🇮🇹 Italy | Ducati Test Rider</p>
-                                <p><strong>ID:</strong> 25</p>
-                                <p><strong>Team ID:</strong> DUC</p>
-                                <p><strong>Points:</strong> 0</p>
-                              </div>
-                            </div>
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider26.png" alt="Augusto Fernandez">
-                              <div class="rider-info">
-                                <h2>#AF7<br><span>Augusto Fernandez</span></h2>
-                                <p>🇪🇸 Spain | KTM Test Rider</p>
-                                <p><strong>ID:</strong> 26</p>
-                                <p><strong>Team ID:</strong> KTM</p>
-                                <p><strong>Points:</strong> 0</p>
-                              </div>
-                            </div>
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider27.png" alt="Dani Pedrosa">
-                              <div class="rider-info">
-                                <h2>#DP26<br><span>Dani Pedrosa</span></h2>
-                                <p>🇪🇸 Spain | KTM Test Rider</p>
-                                <p><strong>ID:</strong> 27</p>
-                                <p><strong>Team ID:</strong> KTM</p>
-                                <p><strong>Points:</strong> 0</p>
-                              </div>
-                            </div>
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider28.png" alt="Aleix Espargaro">
-                              <div class="rider-info">
-                                <h2>#AE41<br><span>Aleix Espargaro</span></h2>
-                                <p>🇪🇸 Spain | Aprilia Racing</p>
-                                <p><strong>ID:</strong> 28</p>
-                                <p><strong>Team ID:</strong> APR</p>
-                                <p><strong>Points:</strong> 140</p>
-                              </div>
-                            </div>
-
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider29.png" alt="Pol Espargaro">
-                              <div class="rider-info">
-                                <h2>#PE44<br><span>Pol Espargaro</span></h2>
-                                <p>🇪🇸 Spain | KTM Test Rider</p>
-                                <p><strong>ID:</strong> 29</p>
-                                <p><strong>Team ID:</strong> KTM</p>
-                                <p><strong>Points:</strong> 0</p>
-                              </div>
-                            </div>
-
-                            <div class="rider-card" onclick="openRiderDetail()">
-                              <img src="/images/rider30.png" alt="Michele Pirro">
-                              <div class="rider-info">
-                                <h2>#MP51<br><span>Michele Pirro</span></h2>
-                                <p>🇮🇹 Italy | Ducati Test Rider</p>
-                                <p><strong>ID:</strong> 30</p>
-                                <p><strong>Team ID:</strong> DUC</p>
-                                <p><strong>Points:</strong> 0</p>
-                              </div>
-                            </div>
-                      </div>
+                            
 
                       <!-- den day -->
                       <h2>BEST SELLERS</h2>
@@ -4296,7 +4197,7 @@
                       <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
                       <section id="rider-section">
                         <div class="rider-header">
-                          <h1>RIDERS & TEAMS</h1>
+                          <h1 style="color: black">RIDERS & TEAMS</h1>
                           <div class="tab-menu">
 
                             <a href="/show-rider"><button class="">RIDERS</button></a>
@@ -4311,6 +4212,7 @@
                           <button>Moto3™</button>
                           <button>MotoE™</button>
                         </div>
+                        </section>
                         <!-- Phần teams đây nhé -->
                         <div class="containerA">
                           <div class="official-title">
@@ -4349,11 +4251,11 @@
                       <div class="logong">
                         <ul>
                           <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
-                          <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
-                          <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
-                          <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
-                          <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
-                          <li><a href=""><img src="/images/footer2.png" alt=""></a></li>
+                          <li><a href=""><img src="/images/footer3.png" alt=""></a></li>
+                          <li><a href=""><img src="/images/footer4.png" alt=""></a></li>
+                          <li><a href=""><img src="/images/footer5.png" alt=""></a></li>
+                          <li><a href=""><img src="/images/footer6.png" alt=""></a></li>
+                          <li><a href=""><img src="/images/footer7.png" alt=""></a></li>
                         </ul>
                       </div>
                       <div class="container">
