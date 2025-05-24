@@ -1,6 +1,6 @@
 const express = require('express');
 const { getInforRiderPage, getInforTeamPage, getInforStandingPage,getCalendar,
-    getInforRecordPage,
+    getInforRecordPage,getSearch,
     getInforCalendarPage, getRider, getTeam,
     getInforResultwithnametem, getInforPage, postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
@@ -8,6 +8,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 var appRoot = require('app-root-path');
+const { getSeachByName } = require('../services/CRUDService');
 
 
 const storage = multer.diskStorage({
@@ -76,6 +77,7 @@ router.post('/delete-calendar', postHandleRemoveCalendar);
 //user
 router.get('/', getInforPage);
 router.get('/show-rider', getInforRiderPage);
+router.post('/show-search-rider', getSearch);
 router.get('/show-detail-rider/:id', getRider);
 router.get('/show-detail-team/:id', getTeam);
 router.get('/show-team', getInforTeamPage);

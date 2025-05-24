@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { getSeachByName,getSeason,getResults,updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
+const { getSearchByName,getSeason,getResults,updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
 const multer = require('multer');
 
 const getRiderpage = async (req, res) => {
@@ -278,6 +278,12 @@ const getRider = async (req, res) => {
     let Rider = await getRiderbyId(RiderId);
     res.render('show-detail.ejs', { RiderId: Rider, type: 'rider' });
 }
+const getSearch = async (req, res) => {
+    const search = req.body.search;
+    let results = await getSearchByName(search);
+    console.log(results, search),
+    res.render('show.ejs', { search: results, type: 'rider' ,listUsers :[], searchValue : search });
+}
 const getTeam = async (req, res) => {
     const TeamId = req.params.id;
     let Team = await getTeambyId(TeamId);
@@ -289,7 +295,7 @@ const getCalendar = async (req, res) => {
     res.render('show-detail.ejs', { CalendarId: Calendar, type: 'calendar' });
 }
 module.exports = {
-    getRider,getTeam,getCalendar,
+    getRider,getTeam,getCalendar, getSearch,
     getInforPage, getInforRiderPage, getInforTeamPage,
     getInforCalendarPage,
     getInforResultwithnametem,getInforStandingPage,
