@@ -1051,6 +1051,7 @@
     text-transform: uppercase;
     margin-bottom: 20px;
     font-family: 'Arial Black', sans-serif;
+    color:white
 }
 
 .newsletter {
@@ -1085,3 +1086,97 @@
 
 
 /* Hoang css  */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 12px 24px;
+    font-family: 'Russo One', sans-serif;
+    color: white;
+    font-size: 14px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flag {
+    width: 15px;
+    height: auto;
+    object-fit: contain;
+}
+
+.hero {
+    position: relative;
+    background: url('/images/img/Report-MGP-GP-UK-TOP.webp') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 50px;
+}
+
+.overlay {
+
+    padding: 40px;
+    max-width: 700px;
+}
+
+.overlay h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.overlay h1 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Russo One', sans-serif;
+}
+
+.video-strip {
+    display: flex;
+    gap: 20px;
+    padding: 20px 50px;
+    background-color: #111;
+}
+
+.video-card {
+    background: #222;
+    width: 450px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    overflow: hidden;
+}
+
+.video-card img {
+    width: 120px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.video-content span {
+    font-size: 12px;
+    color: #ccc;
+}
