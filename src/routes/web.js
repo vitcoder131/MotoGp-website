@@ -1,9 +1,15 @@
 const express = require('express');
-const { getInforRiderPage, getInforTeamPage, getInforStandingPage,getCalendar,
-    getInforRecordPage,getSearch,
+const { getInforRiderPage, getInforTeamPage, getInforStandingPage, getCalendar,
+    getInforRecordPage, getSearch,
     getInforCalendarPage, getRider, getTeam,
-    getInforResultwithnametem, getInforPage, postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
-    getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
+    getInforResultwithnametem, getInforPage, postHandleUploadFile,
+    getRiderpage, postCreateRider, postUpdateRider, getCreateRider,
+    getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage,
+    postCreateResults, postUpdateResults, getCreateResults, getUpdateResults,
+    postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam,
+    postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
+    getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar,
+    getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar } = require('../controllers/homeController')
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
@@ -66,8 +72,8 @@ router.post('/delete-Team', postHandleRemoveTeam);
 
 //calendar
 router.get('/calendar', getCalendarpage);
-router.post('/create-calendar',upload.single('pictureCountry'), postCreateCalendar);
-router.post('/update-calendar',upload.single('pictureCountry'), postUpdateCalendar);
+router.post('/create-calendar', upload.single('pictureCountry'), postCreateCalendar);
+router.post('/update-calendar', upload.single('pictureCountry'), postUpdateCalendar);
 router.get('/createC', getCreateCalendar);
 router.get('/updateC/:id', getUpdateCalendar);
 router.post('/delete-calendar/:id', postDeleteCalendar);

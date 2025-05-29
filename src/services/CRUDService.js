@@ -14,7 +14,8 @@ const getRiderbyId = async (RiderId) => {
 const updateRiderById = async (name, pictureId, idteam, points, season, victory, podium, race, poles, worldchampionships, RiderId) => {
     let [result, fields] = await connection.query(
         `UPDATE Rider 
-        SET name = ?, pictureId =?,idteam =?, points = ?, season = ?,victory = ?,podium = ?,race = ?,poles = ?,worldchampionships = ?
+        SET name = ?, pictureId =?,idteam =?, points = ?, season = ?,victory = ?,podium = ?,
+        race = ?,poles = ?,worldchampionships = ?
         WHERE idrider = ?`
         , [name, pictureId, idteam, points, season, victory, podium, race, poles, worldchampionships, RiderId]
     );

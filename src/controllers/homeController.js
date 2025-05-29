@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { getSearchByName,getSeason,getResults,updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
+const { getSearchByName, getSeason, getResults, updateResultById, updateCalendarById, updateTeamById, deleteResultsbyId, getResultbyId, deleteCalendarbyId, getCalendarbyId, getAllRider, getRiderbyId, updateRiderById, deleteRiderById, getAllTeam, getAllCalendar, getAllResults, deleteTeamById, getTeambyId } = require('../services/CRUDService');
 const multer = require('multer');
 
 const getRiderpage = async (req, res) => {
@@ -11,18 +11,17 @@ const postCreateRider = async (req, res) => {
     let idteam = req.body.idteam;
     let pictureId = req.file.filename;
     let points = req.body.points;
-
     let season = req.body.season;
     let victory = req.body.victory;
     let podium = req.body.podium;
     let race = req.body.race;
     let poles = req.body.poles;
     let worldchampionships = req.body.worldchampionships;
-
     console.log('name =', name, 'pictureId =', pictureId, 'idteam =', idteam, 'points =', points, 'season =', season, 'victory =', victory, 'podium=', podium, 'race =', race, 'poles =', poles, 'worldchampionships=', worldchampionships);
-
     let [result, fields] = await connection.query(
-        ` INSERT INTO Rider( name, pictureId, idteam, points, season,victory,podium,race,poles,worldchampionships )  VALUES (?,?,?,?,?,?,?, ?, ?, ?)`, [name, pictureId, idteam, points, season, victory, podium, race, poles, worldchampionships]
+        ` INSERT INTO Rider( name, pictureId, idteam, points, season,victory
+        ,podium,race,poles,worldchampionships )  VALUES (?,?,?,?,?,?,?, ?, ?,
+        ?)`, [name, pictureId, idteam, points, season, victory, podium, race, poles, worldchampionships]
     );
     console.log("check", result);
     res.redirect('/rider');
@@ -146,12 +145,15 @@ const postCreateCalendar = async (req, res) => {
     let rounds = req.body.rounds;
     let calendar_name = req.body.calendar_name;
     let pictureCountry = req.file.filename;
-    
 
-    console.log('address =', address, 'dates =', dates, 'times =', times, 'season =', season, 'rounds =', rounds, 'calendar_name =', calendar_name, 'pictureCountry= ', pictureCountry);
+
+    console.log('address =', address, 'dates =', dates, 'times =', times,
+        'season =', season, 'rounds =', rounds, 'calendar_name =', calendar_name,
+        'pictureCountry= ', pictureCountry);
 
     let [result, fields] = await connection.query(
-        ` INSERT INTO Calendar( address, dates, times, season,rounds,calendar_name )  VALUES (?, ?, ?,?,?,?, ?)`, [address, dates, times, season, rounds, calendar_name, pictureCountry]
+        ` INSERT INTO Calendar( address, dates, times, season,rounds,calendar_name )  
+        VALUES (?, ?, ?,?,?,?, ?)`, [address, dates, times, season, rounds, calendar_name, pictureCountry]
     );
     console.log("check", result);
     res.redirect('/calendar');
@@ -167,7 +169,7 @@ const postUpdateCalendar = async (req, res) => {
     let calendar_name = req.body.calendar_name;
     let pictureCountry = req.file.filename;
 
-    await updateCalendarById(address, dates, times, season, rounds, calendar_name,pictureCountry, CalendarId)
+    await updateCalendarById(address, dates, times, season, rounds, calendar_name, pictureCountry, CalendarId)
     res.redirect('/calendar');
 }
 const postDeleteCalendar = async (req, res) => {
@@ -282,7 +284,7 @@ const getSearch = async (req, res) => {
     const search = req.body.search;
     let results = await getSearchByName(search);
     console.log(results, search),
-    res.render('show.ejs', { search: results, type: 'rider' ,listUsers :[], searchValue : search });
+        res.render('show.ejs', { search: results, type: 'rider', listUsers: [], searchValue: search });
 }
 const getTeam = async (req, res) => {
     const TeamId = req.params.id;
@@ -295,11 +297,11 @@ const getCalendar = async (req, res) => {
     res.render('show-detail.ejs', { CalendarId: Calendar, type: 'calendar' });
 }
 module.exports = {
-    getRider,getTeam,getCalendar, getSearch,
+    getRider, getTeam, getCalendar, getSearch,
     getInforPage, getInforRiderPage, getInforTeamPage,
     getInforCalendarPage,
-    getInforResultwithnametem,getInforStandingPage,
-getInforRecordPage,
+    getInforResultwithnametem, getInforStandingPage,
+    getInforRecordPage,
     postHandleUploadFile, getRiderpage, postCreateRider, postUpdateRider, getCreateRider, getUpdateRider, postDeleteRider, postHandleRemoveRider, getResultspage, postCreateResults, postUpdateResults, getCreateResults, getUpdateResults, postDeleteResults, postHandleRemoveResults, getTeampage, postCreateTeam, postUpdateTeam, getCreateTeam, getUpdateTeam, postDeleteTeam, postHandleRemoveTeam,
     getCalendarpage, postCreateCalendar, postUpdateCalendar, getCreateCalendar, getUpdateCalendar, postDeleteCalendar, postHandleRemoveCalendar
 }

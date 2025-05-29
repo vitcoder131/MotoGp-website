@@ -16,7 +16,6 @@ app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
 //khai bao template ejs
 configViewEngine(app);
 
@@ -25,7 +24,6 @@ initApiRoute(app);
 
 //khai bao route
 app.use('/',webRoutes);
-
 
 app.listen(port,hostname, () => {
     console.log(`Example app listening on port ${port}`)
